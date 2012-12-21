@@ -11,15 +11,7 @@ This plugin integrates Talentlms with Wordpress. Promote your TalentLMS content 
 
 == Description ==
 
-[TalentLMS](http://www.talentlms.com/ "TalentLMS super-easy, cloud-based learning platform") is a cloud-based, 
-lean LMS with an emphasis on usability and easy course creation. With TalentLMS we wanted to create a better 
-learning experience in every way that actually matters – and we are excited about this new offering.
-
-The product focuses on small but growing organizations. There are a number of obstacles that prohibit small 
-organizations from using elearning. To be productive, small businesses need a number of tools and several 
-related services such as setup and maintenance, course creation and the support of end-users. All these require 
-ample time, resources and money. It comes as no surprise that most small organizations find elearning a non-viable 
-pursuit and prefer on-job or informal training methods.
+[TalentLMS](http://www.talentlms.com/ "TalentLMS super-easy, cloud-based learning platform") is a cloud-based, lean LMS with an emphasis on usability and easy course creation. With TalentLMS we wanted to create a better learning experience in every way that actually matters – and we are excited about this new offering. The product focuses on small but growing organizations. There are a number of obstacles that prohibit small organizations from using elearning. To be productive, small businesses need a number of tools and several related services such as setup and maintenance, course creation and the support of end-users. All these require ample time, resources and money. It comes as no surprise that most small organizations find elearning a non-viable pursuit and prefer on-job or informal training methods.
 
 Read more about TalentLMS in:
 
