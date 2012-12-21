@@ -1,6 +1,6 @@
 === TalentLMS WordPress plugin ===
 Contributors: V. 
-Tags: TalentLMS, eLearning
+Tags: TalentLMS, elearning, lms, lcms, hcm, learning management system
 Requires at least: 1.5
 Tested up to: 3.5
 Stable tag: trunk
