@@ -76,9 +76,10 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 2. Administration panel > TalentLMS > TalentLMS Options.
 `assets/screenshot-2.png`
 
+3. Administration panel > TalentLMS > TalentLMS Options.
 `assets/screenshot-3.png`
 
-3. Administration panel > TalentLMS > Edit TalentLMS CSS.
+4. Administration panel > TalentLMS > Edit TalentLMS CSS.
 `assets/screenshot-4.png`
 
 ##Front End##
@@ -89,15 +90,16 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 2. TalentLMS single course
 `assets/screenshot-6.png`
 
+3. TalentLMS single course
 `assets/screenshot-7.png`
 
-3. TalentLMS single user
+4. TalentLMS single user
 `assets/screenshot-8.png`
 
-4. TalentLMS signup
+5. TalentLMS signup
 `assets/screenshot-9.png`
 
-5. TalentLMS login widget
+6. TalentLMS login widget
 `assets/screenshot-10.png`
 
 == Changelog ==
