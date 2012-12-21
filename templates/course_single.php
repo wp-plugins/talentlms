@@ -82,8 +82,14 @@ if ($course['units'] && get_option('talentlms-show-course-units')) {
 	$output .= "<div id=\"talentlms-course-content\">";
 	$output .= "<h2>" . __('Content:') . "</h2>";
 	$output .= "<ul>";
-	foreach ($course['units'] as $unit) {
-		$output .= "<li>" . $unit['name'] . "</li>";
+	if (isset($_SESSION['talentlms_user_id'])) {
+		foreach ($course['units'] as $unit) {
+			$output .= "<li><a href=\"".$unit['url']."\" target=\"_blank\">" . $unit['name'] . "</a></li>";
+		}				
+	} else {
+		foreach ($course['units'] as $unit) {
+			$output .= "<li>" . $unit['name'] . "</li>";
+		}		
 	}
 	$output .= "</ul>";
 	$output .= "</div>";

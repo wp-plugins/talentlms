@@ -1,15 +1,15 @@
 <?php
 /*
  Plugin Name: TalentLMS
- Plugin URI:
- Description: This plugin offers an integration with TalentLMS.com; you can consume course data and integrate signup and login
- Version: 1.7
+ Plugin URI: http://wordpress.org/extend/plugins/talentlms/
+ Description: This plugin integrates Talentlms with Wordpress. Promote your TalentLMS content through your WordPress site.
+ Version: 1.8
  Author: Vasilis Proutzos / Epignosis LTD
  Author URI: www.talentlms.com
  License: GPL2
  */
 
-define("_VERSION_", "1.7");
+define("_VERSION_", "1.8");
 define("_BASEPATH_", dirname(__FILE__));
 define("_BASEURL_", plugin_dir_url(__FILE__));
 

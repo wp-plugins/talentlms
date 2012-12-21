@@ -102,6 +102,10 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 
 == Changelog ==
 
+= 1.9 =
+
+* Single course view, unit urls when user is logged in.
+
 = 1.8 =
 
 * Users page which lists instructors and instructor details
