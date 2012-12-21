@@ -1,0 +1,267 @@
+/*
+ * TalentLMS CSS
+ **************************************************************/
+.clear {
+	clear: both;
+}
+.alert-success {
+	background-color: #DFF0D8;
+	border-color: #D6E9C6;
+	color: #468847;
+}
+
+.alert-error {
+	background-color: #F2DEDE;
+	border-color: #EED3D7;
+	color: #B94A48;
+}
+.alert {
+	border: 1px solid #FBEED5;
+	border-radius: 4px 4px 4px 4px;
+	margin-bottom: 20px;
+	padding: 8px 35px 8px 14px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.btn {
+	-moz-border-bottom-colors: none;
+	-moz-border-left-colors: none;
+	-moz-border-right-colors: none;
+	-moz-border-top-colors: none;
+	background-color: #F5F5F5;
+	background-image: linear-gradient(to bottom, #FFFFFF, #E6E6E6);
+	background-repeat: repeat-x;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) #A2A2A2;
+	border-radius: 4px 4px 4px 4px;
+	border-style: solid;
+	border-width: 1px;
+	color: #333333;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 14px;
+	margin-bottom: 0;
+	padding: 4px 12px;
+	text-align: center;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+	vertical-align: middle;
+}
+.btn:hover, .btn:active {
+	background-color: #E6E6E6;
+	color: #333333;
+}
+.btn:hover {
+	background-color: #E6E6E6;
+	background-position: 0 -15px;
+	color: #333333;
+	text-decoration: none;
+	transition: background-position 0.1s linear 0s;
+}
+.btn:focus {
+	outline: thin dotted #333333;
+	outline-offset: -2px;
+}
+.btn.active, .btn:active {
+	background-color: #E6E6E6;
+	background-image: none;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+	outline: 0 none;
+}
+.pagination {
+	margin-top: 0;
+}
+.pagination ul {
+	border-radius: 4px 4px 4px 4px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+	display: inline-block;
+	margin-bottom: 0;
+	margin-left: 0;
+}
+.pagination ul > li {
+	display: inline;
+}
+.pagination ul > li:first-child > a, .pagination ul > li:first-child > span {
+	border-bottom-left-radius: 4px;
+	border-left-width: 1px;
+	border-top-left-radius: 4px;
+}
+.pagination ul > li > a, .pagination ul > li > span {
+	-moz-border-bottom-colors: none;
+	-moz-border-left-colors: none;
+	-moz-border-right-colors: none;
+	-moz-border-top-colors: none;
+	background-color: #FFFFFF;
+	border-color: #DDDDDD;
+	border-style: solid;
+	border-width: 1px 1px 1px 0;
+	float: left;
+	line-height: 20px;
+	padding: 4px 12px;
+	text-decoration: none;
+}
+/* =Signup Form
+ ------------------------------------------------- */
+#talentlms-signup-form {
+
+}
+#talentlms-signup-form input[type="text"], #talentlms-signup-form input[type="password"] {
+	border-radius: 4px 4px 4px 4px;
+	color: #555555;
+	display: inline-block;
+	font-size: 14px;
+	height: 20px;
+	line-height: 20px;
+	padding: 4px 6px;
+	width: 210px;
+}
+.talentlms-form-group {
+	margin-bottom: 20px;
+}
+.talentlms-form-label {
+	display: block;
+	margin-bottom: 5px;
+}
+.talentlms-form-control {
+	margin-bottom: 10px;
+}
+.talentlms-form-actions {
+	background-color: #F5F5F5;
+	border-top: 1px solid #E5E5E5;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	padding: 19px 20px 20px;
+}
+.talentlms-signup-error-class [type="text"], .talentlms-signup-error-class [type="password"] {
+	border-color: #B94A48 !important;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset !important;
+}
+.talentlms-signup-error-class .talentlms-help-inline {
+	color: #B94A48;
+}
+
+/* =Templates
+ ------------------------------------------------- */
+#container-courses-left-categories-right, #container-courses-right-categories-left, #container-courses-bottom-categories-top, #talentlms-course-container {
+	display: block;
+	margin: 0;
+	width: 100%
+}
+
+/* course list template */
+/* Courses left, categories right */
+#container-courses-left-categories-right #courses-container {
+	float: left;
+	width: 70%;
+}
+#container-courses-left-categories-right #categories-container {
+	float: right;
+	width: 30%;
+}
+/* Categories left, courses right */
+#container-courses-right-categories-left #courses-container {
+	float: right;
+	width: 70%;
+}
+#container-courses-right-categories-left #categories-container {
+	float: left;
+	width: 30%;
+}
+/* Categories top, courses bottom */
+#container-courses-bottom-categories-top #courses-container {
+	width: 100%
+}
+#container-courses-bottom-categories-top #categories-container {
+	width: 100%
+}
+
+/* single course template */
+#talentlms-course-top-details{}
+
+#talentlms-course-thumb{
+    float: left;
+    width: 150px;	
+}
+#talentlms-course-thumb img{}
+
+#talentlms-course-details{
+	float: left;
+	margin-left: 20px;
+}
+#talentlms-course-details h2{}
+#talentlms-course-details h3{}
+#talentlms-course-details h2 span{}
+#talentlms-course-details h3 span{}
+#talentlms-course-details h3 span strong{}
+
+#talentlms-course-bottom-details{}
+
+#talentlms-course-description{}
+#talentlms-course-description h2{}
+#talentlms-course-description p{}
+
+#talentlms-course-instructors{}
+#talentlms-course-instructors h2{}
+#talentlms-course-instructors ul{}
+#talentlms-course-instructors ul li{}
+
+#talentlms-course-certification{}
+#talentlms-course-certification h2{}
+#talentlms-course-certification ul{}
+#talentlms-course-certification ul li{}
+
+#talentlms-course-content{}
+#talentlms-course-content h2{}
+#talentlms-course-content ul{}
+#talentlms-course-content ul li{}
+
+#talentlms-course-completionrules{}
+#talentlms-course-completionrules h2{}
+#talentlms-course-completionrules ul{}
+#talentlms-course-completionrules ul li{}
+
+#talentlms-course-prerequisites{}
+#talentlms-course-prerequisites h2{}
+#talentlms-course-prerequisites ul{}
+#talentlms-course-prerequisites ul li{}
+
+#talentlms-course-user-actions{}
+#talentlms-course-user-actions a{}
+
+/* user list template */
+#user-list-container{
+	display: block;
+	margin: 0;
+	width: 100%	
+}
+.user-list-tr{}
+
+/* user single template */
+#user-single-container{
+	display: block;
+	margin: 0;
+	width: 100%
+}
+
+#talentlms-user-avatar{
+    float: left;
+    width: 150px;	
+}
+#talentlms-user-avatar img{}
+
+#talentlms-user-details{
+	float: left;
+	margin-left: 20px;	
+}
+#talentlms-user-details h3{}
+
+#talentlms-user-email{}
+#talentlms-user-email h2{}
+#talentlms-user-email p{}
+
+#talentlms-user-bio{}
+#talentlms-user-bio h2{}
+#talentlms-user-bio p{}
+
+#talentlms-user-courses{}
+#talentlms-user-courses h2{}
+#talentlms-user-courses ul{}
+#talentlms-user-courses ul li{}
