@@ -41,7 +41,7 @@ Read more about TalentLMS in:
 
 == Installation ==
 
-# To Install: #
+#To Install:#
 
 1. Download TalentLMS WordPress plugin
 1. Unzip the file into a folder on your hard drive
@@ -50,54 +50,55 @@ Read more about TalentLMS in:
 
 Alternatively you can automatically install TalentLMS WordPress plugin from the  WordPress Plugin Directory. 
 
-# Usage: #
+#Usage:#
 
 * Once you have activated the plugin, provide your TalentLMS Domain name and TalentLMS API key.
 * You must update your permalinks to use "Custom Structure" or if your using WordPress 3.3 and above you can use the "Post name" option just as long as you have `/%postname%/` at the end of the url. 
+* Login to TalentLMS widget : Use this widget to login to your TalentLMS domain
 * Use the shortcodes:
-	* `[talentlms-courses]`: to list your TalentLMS courses
-	* `[talentlms-users]`  : to list your TalentLMS users
-	* `[talentlms-signup]` : to have a signup form to TalentLMS
-* Widget
-	* Login to TalentLMS : Use this widget to login to your TalentLMS domain
-	
+	* `[talentlms-courses]` : to list your TalentLMS courses
+	* `[talentlms-users]`   : to list your TalentLMS users
+	* `[talentlms-signup]`  : to have a signup form to TalentLMS
+
 == Frequently Asked Questions ==
 
 If you have a question or any feedback you want to share send us an email at [support@talentlms.com](mailto:support@talentlms.com 'support')
 
 == Screenshots ==
 
-## Administration panel ##
+Here are some screenshots of the TalentLMS WordPress plugin.
+
+##Administration panel##
 
 1. Administration panel > TalentLMS main options.
-`assets/talentlms-main.png`
+`assets/screenshot-1.png`
 
 2. Administration panel > TalentLMS > TalentLMS Options.
-`assets/talentlms-edit-options-1.png`
+`assets/screenshot-2.png`
 
-`assets/talentlms-edit-options-2.png`
+`assets/screenshot-3.png`
 
 3. Administration panel > TalentLMS > Edit TalentLMS CSS.
-`assets/talentlms-edit-css.png`
+`assets/screenshot-4.png`
 
-## Front End ##
+##Front End##
 
 1. TalentLMS courses list
-`assets/talentlms-course-list.png`
+`assets/screenshot-5.png`
 
 2. TalentLMS single course
-`assets/talentlms-single-course-1.png`
+`assets/screenshot-6.png`
 
-`assets/talentlms-single-course-2.png`
+`assets/screenshot-7.png`
 
 3. TalentLMS single user
-`assets/talentlms-single-user.png`
+`assets/screenshot-8.png`
 
 4. TalentLMS signup
-`assets/talentlms-singup.png`
+`assets/screenshot-9.png`
 
 5. TalentLMS login widget
-`assets/talentlms-login-widget.png`
+`assets/screenshot-10.png`
 
 == Changelog ==
 
