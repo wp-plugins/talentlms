@@ -96,6 +96,10 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 
 == Changelog ==
 
+= 1.9.1 =
+
+* When purchasing a course, does not redirect to PayPal
+
 = 1.9 =
 
 * Single course view, unit urls when user is logged in.
@@ -155,6 +159,10 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 * shortcode for listing courses from TalentLMS
 
 == Upgrade Notice ==
+
+= 1.9.1 =
+
+* When purchasing a course, does not redirect to PayPal fixed
 
 = 1.8 =
 

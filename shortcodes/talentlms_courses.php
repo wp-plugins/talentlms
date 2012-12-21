@@ -21,10 +21,10 @@ if ($_POST['talentlms-login'] && $_POST['talentlms-password']) {
 $talentlms_info = TalentLMS_Siteinfo::get();
 if ($_POST['talent-get-course']) {
 	session_start();
-
 	if (preg_replace("/\D+/", "", html_entity_decode($_POST['talent-course-price'])) > 0 && $talentlms_info['paypal_email']) {
 		$buyCourse = TalentLMS_Course::buyCourse(array('user_id' => $_SESSION['talentlms_user_id'], 'course_id' => $_POST['talent-get-course']));
 		$output .= "<script type='text/javascript'>window.location = '" . $buyCourse['redirect_url'] . "'</script>";
+		echo $output;
 		//header("location:".$buyCourse['redirect_url']);
 		exit ;
 	} else {
