@@ -12,8 +12,8 @@ class TalentLMS_Category extends TalentLMS_ApiResource{
 		return self::_scopedAll($class);
 	}
 	
-	public static function retrieveLeafsAndCourses($params){
+	public static function retrieveLeafsAndCourses($id){
 		$class = get_class();
-		return self::_scopedRetrieveLeafsAndCourses($class, $params);
+		return self::_scopedRetrieveLeafsAndCourses($class, $id);
 	}
 }

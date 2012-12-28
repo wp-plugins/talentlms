@@ -56,9 +56,8 @@ abstract class TalentLMS_ApiResource{
 		return $response;
 	}
 	
-	protected static function _scopedRetrieveLeafsAndCourses($class, $params){
-		self::_validateCall('retrieveLeafsAndCourses', $class, $params);
-		$url = self::_instanceUrlByParams('leafsAndCourses', $params);
+	protected static function _scopedRetrieveLeafsAndCourses($class, $id){
+		$url = self::_instanceUrlByMethodName('leafsAndCourses', $id);
 		$response = TalentLMS_ApiRequestor::request('get', $url);
 	
 		return $response;
