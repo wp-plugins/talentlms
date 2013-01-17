@@ -96,6 +96,15 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 
 == Changelog ==
 
+= 2.1 =
+
+* Plugin connects to TalentLMS domain map, if exists, instead of talentLMS domain
+* Units in course, link to TalentLMS units (redirect without second login) 
+
+= 2.0 =
+
+* CSS additions
+
 = 1.9.1 =
 
 * When purchasing a course, does not redirect to PayPal
@@ -159,6 +168,10 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 * shortcode for listing courses from TalentLMS
 
 == Upgrade Notice ==
+
+= 2.0 =
+
+* Users can buy categories
 
 = 1.9.1 =
 

@@ -8,13 +8,14 @@ if ($_POST['action'] == "dialog-post") {
 			$login = TalentLMS_User::login(array('login' => $_POST['talentlms-dialog-login'], 'password' => $_POST['talentlms-dialog-password']));
 			session_start();
 			$_SESSION['talentlms_user_id'] = $login['user_id'];
-			$_SESSION['talentlms_user_pass'] = $_POST['talentlms-dialog-password'];
+			$_SESSION['talentlms_user_login'] = $_POST['talentlms-dialog-login'];
+            $_SESSION['talentlms_user_pass'] = $_POST['talentlms-dialog-password'];
 			$user = TalentLMS_User::retrieve($_SESSION['talentlms_user_id']);
 			unset($GLOBALS['talentlms_error_msg']);
-			$output .= "<div class=\"alert alert-success\">";
-			$output .= "<span style='display:block'>" . _('Welcome back') . " <strong>" . $user['first_name'] . " " . $user['last_name'] . "</strong></span>";
-			$output .= "<span style='display:block'>" . _('You can visit your TalentLMS domain here: ') . " <a target='_blank' href='" . $login['login_key'] . "'>" . get_option('talent-domain') . "</a></span>";
-			$output .= "</div>";
+			//$output .= "<div class=\"alert alert-success\">";
+			//$output .= "<span style='display:block'>" . _('Welcome back') . " <strong>" . $user['first_name'] . " " . $user['last_name'] . "</strong></span>";
+			//$output .= "<span style='display:block'>" . _('Goto to your learning portal') . " <a target='_blank' href='" . talentlms_url($login['login_key']) . "'>" . get_option('talentlms-domain') . "</a></span>";
+			//$output .= "</div>";
 		} else {
 			$output .= "<div class=\"alert alert-error\">";
 			if (!$_POST['talentlms-dialog-login']) {
@@ -33,6 +34,14 @@ if ($_POST['action'] == "dialog-post") {
 		}
 	}
 }
+
+
+if (isset($_SESSION['talentlms_user_id'])){
+	try{
+		$login = TalentLMS_User::login(array('login' => $_SESSION['talentlms_user_login'], 'password' => $_SESSION['talentlms_user_pass']));
+	}catch(Exception $e){}	
+}
+
 
 $output .= "<div id='talentlms-course-top-details'>";
 $output .= "<div id='talentlms-course-thumb'>";
@@ -84,7 +93,7 @@ if ($course['units'] && get_option('talentlms-show-course-units')) {
 	$output .= "<ul>";
 	if (isset($_SESSION['talentlms_user_id'])) {
 		foreach ($course['units'] as $unit) {
-			$output .= "<li><a href=\"".$unit['url']."\" target=\"_blank\">" . $unit['name'] . "</a></li>";
+			$output .= "<li><a href=\"".talentlms_url($unit['url']).get_login_key($login['login_key'])."\" target=\"_blank\">" . $unit['name'] . "</a></li>";
 		}				
 	} else {
 		foreach ($course['units'] as $unit) {
@@ -131,8 +140,8 @@ if ($course['shared']) {
 		}
 		if (!in_array($_GET['course'], $user_courses)) {
 			$output .= "<form class=\"form-horizontal\" method=\"post\" action=\"" . $_SERVER['REDIRECT_URL'] . "?" . $_SERVER['QUERY_STRING'] . "\">";
-			$output .= "<input name=\"talent-get-course\" type=\"hidden\" value=\"" . $_GET['course'] . "\">";
-			$output .= "<input name=\"talent-course-price\" type=\"hidden\" value=\"" . $course['price'] . "\">";
+			$output .= "<input name=\"talentlms-get-course\" type=\"hidden\" value=\"" . $_GET['course'] . "\">";
+			$output .= "<input name=\"talentlms-course-price\" type=\"hidden\" value=\"" . $course['price'] . "\">";
 			$output .= "<button class=\"btn\" type=\"submit\">" . _('Get this course') . "</button>" . _('or') . " <a href=\"javascript:history.go(-1);\">" . _('Go Back') . "</a>";
 			$output .= "</form>";
 		} else {
@@ -141,7 +150,7 @@ if ($course['shared']) {
 			} catch(Exception $e) {
 			}
 
-			$output .= "<a class=\"btn\" href=\"" . $urltoCourse['goto_url'] . "\" target=\"_blank\">" . __('View this course') . "</a> " . _('or') . "<a href=\"javascript:history.go(-1);\">" . _('Go Back') . "</a>";
+			$output .= "<a class=\"btn\" href=\"" . talentlms_url($urltoCourse['goto_url']) . "\" target=\"_blank\">" . __('View this course') . "</a> " . _('or') . "<a href=\"javascript:history.go(-1);\">" . _('Go Back') . "</a>";
 
 		}
 	} else {
@@ -149,49 +158,6 @@ if ($course['shared']) {
 	}
 }
 $output .= "</div>";
-
-$output .= "<div id=\"talentlms-dialog-form\" title=\"" . __('Login') . "\">";
-$output .= "<form id=\"talentlms-dialog-login-form\" name=\"talentlms-dialog-login-form\" method=\"post\" action=\"" . htmlentities($_SERVER['REQUEST_URI']) . "\">";
-$output .= "<input type=\"hidden\" name=\"action\" value=\"dialog-post\">";
-$output .= "<fieldset>";
-$output .= "<div class=\"talentlms-form-group\">";
-$output .= "<label class=\"talentlms-form-label\" for=\"talentlms-dialog-login\">" . __('Username:') . "</label>";
-$output .= "<div class=\"talentlms-form-control\">";
-$output .= "<input type=\"text\" name=\"talentlms-dialog-login\" id=\"talentlms-dialog-login\" value=\"" . $_POST['talentlms-dialog-login'] . "\" />";
-$output .= "</div>";
-$output .= "</div>";
-$output .= "<div class=\"talentlms-form-group\">";
-$output .= "<label class=\"talentlms-form-label\" for=\"talentlms-dialog-password\">" . __('Password:') . "</label>";
-$output .= "<div class=\"talentlms-form-control\">";
-$output .= "<input type=\"password\" name=\"talentlms-dialog-password\" id=\"talentlms-dialog-password\" value=\"" . $_POST['talentlms-dialog-password'] . "\" />";
-$output .= "</div>";
-$output .= "</div>";
-$output .= "</fieldset>";
-$output .= "</form>";
-$output .= "</div>";
-
-$output .= "<script type=\"text/javascript\">";
-$output .= "jQuery(document).ready(function() {";
-$output .= "jQuery(\"#talentlms-dialog-form\").dialog({";
-$output .= "width : 350,";
-$output .= "modal : true,";
-$output .= "autoOpen : false,";
-$output .= "buttons : {";
-$output .= "\"Login\" : function() {";
-$output .= "jQuery('#talentlms-dialog-login-form').submit();";
-$output .= "},";
-$output .= "Cancel : function() {";
-$output .= "jQuery(this).dialog(\"close\");";
-$output .= "}";
-$output .= "},";
-$output .= "});";
-$output .= "});";
-
-$output .= "jQuery(\"#talentlms-login-dialog-opener\").click(function() {";
-$output .= "jQuery(\"#talentlms-dialog-form\").dialog(\"open\");";
-$output .= "return false;";
-$output .= "});";
-$output .= "</script>";
-
+include (_BASEPATH_ . '/templates/talentlms-login-dialog.php');
 $output .= "</div>";
 ?>

@@ -11,15 +11,7 @@ This plugin integrates Talentlms with Wordpress. Promote your TalentLMS content 
 
 == Description ==
 
-[TalentLMS](http://www.talentlms.com/ "TalentLMS super-easy, cloud-based learning platform") is a cloud-based, 
-lean LMS with an emphasis on usability and easy course creation. With TalentLMS we wanted to create a better 
-learning experience in every way that actually matters – and we are excited about this new offering.
-
-The product focuses on small but growing organizations. There are a number of obstacles that prohibit small 
-organizations from using elearning. To be productive, small businesses need a number of tools and several 
-related services such as setup and maintenance, course creation and the support of end-users. All these require 
-ample time, resources and money. It comes as no surprise that most small organizations find elearning a non-viable 
-pursuit and prefer on-job or informal training methods.
+[TalentLMS](http://www.talentlms.com/ "TalentLMS super-easy, cloud-based learning platform") is a cloud-based, lean LMS with an emphasis on usability and easy course creation. With TalentLMS we wanted to create a better learning experience in every way that actually matters – and we are excited about this new offering. The product focuses on small but growing organizations. There are a number of obstacles that prohibit small organizations from using elearning. To be productive, small businesses need a number of tools and several related services such as setup and maintenance, course creation and the support of end-users. All these require ample time, resources and money. It comes as no surprise that most small organizations find elearning a non-viable pursuit and prefer on-job or informal training methods.
 
 Read more about TalentLMS in:
 
@@ -104,6 +96,19 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 
 == Changelog ==
 
+= 2.1 =
+
+* Plugin connects to TalentLMS domain map, if exists, instead of talentLMS domain
+* Units in course, link to TalentLMS units (redirect without second login) 
+
+= 2.0 =
+
+* CSS additions
+
+= 1.9.1 =
+
+* When purchasing a course, does not redirect to PayPal
+
 = 1.9 =
 
 * Single course view, unit urls when user is logged in.
@@ -163,6 +168,14 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 * shortcode for listing courses from TalentLMS
 
 == Upgrade Notice ==
+
+= 2.0 =
+
+* Users can buy categories
+
+= 1.9.1 =
+
+* When purchasing a course, does not redirect to PayPal fixed
 
 = 1.8 =
 

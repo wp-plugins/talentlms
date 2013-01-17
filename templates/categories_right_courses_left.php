@@ -1,12 +1,35 @@
 <?php
 $output .= "<div id=\"container-courses-left-categories-right\">";
-
+if($category_price > 0 && $talentlms_info['paypal_email']) {
+	if (isset($_SESSION['talentlms_user_id'])) {
+		$user = TalentLMS_User::retrieve($_SESSION['talentlms_user_id']);
+		$user_courses = array();
+		foreach ($user['courses'] as $c) {
+			$user_courses[] = $c['id'];
+		}
+		foreach ($courses as $c) {
+			$category_courses[] = $c['id'];
+		}
+		$course_diff = array_diff($user_courses, $category_courses);
+		
+		if(!empty($course_diff)){
+			$output .= "<form class=\"form-horizontal\" method=\"post\" action=\"" . $_SERVER['REDIRECT_URL'] . "?" . $_SERVER['QUERY_STRING'] . "\">";
+			$output .= "<input name=\"talentlms-get-category-courses\" type=\"hidden\" value=\"" . $_GET['category'] . "\">";
+			$output .= "<input name=\"talentlms-category-price\" type=\"hidden\" value=\"" . $category_price . "\">";
+			$output .= "<button class=\"btn\" type=\"submit\">" . __('Buy all courses in category') . ": " . $category_price . "</button>";
+			$output .= "</form>";			
+		}
+	} else {
+		$output .= "<div class=\"category-price\" id=\"talentlms-login-dialog-opener\">";
+		$output .= "<a class=\"btn\" href=\"javascript:void(0);\">" . __('Login to buy all courses in category') . "</a>";
+		$output .= "</div>";		
+	}
+}
 // Courses
 $output .= "<div id=\"courses-container\">";
 if ((get_option('talentlms-courses-per-page') && $numofpages > 1) && get_option('talentlms-courses-top-pagination')) {
 	include (_BASEPATH_ . '/templates/pagination.php');
 }
-
 $output .= "<table class=\"table\">";
 $output .= "<thead>";
 $output .= "<tr>";
@@ -81,5 +104,6 @@ $output .= "</fieldset>";
 $output .= "</div>"; 
 
 $output .= "<div class=\"clear\"></div>";
+include (_BASEPATH_ . '/templates/talentlms-login-dialog.php');
 $output .= "</div>";
 ?>

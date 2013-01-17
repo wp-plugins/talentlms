@@ -56,10 +56,10 @@ if ($_POST['submit']) {
 				$login = TalentLMS_User::login(array('login' => $_POST['login'], 'password' => $_POST['password']));
 
 				if (get_option('talentlms-after-signup') == 'redirect') {
-					$output .= "<script type='text/javascript'>window.location = '" . $login['login_key'] . "'</script>";
+					$output .= "<script type='text/javascript'>window.location = '" . talentlms_url($login['login_key']) . "'</script>";
 				} else {
 					$output .= "<div class=\"alert alert-success\">";
-					$output .= "User " . $_POST['login'] . " signed up successfuly. Goto to your learning portal <a target='_blank' href='" . $newUser['login_key'] . "'>" . get_option('talent-domain') . "</a>";
+					$output .= "User " . $_POST['login'] . " signed up successfuly. Goto to your learning portal <a target='_blank' href='" . talentlms_url($newUser['login_key']) . "'>" . _('here') . "</a>";
 					$output .= "</div>";
 
 					$output .= $output;

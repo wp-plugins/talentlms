@@ -179,7 +179,9 @@ function talentlms_admin() {
 				if ($_POST['talentlms_domain'] != get_option('talentlms-domain') && $_POST['api_key'] != get_option('talentlms-api-key')) {
 					update_option('talentlms-domain', $_POST['talentlms_domain']);
 					update_option('talentlms-api-key', $_POST['api_key']);
-
+					if($site_info['domain_map']) {
+						update_option('talentlms-domain-map', $site_info['domain_map']);
+					}
 					empty_cache_values();
 				}
 			}
@@ -209,7 +211,7 @@ if ((!get_option('talentlms-domain') && !$_POST['talentlms_domain']) || (!get_op
 
 	TalentLMS::setApiKey(get_option('talentlms-api-key'));
 	TalentLMS::setDomain(get_option('talentlms-domain'));
-
+	
 	wp_enqueue_script('jquery');
 	wp_enqueue_style('talentlms-css', _BASEURL_ . '/css/talentlms-style.css', false, '1.0');
 

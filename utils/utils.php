@@ -158,4 +158,17 @@ function build_categories_tree($categories) {
 	// delete empty ul's
 	return $output;
 }
+
+function talentlms_url($url){	
+	if(get_option('talentlms-domain-map')) {
+		return str_replace(get_option('talentlms-domain'), get_option('talentlms-domain-map'), $url);		
+	} else {
+		return $url;
+	}
+}
+function get_login_key($url) {
+	$arr = explode('key:', $url);
+	$login_key = ',key:'.$arr[1];
+	return $login_key;
+}
 ?>

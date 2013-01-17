@@ -56,6 +56,14 @@ abstract class TalentLMS_ApiResource{
 		return $response;
 	}
 	
+	protected static function _scopedBuyCategoryCourses($class, $params){
+		self::_validateCall('buyCategoryCourses', $class, $params);
+		$url = self::_postUrl('buyCategoryCourses');
+		$response = TalentLMS_ApiRequestor::request('post', $url, $params);
+	
+		return $response;
+	}
+	
 	protected static function _scopedRetrieveLeafsAndCourses($class, $id){
 		$url = self::_instanceUrlByMethodName('leafsAndCourses', $id);
 		$response = TalentLMS_ApiRequestor::request('get', $url);
@@ -145,6 +153,9 @@ abstract class TalentLMS_ApiResource{
 		}
 		else if($method == 'buyCourse'){
 			return "/buycourse";
+		}
+		else if($method == 'buyCategoryCourses'){
+			return "/buycategorycourses";
 		}
 	}
 	

@@ -42,6 +42,7 @@ class TalentLMS_login extends WP_Widget {
 		if ($_POST['talentlms-logout']) {
 			session_start();
 			unset($_SESSION['talentlms_user_id']);
+			unset($_SESSION['talentlms_user_login']);
 			unset($GLOBALS['talentlms_error_msg']);
 		}
 
@@ -50,7 +51,9 @@ class TalentLMS_login extends WP_Widget {
 				$login = TalentLMS_User::login(array('login' => $_POST['talentlms-login'], 'password' => $_POST['talentlms-password']));
 				session_start();
 				$_SESSION['talentlms_user_id'] = $login['user_id'];
-				$_SESSION['talentlms_user_pass'] = $_POST['talentlms-password'];
+				$_SESSION['talentlms_user_login'] = $_POST['talentlms-login'];
+	            $_SESSION['talentlms_user_pass'] = $_POST['talentlms-password'];
+				
 				unset($GLOBALS['talentlms_error_msg']);
 			} catch (Exception $e) {
 				if ($e instanceof TalentLMS_ApiError) {
@@ -59,21 +62,43 @@ class TalentLMS_login extends WP_Widget {
 			}
 
 		}
-		if (isset($_SESSION['talentlms_user_id'])) {
-			try {
-				$user = TalentLMS_User::retrieve($_SESSION['talentlms_user_id']);
-				$login = TalentLMS_User::login(array('login' => $user['login'], 'password' => $_SESSION['talentlms_user_pass']));
 
+		if (isset($_SESSION['talentlms_user_id'])) {
+			try {
+				session_start();
+				$user = TalentLMS_User::retrieve($_SESSION['talentlms_user_id']);
+				$login = TalentLMS_User::login(array('login' => $_SESSION['talentlms_user_login'], 'password' => $_SESSION['talentlms_user_pass']));
+				
 				$output .= "<span style='display:block'>" . _('Welcome back') . " <b>" . $user['first_name'] . " " . $user['last_name'] . "</b></span>";
-				$output .= "<span style='display:block'>" . _('You can visit your TalentLMS domain here: ') . " <a target='_blank' href='" . $login['login_key'] . "'>" . get_option('talent-domain') . "</a></span>";
+				$output .= "<span style='display:block'>" . _('Goto to your learning portal') . " <a target='_blank' href='" . talentlms_url($login['login_key']) . "'>" . _('here') . "</a></span>";
 
 				$output .= "<form class='form-horizontal' method='post' action='" . $_SERVER['PHP_SELF'] . "'>";
 				$output .= "<input id='talentlms-login' name='talentlms-logout' type='hidden' value='logout'>";
-				$output .= "<button class='btn btn-primary' type='submit'>" . _('Logout') . "</button>";
+				$output .= "<button class='btn' type='submit'>" . _('Logout') . "</button>";
 				$output .= "</form>";
 			} catch (Exception $e) {
 				if ($e instanceof TalentLMS_ApiError) {
+					$output .= "<div class=\"alert alert-error\">";
 					$output .= $e -> getMessage();
+					$output .= "</div>";
+					
+					$output .= "<form class='form-horizontal' method='post' action='" . $_SERVER['PHP_SELF'] . "'>";
+					$output .= "<div>";
+					$output .= "<label for='talentlms-login'>" . _('Login') . "</label>";
+					$output .= "<div >";
+					$output .= "<input class='span' id='talentlms-login' name='talentlms-login' type='text'>";
+					$output .= "</div>";
+					$output .= "</div>";
+					$output .= "<div>";
+					$output .= "<label for='talentlms-password'>" . _('Password') . "</label>";
+					$output .= "<div >";
+					$output .= "<input class='span' id='talentlms-password' name='talentlms-password' type='password'>";
+					$output .= "</div>";
+					$output .= "</div>";
+					$output .= "<div class='form-actions' style='text-align:right;'>";
+					$output .= "<button class='btn' type='submit'>" . _('Login') . "</button>";
+					$output .= "</div>";
+					$output .= "</form>";					
 				}
 			}
 		} else {
@@ -98,7 +123,7 @@ class TalentLMS_login extends WP_Widget {
 			$output .= "</div>";
 			$output .= "</div>";
 			$output .= "<div class='form-actions' style='text-align:right;'>";
-			$output .= "<button class='btn btn-primary' type='submit'>" . _('Login') . "</button>";
+			$output .= "<button class='btn' type='submit'>" . _('Login') . "</button>";
 			$output .= "</div>";
 			$output .= "</form>";
 		}
