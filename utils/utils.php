@@ -129,7 +129,7 @@ function talentlms_get_user($user_id) {
 	}
 	return $user;
 }
-
+/*
 function build_categories_tree($categories) {
 	$dom = new DOMDocument;
 	foreach ($categories as $category) {
@@ -157,6 +157,47 @@ function build_categories_tree($categories) {
 	$output = '<ul class="nav nav-list"><li><a href="?category=all">' . __("All courses") . '</a></li>' . str_replace('<ul></ul>', '', $dom -> saveHTML()) . '</ul>';
 	// delete empty ul's
 	return $output;
+}
+*/
+function build_categories_tree($categories) {
+	
+	// category id's as array keys
+	foreach ($categories as $category) {
+		$temp[$category['id']] = $category;
+	}
+	$categories = $temp;
+	
+	// find category children
+	foreach ($categories as $key => $category) {
+		$parent_id = $category['parent_category_id'];
+		if($parent_id){
+		    $categories[$parent_id]['children'][] = $category;		
+		}
+	}
+		
+	$html = "<ul class=\"nav nav-list\">";
+	$html .= "<li><a href=\"?category=all\">" . __("All courses") . "</a></li>";
+	foreach($categories as $node){
+		if(!$node['parent_category_id']){
+			$html .= create_node($node);	
+		}			
+	}
+	$html .= "</ul>";	
+	
+	return $html;	
+}
+
+function create_node($node) {	
+	$html = "<li>"."<a href=\"?category=".$node['id']."\">".$node['name']."</a>"; 
+	if (is_array($node['children'])) {		
+		$html .= '<ul>';
+		foreach ($node['children'] as $child) {	
+			$html .= create_node($child);
+		}
+		$html .= '</ul>';
+	}
+	$html .= '</li>';
+	return $html;
 }
 
 function talentlms_url($url){	

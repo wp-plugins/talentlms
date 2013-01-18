@@ -96,6 +96,10 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 
 == Changelog ==
 
+= 2.2 =
+
+* Building categories tree recursively. No longer depending to libxml PHP extension
+
 = 2.1 =
 
 * Plugin connects to TalentLMS domain map, if exists, instead of talentLMS domain
