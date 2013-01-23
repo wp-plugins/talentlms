@@ -187,7 +187,7 @@ function talentlms_admin() {
 			}
 		} catch(Exception $e) {
 			if ($e instanceof TalentLMS_ApiError) {
-				$setting_library_error = $e -> getMessage();
+				$setting_library_error = $e -> getMessage() . " " . $e->getHttpStatus() . " " . $e->getHttpBody() . " " . $e->getJsonBody() ;
 			}
 		}
 
