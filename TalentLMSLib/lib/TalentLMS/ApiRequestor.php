@@ -91,7 +91,7 @@ class TalentLMS_ApiRequestor{
 		curl_setopt_array($curl, $opts);
 		$rbody = curl_exec($curl);
 		
-		if($rbody === false){
+		if($rbody === false || $rbody == FALSE){
 			$errno = curl_errno($curl);
 			$message = curl_error($curl);
 			curl_close($curl);
