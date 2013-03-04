@@ -222,13 +222,13 @@
 
 #talentlms-course-thumb{
     float: left;
+    margin-right: 20px;
     width: 150px;	
 }
 #talentlms-course-thumb img{}
 
 #talentlms-course-details{
-	float: left;
-	margin-left: 20px;
+	float: none;
 }
 #talentlms-course-details h2{}
 #talentlms-course-details h3{}
