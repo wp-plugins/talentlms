@@ -1,6 +1,6 @@
 <?php
 $output .= "<div id=\"talentlms-dialog-form\" title=\"" . __('Login') . "\">";
-$output .= "	<form id=\"talentlms-dialog-login-form\" name=\"talentlms-dialog-login-form\" method=\"post\" action=\"" . htmlentities($_SERVER['REQUEST_URI']) . "\">";
+$output .= "	<form id=\"talentlms-dialog-login-form\" name=\"talentlms-dialog-login-form\" method=\"post\" action=\"" . current_page_url() . "\">";
 $output .= "		<input type=\"hidden\" name=\"action\" value=\"dialog-post\">";
 $output .= "		<fieldset>";
 $output .= "			<div class=\"talentlms-form-group\">";

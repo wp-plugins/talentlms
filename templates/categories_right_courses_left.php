@@ -13,7 +13,7 @@ if($category_price > 0 && $talentlms_info['paypal_email']) {
 		$course_diff = array_diff($user_courses, $category_courses);
 		
 		if(!empty($course_diff)){
-			$output .= "<form class=\"form-horizontal\" method=\"post\" action=\"" . $_SERVER['REDIRECT_URL'] . "?" . $_SERVER['QUERY_STRING'] . "\">";
+			$output .= "<form class=\"form-horizontal\" method=\"post\" action=\"" . current_page_url() . "\">";
 			$output .= "<input name=\"talentlms-get-category-courses\" type=\"hidden\" value=\"" . $_GET['category'] . "\">";
 			$output .= "<input name=\"talentlms-category-price\" type=\"hidden\" value=\"" . $category_price . "\">";
 			$output .= "<button class=\"btn\" type=\"submit\">" . __('Buy all courses in category') . ": " . $category_price . "</button>";

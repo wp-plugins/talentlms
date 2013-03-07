@@ -139,7 +139,7 @@ if ($course['shared']) {
 			$user_courses[] = $c['id'];
 		}
 		if (!in_array($_GET['course'], $user_courses)) {
-			$output .= "<form class=\"form-horizontal\" method=\"post\" action=\"" . $_SERVER['REDIRECT_URL'] . "?" . $_SERVER['QUERY_STRING'] . "\">";
+			$output .= "<form class=\"form-horizontal\" method=\"post\" action=\"" . current_page_url() . "\">";
 			$output .= "<input name=\"talentlms-get-course\" type=\"hidden\" value=\"" . $_GET['course'] . "\">";
 			$output .= "<input name=\"talentlms-course-price\" type=\"hidden\" value=\"" . $course['price'] . "\">";
 			$output .= "<button class=\"btn\" type=\"submit\">" . _('Get this course') . "</button>" . _('or') . " <a href=\"javascript:history.go(-1);\">" . _('Go Back') . "</a>";
