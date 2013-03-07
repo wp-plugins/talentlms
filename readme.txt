@@ -173,6 +173,10 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 
 == Upgrade Notice ==
 
+= 2.2.2 =
+
+* Posting forms corrected
+
 = 2.0 =
 
 * Users can buy categories
