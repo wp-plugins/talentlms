@@ -88,7 +88,7 @@ if (isset($_GET['user']) && $_GET['user'] != '') {
 				if (get_option('talentlms-show-user-list-bio')) {
 					$output .= "<td>";
 					if (get_option('talentlms-show-user-list-bio-limit')) {
-						$output .= "<p>" . limit_words($user['bio'], get_option('talentlms-show-user-list-bio-limit')) . "</p>";
+						$output .= "<p>" . tl_limit_words($user['bio'], get_option('talentlms-show-user-list-bio-limit')) . "</p>";
 					} else {
 						$output .= "<p>" . $user['bio'] . "</p>";
 					}

@@ -80,7 +80,7 @@ foreach ($courses as $course) {
 		if(get_option('talentlms-show-course-list-description')) {
 			$output .= "<td>";
 			if(get_option('talentlms-show-course-list-description-limit')){
-				$output .= "<p style=\"text-align:justify;\">" . limit_words($course['description'], get_option('talentlms-show-course-list-description-limit')) . "</p>";
+				$output .= "<p style=\"text-align:justify;\">" . tl_limit_words($course['description'], get_option('talentlms-show-course-list-description-limit')) . "</p>";
 			} else {
 				$output .= "<p style=\"text-align:justify;\">" . $course['description'] . "</p>";
 			}
