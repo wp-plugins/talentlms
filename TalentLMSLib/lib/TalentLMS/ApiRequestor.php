@@ -86,7 +86,7 @@ class TalentLMS_ApiRequestor{
 		$opts[CURLOPT_HTTPHEADER] = $headers;
 		$opts[CURLOPT_USERPWD] = $myApiKey.':';
 		$opts[CURLOPT_SSL_VERIFYPEER] = false;
-		$opts[CURLOPT_HTTPAUTH] = CURLAUTH_DIGEST;
+		$opts[CURLOPT_HTTPAUTH] = CURLAUTH_BASIC;
 		
 		curl_setopt_array($curl, $opts);
 		$rbody = curl_exec($curl);

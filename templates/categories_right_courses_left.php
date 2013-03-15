@@ -52,7 +52,7 @@ foreach ($courses as $course) {
 		$output .= "<tr class=\"course-catalog-tr\">";
 		
 		if(get_option('talentlms-show-course-list-thumb')){
-			$output .= "<td>";
+			$output .= "<td style=\"vertical-align: middle; width:100px;\">";
 			$output .= "<a href=\"?course=" . $course['id'] . "\">";
 			if (strstr($course['avatar'], 'unknown_small.png')) {
 				$output .= "<img title=\"" . $course['name'] . "\" alt=\"" . $course['name'] . "\" src=\"http://" . $course['avatar'] . "\">";
