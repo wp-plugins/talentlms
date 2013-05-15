@@ -108,25 +108,25 @@
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
 	outline: 0 none;
 }
-.pagination {
+.tl-pagination {
 	margin-top: 0;
 }
-.pagination ul {
+.tl-pagination ul {
 	border-radius: 4px 4px 4px 4px;
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 	display: inline-block;
 	margin-bottom: 0;
 	margin-left: 0;
 }
-.pagination ul > li {
+.tl-pagination ul > li {
 	display: inline;
 }
-.pagination ul > li:first-child > a, .pagination ul > li:first-child > span {
+.tl-pagination ul > li:first-child > a, .tl-pagination ul > li:first-child > span {
 	border-bottom-left-radius: 4px;
 	border-left-width: 1px;
 	border-top-left-radius: 4px;
 }
-.pagination ul > li > a, .pagination ul > li > span {
+.tl-pagination ul > li > a, .tl-pagination ul > li > span {
 	-moz-border-bottom-colors: none;
 	-moz-border-left-colors: none;
 	-moz-border-right-colors: none;
@@ -142,10 +142,10 @@
 }
 /* =Signup Form
  ------------------------------------------------- */
-#talentlms-signup-form {
+#tl-singup-form {
 
 }
-#talentlms-signup-form input[type="text"], #talentlms-signup-form input[type="password"] {
+#tl-singup-form input[type="text"], #tl-singup-form input[type="password"] {
 	border-radius: 4px 4px 4px 4px;
 	color: #555555;
 	display: inline-block;
@@ -155,34 +155,34 @@
 	padding: 4px 6px;
 	width: 210px;
 }
-.talentlms-form-group {
+.tl-form-group {
 	margin-bottom: 20px;
 }
-.talentlms-form-label {
+.tl-form-label {
 	display: block;
 	margin-bottom: 5px;
 }
-.talentlms-form-control {
+.tl-form-control {
 	margin-bottom: 10px;
 }
-.talentlms-form-actions {
+.tl-form-actions {
 	background-color: #F5F5F5;
 	border-top: 1px solid #E5E5E5;
 	margin-bottom: 20px;
 	margin-top: 20px;
 	padding: 19px 20px 20px;
 }
-.talentlms-signup-error-class [type="text"], .talentlms-signup-error-class [type="password"] {
+.tl-singup-error [type="text"], .tl-singup-error [type="password"] {
 	border-color: #B94A48 !important;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset !important;
 }
-.talentlms-signup-error-class .talentlms-help-inline {
+.tl-singup-error .tl-help-inline {
 	color: #B94A48;
 }
 
 /* =Templates
  ------------------------------------------------- */
-#container-courses-left-categories-right, #container-courses-right-categories-left, #container-courses-bottom-categories-top, #talentlms-course-container {
+#container-categories-right, #container-categories-left, #tl-container-categories-top, #tl-course-container {
 	display: block;
 	margin: 0;
 	width: 100%
@@ -190,122 +190,155 @@
 
 /* course list template */
 /* Courses left, categories right */
-#container-courses-left-categories-right #courses-container {
+#tl-container-categories-right #tl-courses-container {
 	float: left;
 	width: 70%;
 }
-#container-courses-left-categories-right #categories-container {
+#tl-container-categories-right #tl-categories-container {
 	float: right;
 	width: 30%;
 }
 /* Categories left, courses right */
-#container-courses-right-categories-left #courses-container {
+#tl-container-categories-left #tl-courses-container {
 	float: right;
 	width: 70%;
 }
-#container-courses-right-categories-left #categories-container {
+#tl-container-categories-left #tl-categories-container {
 	float: left;
 	width: 30%;
 }
 /* Categories top, courses bottom */
-#container-courses-bottom-categories-top #courses-container {
+#tl-container-categories-top #tl-courses-container {
 	width: 100%
 }
-#container-courses-bottom-categories-top #categories-container {
+#tl-container-categories-top #tl-categories-container {
 	width: 100%
 }
-.category-price{
+.tl-category-price{
 	
 }
 /* single course template */
-#talentlms-course-top-details{}
+#tl-course-top-details{}
 
-#talentlms-course-thumb{
+#tl-course-thumb{
     float: left;
     margin-right: 20px;
     width: 150px;	
 }
-#talentlms-course-thumb img{}
+#tl-course-thumb img{}
 
-#talentlms-course-details{
+#tl-course-details{
 	float: none;
 }
-#talentlms-course-details h2{}
-#talentlms-course-details h3{}
-#talentlms-course-details h2 span{}
-#talentlms-course-details h3 span{}
-#talentlms-course-details h3 span strong{}
+#tl-course-details h2{}
+#tl-course-details h3{}
+#tl-course-details h2 span{}
+#tl-course-details h3 span{}
+#tl-course-details h3 span strong{}
 
-#talentlms-course-bottom-details{}
+#tl-course-bottom-details{}
 
-#talentlms-course-description{}
-#talentlms-course-description h2{}
-#talentlms-course-description p{}
+#tl-course-description{}
+#tl-course-description h2{}
+#tl-course-description p{}
 
-#talentlms-course-instructors{}
-#talentlms-course-instructors h2{}
-#talentlms-course-instructors ul{}
-#talentlms-course-instructors ul li{}
+#tl-course-instructors{}
+#tl-course-instructors h2{}
+#tl-course-instructors ul{}
+#tl-course-instructors ul li{}
 
-#talentlms-course-certification{}
-#talentlms-course-certification h2{}
-#talentlms-course-certification ul{}
-#talentlms-course-certification ul li{}
+#tl-course-certification{}
+#tl-course-certification h2{}
+#tl-course-certification ul{}
+#tl-course-certification ul li{}
 
-#talentlms-course-content{}
-#talentlms-course-content h2{}
-#talentlms-course-content ul{}
-#talentlms-course-content ul li{}
+#tl-course-content{}
+#tl-course-content h2{}
+#tl-course-content ul{}
+#tl-course-content ul li{}
 
-#talentlms-course-completionrules{}
-#talentlms-course-completionrules h2{}
-#talentlms-course-completionrules ul{}
-#talentlms-course-completionrules ul li{}
+#tl-course-completionrules{}
+#tl-course-completionrules h2{}
+#tl-course-completionrules ul{}
+#tl-course-completionrules ul li{}
 
-#talentlms-course-prerequisites{}
-#talentlms-course-prerequisites h2{}
-#talentlms-course-prerequisites ul{}
-#talentlms-course-prerequisites ul li{}
+#tl-course-prerequisites{}
+#tl-course-prerequisites h2{}
+#tl-course-prerequisites ul{}
+#tl-course-prerequisites ul li{}
 
-#talentlms-course-user-actions{}
-#talentlms-course-user-actions a{}
+#tl-course-user-actions{}
+#tl-course-user-actions a{}
 
 /* user list template */
-#user-list-container{
+#tl-users-list-container{
 	display: block;
 	margin: 0;
 	width: 100%	
 }
-.user-list-tr{}
+.tl-users-list-tr{}
 
 /* user single template */
-#user-single-container{
+#tl-user-single-container{
 	display: block;
 	margin: 0;
 	width: 100%
 }
 
-#talentlms-user-avatar{
+#tl-user-avatar{
     float: left;
     width: 150px;	
 }
-#talentlms-user-avatar img{}
+#tl-user-avatar img{}
 
-#talentlms-user-details{
+#tl-user-details{
 	float: left;
 	margin-left: 20px;	
 }
-#talentlms-user-details h3{}
+#tl-user-details h3{}
 
-#talentlms-user-email{}
-#talentlms-user-email h2{}
-#talentlms-user-email p{}
+#tl-user-email{}
+#tl-user-email h2{}
+#tl-user-email p{}
 
-#talentlms-user-bio{}
-#talentlms-user-bio h2{}
-#talentlms-user-bio p{}
+#tl-user-bio{}
+#tl-user-bio h2{}
+#tl-user-bio p{}
 
-#talentlms-user-courses{}
-#talentlms-user-courses h2{}
-#talentlms-user-courses ul{}
-#talentlms-user-courses ul li{}
+#tl-user-courses{}
+#tl-user-courses h2{}
+#tl-user-courses ul{}
+#tl-user-courses ul li{}
+
+
+/* Catalog Template: Tree */
+#tl-courses-tree {
+	display: block;
+	margin: 0;
+	width: 100%
+}
+
+#tl-courses-tree ul {
+	list-style: none outside none;
+}
+
+#tl-courses-tree li {
+	padding: 5px 2px;
+}
+
+#tl-courses-tree-root {
+	
+}
+
+.tl-toggle-category {
+	background: none repeat scroll 0 0 #F4F4F4;
+	border-bottom: 1px solid #DDDDDD;
+	border-top: 0 solid #2A4562;
+	padding: 6px 20px;
+	cursor: pointer;
+	width: 100%;
+}
+
+.tl-toggle-category strong {
+	margin-left: 20px;
+}

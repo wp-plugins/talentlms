@@ -1,39 +1,31 @@
 <div class="wrap">
-    <div id="icon-edit-pages" class="icon32">
-    </div>
-    <?php if($setting_library_error): ?>
-        <div id='talentlms-edit-css-message' class='error fade'>
-            <p><?php echo $setting_library_error; ?></p>
-        </div>
-    <?php endif; ?>    
-	<?php if($_POST['action'] == "post" && !$setting_library_error) : ?>
-        <div id='talentlms-edit-css-message' class='updated fade'>
-			<p><?php _e('Details edited successfully.'); ?></p>
-		</div>
-	<?php endif; ?>    
-	
+	<?php screen_icon('edit-pages'); ?>
+
+	<div id='action-message' class='<?php echo $action_status; ?> fade'>
+		<p><?php echo $action_message ?></p>
+	</div>	
+  	
     <h2><?php echo __('TalentLMS'); ?></h2>
     
     <h3><?php _e('TalentLMS Genaral Options:'); ?></h3>
-    
-    
+      
     <form name="talentlms-api-form" method="post" action="<?php echo admin_url('admin.php?page=talentlms'); ?>">
-        <input type="hidden" name="action" value="post">
+        <input type="hidden" name="action" value="tl-setup">
         <table class="form-table">
             <tr>
                 <th scope="row" class="form-field form-required <?php echo $domain_validation; ?>">
-                    <label for="talentlms_domain"><?php _e("Talent Domain"); ?> <span class="description"><?php _e("(Required)"); ?></span>:</label>
+                    <label for="tl-domain"><?php _e("TalentLMS Domain"); ?> <span class="description"><?php _e("(Required)"); ?></span>:</label>
                 </th>
                 <td class="form-field form-required <?php echo $domain_validation; ?>">
-                    <input id="talentlms_domain" name="talentlms_domain" style="width: 25em;" value="<?php echo get_option('talentlms-domain'); ?>" />
+                    <input id="tl-domain" name="tl-domain" style="width: 25em;" value="<?php echo get_option('talentlms-domain'); ?>" />
                 </td>
             </tr>
             <tr>                
                 <th scope="row" class="form-field form-required <?php echo $api_validation; ?>">
-                    <label for="api_key"><?php _e("API Key"); ?> <span class="description"><?php _e("(Required)"); ?></span>:</label>
+                    <label for="tl-api-key"><?php _e("API Key"); ?> <span class="description"><?php _e("(Required)"); ?></span>:</label>
                 </th>
                 <td class="form-field form-required <?php echo $api_validation; ?>">
-                    <input id="api_key" name="api_key" style="width: 25em;" value="<?php echo get_option('talentlms-api-key'); ?>"/>
+                    <input id="tl-api-key" name="tl-api-key" style="width: 25em;" value="<?php echo get_option('talentlms-api-key'); ?>"/>
                 </td>
             </tr>                 
         </table>
@@ -45,8 +37,8 @@
     
     
     <h3><?php _e('Cache control'); ?></h3>
-    <form name="talentlms-cache-form" method="post" action="<?php echo admin_url('admin.php?page=talentlms'); ?>">
-        <input type="hidden" name="action" value="cache">
+    <form name="tl-cache-form" method="post" action="<?php echo admin_url('admin.php?page=talentlms'); ?>">
+        <input type="hidden" name="action" value="tl-cache">
         <table class="form-table">
             <tr>
                 <th scope="row" class="form-field" style="width: 30em;">

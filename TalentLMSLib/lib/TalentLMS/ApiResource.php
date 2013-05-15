@@ -24,6 +24,14 @@ abstract class TalentLMS_ApiResource{
 		return $response;
 	}
 	
+	protected static function _scopedLogout($class, $params){
+		self::_validateCall('logout', $class, $params);
+		$url = self::_postUrl('logout');
+		$response = TalentLMS_ApiRequestor::request('post', $url, $params);
+	
+		return $response;
+	}
+	
 	protected static function _scopedSignup($class, $params){
 		self::_validateCall('signup', $class, $params);
 		$url = self::_postUrl('signup');
@@ -73,6 +81,34 @@ abstract class TalentLMS_ApiResource{
 	
 	protected static function _scopedGetCustomRegistrationFields($class){
 		$url = self::_classUrlByMethodName('customRegistrationFields');
+		$response = TalentLMS_ApiRequestor::request('get', $url);
+	
+		return $response;
+	}
+	
+	protected static function _scopedSetStatus($class, $params){
+		$url = self::_instanceUrlByParams('userSetStatus', $params);
+		$response = TalentLMS_ApiRequestor::request('get', $url);
+		
+		return $response;
+	}
+	
+	protected static function _scopedAddUserToGroup($class, $params){
+		$url = self::_instanceUrlByParams('addUserToGroup', $params);
+		$response = TalentLMS_ApiRequestor::request('get', $url);
+	
+		return $response;
+	}
+	
+	protected static function _scopedForgotUsername($class, $params){
+		$url = self::_instanceUrlByParams('forgotUsername', $params);
+		$response = TalentLMS_ApiRequestor::request('get', $url);
+	
+		return $response;
+	}
+	
+	protected static function _scopedForgotPassword($class, $params){
+		$url = self::_instanceUrlByParams('forgotPassword', $params);
 		$response = TalentLMS_ApiRequestor::request('get', $url);
 	
 		return $response;
@@ -136,11 +172,26 @@ abstract class TalentLMS_ApiResource{
 		else if($method == 'customRegistrationFields'){
 			return "/getcustomregistrationfields";
 		}
+		else if($method == 'userSetStatus'){
+			return "/usersetstatus";
+		}
+		else if($method == 'addUserToGroup'){
+			return "/addusertogroup";
+		}
+		else if($method == 'forgotUsername'){
+			return "/forgotusername";
+		}
+		else if($method == 'forgotPassword'){
+			return "/forgotpassword";
+		}
 	}
 	
 	protected function _postUrl($method){
 		if($method == 'login'){
 			return "/userlogin";
+		}
+		else if($method == 'logout'){
+			return "/userlogout";
 		}
 		else if($method == 'addUser'){
 			return "/addusertocourse";

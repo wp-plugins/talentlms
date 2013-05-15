@@ -17,6 +17,11 @@ class TalentLMS_User extends TalentLMS_ApiResource{
 		return self::_scopedLogin($class, $params);
 	}
 	
+	public static function logout($params){
+		$class = get_class();
+		return self::_scopedLogout($class, $params);
+	}
+	
 	public static function signup($params){
 		$class = get_class();
 		return self::_scopedSignup($class, $params);
@@ -25,5 +30,20 @@ class TalentLMS_User extends TalentLMS_ApiResource{
 	public static function getCustomRegistrationFields(){
 		$class = get_class();
 		return self::_scopedGetCustomRegistrationFields($class);
+	}
+	
+	public static function setStatus($params){
+		$class = get_class();
+		return self::_scopedSetStatus($class, $params);
+	}
+	
+	public static function forgotUsername($params){
+		$class = get_class();
+		return self::_scopedForgotUsername($class, $params);
+	}
+	
+	public static function forgotPassword($params){
+		$class = get_class();
+		return self::_scopedForgotPassword($class, $params);
 	}
 }

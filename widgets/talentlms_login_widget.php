@@ -17,6 +17,7 @@ class TalentLMS_login extends WP_Widget {
 		echo "<p>";
 		echo "<label for='" . $this -> get_field_id('title') . "'>" . _('Title:') . "</label>";
 		echo "<input class='widefat' id='" . $this -> get_field_id('title') . "' name='" . $this -> get_field_name('title') . "' type='text' value='" . $title . "' />";
+		echo "</p>";
 
 	}
 
@@ -48,7 +49,7 @@ class TalentLMS_login extends WP_Widget {
 
 		if ($_POST['talentlms-login'] && $_POST['talentlms-password']) {
 			try {
-				$login = TalentLMS_User::login(array('login' => $_POST['talentlms-login'], 'password' => $_POST['talentlms-password']));
+				$login = TalentLMS_User::login(array('login' => $_POST['talentlms-login'], 'password' => $_POST['talentlms-password'], 'logout_redirect' => (get_option('tl-logout') == 'WP') ? get_bloginfo('wpurl') : ''));
 				session_start();
 				$_SESSION['talentlms_user_id'] = $login['user_id'];
 				$_SESSION['talentlms_user_login'] = $_POST['talentlms-login'];
@@ -67,12 +68,12 @@ class TalentLMS_login extends WP_Widget {
 			try {
 				session_start();
 				$user = TalentLMS_User::retrieve($_SESSION['talentlms_user_id']);
-				$login = TalentLMS_User::login(array('login' => $_SESSION['talentlms_user_login'], 'password' => $_SESSION['talentlms_user_pass']));
+				$login = TalentLMS_User::login(array('login' => $_SESSION['talentlms_user_login'], 'password' => $_SESSION['talentlms_user_pass'], 'logout_redirect' => (get_option('tl-logout') == 'WP') ? get_bloginfo('wpurl') : ''));
 				
 				$output .= "<span style='display:block'>" . _('Welcome back') . " <b>" . $user['first_name'] . " " . $user['last_name'] . "</b></span>";
-				$output .= "<span style='display:block'>" . _('Goto to your learning portal') . " <a target='_blank' href='" . talentlms_url($login['login_key']) . "'>" . _('here') . "</a></span>";
+				$output .= "<span style='display:block'>" . _('Goto to your learning portal') . " <a target='_blank' href='" . tl_talentlms_url($login['login_key']) . "'>" . _('here') . "</a></span>";
 
-				$output .= "<form class='form-horizontal' method='post' action='" . current_page_url() . "'>";
+				$output .= "<form class='tl-form-horizontal' method='post' action='" . current_page_url() . "'>";
 				$output .= "<input id='talentlms-login' name='talentlms-logout' type='hidden' value='logout'>";
 				$output .= "<button class='btn' type='submit'>" . _('Logout') . "</button>";
 				$output .= "</form>";
@@ -82,7 +83,7 @@ class TalentLMS_login extends WP_Widget {
 					$output .= $e -> getMessage();
 					$output .= "</div>";
 					
-					$output .= "<form class='form-horizontal' method='post' action='" . current_page_url() . "'>";
+					$output .= "<form class='tl-form-horizontal' method='post' action='" . current_page_url() . "'>";
 					$output .= "<div>";
 					$output .= "<label for='talentlms-login'>" . _('Login') . "</label>";
 					$output .= "<div >";
@@ -98,7 +99,10 @@ class TalentLMS_login extends WP_Widget {
 					$output .= "<div class='form-actions' style='text-align:right;'>";
 					$output .= "<button class='btn' type='submit'>" . _('Login') . "</button>";
 					$output .= "</div>";
-					$output .= "</form>";					
+					$output .= "</form>";
+					$output .= "<div>";
+					$output .= "<a href='" . get_page_link(get_option("tl_forgot_page_id")) . "'>"._('Forgot login/password?')."</a>";
+					$output .= "</div>";
 				}
 			}
 		} else {
@@ -109,7 +113,7 @@ class TalentLMS_login extends WP_Widget {
 				$output .= "</div>";
 			}
 
-			$output .= "<form class='form-horizontal' method='post' action='" . current_page_url() . "'>";
+			$output .= "<form class='tl-form-horizontal' method='post' action='" . current_page_url() . "'>";
 			$output .= "<div>";
 			$output .= "<label for='talentlms-login'>" . _('Login') . "</label>";
 			$output .= "<div >";
@@ -126,8 +130,10 @@ class TalentLMS_login extends WP_Widget {
 			$output .= "<button class='btn' type='submit'>" . _('Login') . "</button>";
 			$output .= "</div>";
 			$output .= "</form>";
+			$output .= "<div>";
+			$output .= "<a href='" . get_page_link(get_option("tl_forgot_page_id")) . "'>"._('Forgot login/password?')."</a>";
+			$output .= "</div>";
 		}
-
 		$output .= $after_widget;
 		echo $output;
 

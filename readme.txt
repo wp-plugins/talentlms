@@ -1,8 +1,8 @@
 === TalentLMS WordPress plugin ===
 Contributors: V. 
 Tags: TalentLMS, elearning, lms, lcms, hcm, learning management system
-Requires at least: 1.5
-Tested up to: 3.5
+Requires at least: 2.0
+Tested up to: 3.5.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -15,8 +15,8 @@ This plugin integrates Talentlms with Wordpress. Promote your TalentLMS content 
 
 Read more about TalentLMS in:
 
-* [TalentLMS – an Introduction](http://blog.talentlms.com/talentlms-an-introduction/ "TalentLMS – an Introduction")
-* [TalentLMS – Get started in 5′](http://blog.talentlms.com/talentlms-get-started-in-5/ "TalentLMS – Get started in 5′")
+* [TalentLMS - an Introduction](http://blog.talentlms.com/talentlms-an-introduction/ "TalentLMS - an Introduction")
+* [TalentLMS - Get started in 5'](http://blog.talentlms.com/talentlms-get-started-in-5/ "TalentLMS - Get started in 5'")
 
 ## Plugin Features ##
 
@@ -24,6 +24,7 @@ Read more about TalentLMS in:
 2. List your TalentLMS users and their details in WordPress.
 3. Allow users to signup to TalentLMS through your WordPress site.
 4. Allow users to buy your TalentLMS courses through your WordPress site.
+5. Synch your TalentLMS content (courses and categories) with your WordPress site. Make your TalentLMS categories WP categories and your TalentLMS courses WP posts
 
 - Caching
 
@@ -51,6 +52,7 @@ Alternatively you can automatically install TalentLMS WordPress plugin from the 
 	* `[talentlms-courses]` : to list your TalentLMS courses
 	* `[talentlms-users]`   : to list your TalentLMS users
 	* `[talentlms-signup]`  : to have a signup form to TalentLMS
+	* `[talentlms-forgot-credentials]`  : to have a forgot my credentials form to TalentLMS
 
 == Frequently Asked Questions ==
 
@@ -71,30 +73,41 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 3. Administration panel > TalentLMS > TalentLMS Options.
 `assets/screenshot-3.png`
 
-4. Administration panel > TalentLMS > Edit TalentLMS CSS.
+4. Administration panel > TalentLMS > TalentLMS and WP Synchronization.
 `assets/screenshot-4.png`
+
+5. Administration panel > TalentLMS > Edit TalentLMS CSS.
+`assets/screenshot-5.png`
 
 ##Front End##
 
-1. TalentLMS courses list
-`assets/screenshot-5.png`
-
-2. TalentLMS single course
+1. TalentLMS courses list pagination
 `assets/screenshot-6.png`
 
-3. TalentLMS single course
+2. TalentLMS courses list tree
 `assets/screenshot-7.png`
 
-4. TalentLMS single user
+3. TalentLMS single course
 `assets/screenshot-8.png`
 
-5. TalentLMS signup
+4. TalentLMS users list
 `assets/screenshot-9.png`
 
-6. TalentLMS login widget
+5. TalentLMS single user
 `assets/screenshot-10.png`
 
+6. TalentLMS signup
+`assets/screenshot-11.png`
+
+7. TalentLMS login widget
+`assets/screenshot-12.png`
+
 == Changelog ==
+
+= 3.0 =
+
+* TalentLMS users shortcode
+* Sync TalentLMS content with WP 
 
 = 2.2 =
 
@@ -173,13 +186,10 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 
 == Upgrade Notice ==
 
-= 2.2.3 =
+= 3.0 =
 
-* New version of TalentLMSLib
-
-= 2.2.2 =
-
-* Posting forms corrected
+* Updated version of TalentLMS library
+* Various minor/major bugfixes
 
 = 2.0 =
 

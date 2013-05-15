@@ -1,19 +1,19 @@
 <?php
-$output .= "<div class=\"pagination\">";
+$output .= "<div class='tl-pagination'>";
 
 $query_string = ($_GET['category']) ? '&category=' . $_GET['category'] : '';
 
 $output .= "<ul>";
 if ($currentpage > 0 && $currentpage < $numofpages) {
-	$output .= "<li><a href=\"?paging=" . ($currentpage - 1) . $query_string . "\">" . __('Prev') . "</a></li>";
+	$output .= "<li><a href='?paging=" . ($currentpage - 1) . $query_string . "'>" . __('Prev') . "</a></li>";
 }
 
 for ($i = 0; $i < $numofpages; $i++) {
-	$output .= "<li><a href=\"?paging=" . $i . $query_string . "\">" . $i . "</a></li>";
+	$output .= "<li><a href='?paging=" . $i . $query_string . "'>" . $i . "</a></li>";
 }
 
 if ($numofpages > $currentpage && ($currentpage + 1) < $numofpages) {
-	$output .= "<li><a href=\"?paging=" . ($currentpage + 1) . $query_string . "\">" . __('Next') . "</a></li>";
+	$output .= "<li><a href='?paging=" . ($currentpage + 1) . $query_string . "'>" . __('Next') . "</a></li>";
 }
 
 $output .= "</ul>";
