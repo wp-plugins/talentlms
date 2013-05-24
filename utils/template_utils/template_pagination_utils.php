@@ -8,7 +8,6 @@
  * @return html An HTML representation of nested <ul>, <li> tags representing categories in a tree
  * */
 function tl_build_categories_tree($categories) {
-
 	foreach ($categories as $category) {
 		$nodes[$category['id']] = $category;
 	}
@@ -50,10 +49,18 @@ function tl_build_categories_tree($categories) {
 		
 	$html = "<ul class=\"nav nav-list\">";
 	$html .= "<li><a href=\"?category=all\">" . __("All courses") . "</a></li>";
-	foreach($categories[0]['']['children'] as $node){
-		if(!$node['parent_category_id']){
-			$html .= tl_create_node($node);	
-		}			
+	if($categories[0]['']['children']){
+		foreach($categories[0]['']['children'] as $node){
+			if(!$node['parent_category_id']){
+				$html .= tl_create_node($node);	
+			}			
+		}
+	} else {
+		foreach($categories[0] as $node){
+			if(!$node['parent_category_id']){
+				$html .= tl_create_node($node);	
+			}			
+		}
 	}
 	$html .= "</ul>";	
 	

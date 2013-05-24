@@ -186,6 +186,10 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 
 == Upgrade Notice ==
 
+= 3.1 =
+
+* Various minor bugfixes
+
 = 3.0 =
 
 * Updated version of TalentLMS library
