@@ -2,9 +2,15 @@
 
 class TalentLMS_User extends TalentLMS_ApiResource{
 	
-	public static function retrieve($id){
+	public static function retrieve($params){
 		$class = get_class();
-		return self::_scopedRetrieve($class, $id);
+		
+		if(!is_array($params)){	// retrieve by id
+			return self::_scopedRetrieve($class, $params);
+		}
+		else{	// e.g. retrieve by email address
+			return self::_scopedExtendedUserRetrieve($class, $params);
+		}
 	}
 	
 	public static function all(){

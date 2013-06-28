@@ -104,6 +104,10 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 
 == Changelog ==
 
+= 3.2 =
+
+* New version of TalentLMS PHP library 
+
 = 3.0 =
 
 * TalentLMS users shortcode

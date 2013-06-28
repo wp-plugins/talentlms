@@ -49,9 +49,8 @@ abstract class TalentLMS_ApiResource{
 	}
 	
 	protected static function _scopedGotoCourse($class, $params){
-		self::_validateCall('gotoCourse', $class, $params);
-		$url = self::_postUrl('gotoCourse');
-		$response = TalentLMS_ApiRequestor::request('post', $url, $params);
+		$url = self::_instanceUrlByParams('gotoCourse', $params);
+		$response = TalentLMS_ApiRequestor::request('get', $url);
 		
 		return $response;
 	}
@@ -100,6 +99,13 @@ abstract class TalentLMS_ApiResource{
 		return $response;
 	}
 	
+	protected static function _scopedAddUserToBranch($class, $params){
+		$url = self::_instanceUrlByParams('addUserToBranch', $params);
+		$response = TalentLMS_ApiRequestor::request('get', $url);
+	
+		return $response;
+	}
+	
 	protected static function _scopedForgotUsername($class, $params){
 		$url = self::_instanceUrlByParams('forgotUsername', $params);
 		$response = TalentLMS_ApiRequestor::request('get', $url);
@@ -111,6 +117,13 @@ abstract class TalentLMS_ApiResource{
 		$url = self::_instanceUrlByParams('forgotPassword', $params);
 		$response = TalentLMS_ApiRequestor::request('get', $url);
 	
+		return $response;
+	}
+	
+	protected static function _scopedExtendedUserRetrieve($class, $params){
+		$url = self::_instanceUrlByParams('users', $params);
+		$response = TalentLMS_ApiRequestor::request('get', $url);
+		
 		return $response;
 	}
 	
@@ -175,14 +188,23 @@ abstract class TalentLMS_ApiResource{
 		else if($method == 'userSetStatus'){
 			return "/usersetstatus";
 		}
+		else if($method == 'gotoCourse'){
+			return "/gotocourse";
+		}
 		else if($method == 'addUserToGroup'){
 			return "/addusertogroup";
+		}
+		else if($method == 'addUserToBranch'){
+			return "/addusertobranch";
 		}
 		else if($method == 'forgotUsername'){
 			return "/forgotusername";
 		}
 		else if($method == 'forgotPassword'){
 			return "/forgotpassword";
+		}
+		else if($method == 'users'){
+			return "/users";
 		}
 	}
 	
@@ -198,9 +220,6 @@ abstract class TalentLMS_ApiResource{
 		}
 		else if($method == 'signup'){
 			return "/usersignup";
-		}
-		else if($method == 'gotoCourse'){
-			return "/gotocourse";
 		}
 		else if($method == 'buyCourse'){
 			return "/buycourse";
