@@ -48,7 +48,7 @@ function tl_build_categories_tree($categories) {
 
 		
 	$html = "<ul class=\"nav nav-list\">";
-	$html .= "<li><a href=\"?category=all\">" . __("All courses") . "</a></li>";
+	$html .= "<li><a href=\"?tlcategory=all\">" . __("All courses") . "</a></li>";
 	if($categories[0]['']['children']){
 		foreach($categories[0]['']['children'] as $node){
 			if(!$node['parent_category_id']){
@@ -68,7 +68,7 @@ function tl_build_categories_tree($categories) {
 }
 
 function tl_create_node($node) {	
-	$html = "<li>"."<a href=\"?category=".$node['id']."\">".$node['name']."</a>"; 
+	$html = "<li>"."<a href=\"?tlcategory=".$node['id']."\">".$node['name']."</a>"; 
 	if (is_array($node['children'])) {		
 		$html .= '<ul>';
 		foreach ($node['children'] as $child) {	

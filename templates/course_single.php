@@ -111,7 +111,7 @@ if ($course['prerequisites'] && get_option('tl-single-course-page-template-show-
 	$output .= "<h2>" . __('Prerequisites:') . "</h2>";
 	$output .= "<ul>";
 	foreach ($course['prerequisites'] as $prerequisite) {
-		$output .= "<li><a href='?course=" . $prerequisite['course_id'] . "'>" . $prerequisite['course_name'] . "</a></li>";
+		$output .= "<li><a href='?tlcourse=" . $prerequisite['course_id'] . "'>" . $prerequisite['course_name'] . "</a></li>";
 	}
 	$output .= "</ul>";
 	$output .= "</div>";
@@ -129,9 +129,9 @@ if ($course['shared']) {
 		foreach ($user['courses'] as $c) {
 			$user_courses[] = $c['id'];
 		}
-		if (!in_array($_GET['course'], $user_courses)) {
+		if (!in_array($_GET['tlcourse'], $user_courses)) {
 			$output .= "<form class='tl-form-horizontal' method='post' action='" . current_page_url() . "'>";
-			$output .= "<input name='talentlms-get-course' type='hidden' value='" . $_GET['course'] . "'>";
+			$output .= "<input name='talentlms-get-course' type='hidden' value='" . $_GET['tlcourse'] . "'>";
 			$output .= "<input name='talentlms-course-price' type='hidden' value='" . $course['price'] . "'>";
 			$output .= "<button class='btn' type='submit'>" . _('Get this course') . "</button>" . _('or') . " <a href='javascript:history.go(-1);'>" . _('Go Back') . "</a>";
 			$output .= "</form>";

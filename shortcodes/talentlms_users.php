@@ -38,7 +38,7 @@ if (isset($_GET['user']) && $_GET['user'] != '') {
 			$output .= "<h2>" . __('Courses:') . "</h2>";
 			$output .= "<ul>";
 			foreach ($user['courses'] as $course) {
-				$output .= "<li><a href='" . get_page_link(get_option("talentlms_courses_page_id")) . "?course=" . $course['id'] . "'>" . $course['name'] . "</a></li>";
+				$output .= "<li><a href='" . get_page_link(get_option("talentlms_courses_page_id")) . "?tlcourse=" . $course['id'] . "'>" . $course['name'] . "</a></li>";
 			}
 			$output .= "</ul>";
 			$output .= "</div>";

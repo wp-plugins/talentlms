@@ -1,7 +1,7 @@
 <?php
 $output .= "<div class='tl-pagination'>";
 
-$query_string = ($_GET['category']) ? '&category=' . $_GET['category'] : '';
+$query_string = ($_GET['tlcategory']) ? '&tlcategory=' . $_GET['tlcategory'] : '';
 
 $output .= "<ul>";
 if ($currentpage > 0 && $currentpage < $numofpages) {

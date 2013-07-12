@@ -95,7 +95,7 @@ function tl_create_course_node($node) {
 function output_category_content($courses) {
 	$output .= "<ul>";
 	foreach ($courses as $course) {
-		$output .= "<li><a href='?course=" . $course['id'] . "'>" . $course['name'] . "</a></li>";
+		$output .= "<li><a href='?tlcourse=" . $course['id'] . "'>" . $course['name'] . "</a></li>";
 	}		
 	$output .= "</ul>";
 	return $output;

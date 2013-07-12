@@ -14,7 +14,7 @@ if($category_price > 0 && $talentlms_info['paypal_email']) {
 		
 		if(!empty($course_diff)){
 			$output .= "<form class=\"form-horizontal\" method=\"post\" action=\"" . current_page_url() . "\">";
-			$output .= "<input name=\"talentlms-get-category-courses\" type=\"hidden\" value=\"" . $_GET['category'] . "\">";
+			$output .= "<input name=\"talentlms-get-category-courses\" type=\"hidden\" value=\"" . $_GET['tlcategory'] . "\">";
 			$output .= "<input name=\"talentlms-category-price\" type=\"hidden\" value=\"" . $category_price . "\">";
 			$output .= "<button class=\"btn\" type=\"submit\">" . __('Buy all courses in category') . ": " . $category_price . "</button>";
 			$output .= "</form>";			
@@ -63,7 +63,7 @@ foreach ($courses as $course) {
 		
 		if(get_option('talentlms-show-course-list-thumb')){
 			$output .= "<td style=\"vertical-align: middle; width:100px;\">";
-			$output .= "<a href=\"?course=" . $course['id'] . "\">";
+			$output .= "<a href=\"?tlcourse=" . $course['id'] . "\">";
 			if (strstr($course['avatar'], 'unknown_small.png')) {
 				$output .= "<img title=\"" . $course['name'] . "\" alt=\"" . $course['name'] . "\" src=\"http://" . $course['avatar'] . "\">";
 			} else {
@@ -75,7 +75,7 @@ foreach ($courses as $course) {
 		
 		$output .= "<td>";
 		$course_name = ($course['code']) ? $course['name'] . ' (' . $course['code'] . ')' : $course['name'];
-		$output .= "<a href=\"?course=" . $course['id'] . "\">" . $course_name . "</a>";
+		$output .= "<a href=\"?tlcourse=" . $course['id'] . "\">" . $course_name . "</a>";
 		$output .= "</td>";
 		
 		if(get_option('talentlms-show-course-list-description')) {

@@ -78,9 +78,9 @@ if($_POST['tl-get-category-courses']) {
 ?>
 
 <?php
-if (isset($_GET['course']) && $_GET['course'] != '') {
+if (isset($_GET['tlcourse']) && $_GET['tlcourse'] != '') {
 
-	$course = tl_get_course($_GET['course']);
+	$course = tl_get_course($_GET['tlcourse']);
 	if ($course instanceof TalentLMS_ApiError) {
 		$output .= "<div class='alert alert-error'>";
 		$output .= $course -> getMessage();
@@ -89,7 +89,7 @@ if (isset($_GET['course']) && $_GET['course'] != '') {
 		include (_BASEPATH_ . '/templates/course_single.php');
 	}
 } else {
-	if ($_GET['category'] == 'all' || !$_GET['category']) {
+	if ($_GET['tlcategory'] == 'all' || !$_GET['tlcategory']) {
 		$courses = tl_get_courses();
 		if ($courses instanceof TalentLMS_ApiError) {
 			$output .= "<div class='alert alert-error'>";
@@ -97,7 +97,7 @@ if (isset($_GET['course']) && $_GET['course'] != '') {
 			$output .= "</div>";
 		}		
 	} else {
-		$category = tl_get_category($_GET['category']);
+		$category = tl_get_category($_GET['tlcategory']);
 		if ($category instanceof TalentLMS_ApiError) {
 			$output .= "<div class='alert alert-error'>";
 			$output .= $category -> getMessage();

@@ -61,7 +61,7 @@ if ($course['prerequisites'] && get_option('tl-single-course-page-template-show-
 	$output .= "<h2>" . __('Prerequisites:') . "</h2>";
 	$output .= "<ul>";
 	foreach ($course['prerequisites'] as $prerequisite) {
-		$output .= "<li><a href='?course=" . $prerequisite['course_id'] . "'>" . $prerequisite['course_name'] . "</a></li>";
+		$output .= "<li><a href='?tlcourse=" . $prerequisite['course_id'] . "'>" . $prerequisite['course_name'] . "</a></li>";
 	}
 	$output .= "</ul>";
 	$output .= "</div>";
