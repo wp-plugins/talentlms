@@ -104,6 +104,10 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 
 == Changelog ==
 
+= 3.4 =
+
+* Various typos fixed 
+
 = 3.3 =
 
 * Fixes issue with conflicts with other WP plugin due to query strings 

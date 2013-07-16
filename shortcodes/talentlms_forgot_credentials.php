@@ -67,7 +67,7 @@ $output .= "			</div>";
 $output .= "		</div>";
 
 $output .= "		<div class='tl-form-actions'>";
-$output .= "			<input class='btn btn-primary' type='submit' data-loading-text='Processing...' value='" . __("Sumbit") . "' name='submit'>";
+$output .= "			<input class='btn btn-primary' type='submit' data-loading-text='Processing...' value='" . __("Submit") . "' name='submit'>";
 $output .= "		</div>";
 
 $output .= "	</form>";
