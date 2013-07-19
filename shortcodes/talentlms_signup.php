@@ -158,6 +158,7 @@ if (is_array($custom_fields)) {
 				foreach ($options as $key => $option) {
 					$output .= "		<option value='" . trim($key) . "'>" . trim($option) . "</option>";
 				}
+				unset($options);
 				$output .= "		</select>";
 				$output .= "		<span class='tl-help-inline'>" . " " . $custom_field['error'] . "</span>";
 				$output .= "	</div>";
