@@ -47,9 +47,10 @@ if ($_POST['submit']) {
 			$signup_arguments = array('first_name' => $_POST['first-name'], 'last_name' => $_POST['last-name'], 'email' => $_POST['email'], 'login' => $_POST['login'], 'password' => $_POST['password']);
 			if (is_array($custom_fields)) {
 				foreach ($custom_fields as $custom_field) {
-					$signup_arguments[$custom_field['key']] = $_POST[$custom_field['name']];
+					$signup_arguments[$custom_field['key']] = $_POST[$custom_field['key']];
 				}
 			}
+			
 			$newUser = TalentLMS_User::signup($signup_arguments);
 
 			if (get_option('tl-singup-page-sync-signup')) {
@@ -134,9 +135,9 @@ if (is_array($custom_fields)) {
 		switch($custom_field['type']) {
 			case 'text' :
 				$output .= "<div class='tl-form-group'>";
-				$output .= "	<label class='tl-form-label' for='" . $custom_field['name'] . "'>" . $custom_field['name'] . "</label>";
+				$output .= "	<label class='tl-form-label' for='" . $custom_field['key'] . "'>" . $custom_field['name'] . "</label>";
 				$output .= "	<div class='tl-form-control " . $custom_field['error_class'] . "'>";
-				$output .= "		<input id='" . $custom_field['name'] . "' name='" . $custom_field['name'] . "' type='text' value='" . $_POST[$custom_field['name']] . "'/>";
+				$output .= "		<input id='" . $custom_field['key'] . "' name='" . $custom_field['key'] . "' type='text' value='" . $_POST[$custom_field['name']] . "'/>";
 				$output .= "		<span class='tl-help-inline'>" . " " . $custom_field['error'] . "</span>";
 				$output .= "	</div>";
 				$output .= "</div>";
@@ -152,9 +153,9 @@ if (is_array($custom_fields)) {
 				}
 
 				$output .= "<div class='tl-form-group'>";
-				$output .= "	<label class='tl-form-label' for='" . $custom_field['name'] . "'>" . $custom_field['name'] . "</label>";
+				$output .= "	<label class='tl-form-label' for='" . $custom_field['key'] . "'>" . $custom_field['name'] . "</label>";
 				$output .= "	<div class='tl-form-control " . $custom_field['error_class'] . "'>";
-				$output .= "		<select id='" . $custom_field['name'] . "' name='" . $custom_field['name'] . "'>";
+				$output .= "		<select id='" . $custom_field['key'] . "' name='" . $custom_field['key'] . "'>";
 				foreach ($options as $key => $option) {
 					$output .= "		<option value='" . trim($key) . "'>" . trim($option) . "</option>";
 				}
@@ -169,9 +170,9 @@ if (is_array($custom_fields)) {
 				$output .= "	<label class='tl-form-label' for='" . $custom_field['name'] . "'>" . $custom_field['name'] . "</label>";
 				$output .= "	<div class='tl-form-control " . $custom_field['error_class'] . "'>";
 				if (trim($custom_field['checkbox_status']) == 'on') {
-					$output .= "	<input id='" . $custom_field['name'] . "' name='" . $custom_field['name'] . "' type='checkbox' checked='checked' value='" . $custom_field['checkbox_status'] . "' />";
+					$output .= "	<input id='" . $custom_field['keu'] . "' name='" . $custom_field['key'] . "' type='checkbox' checked='checked' value='" . $custom_field['checkbox_status'] . "' />";
 				} else {
-					$output .= "	<input id='" . $custom_field['name'] . "' name='" . $custom_field['name'] . "' type='checkbox' value='" . $custom_field['checkbox_status'] . "' />";
+					$output .= "	<input id='" . $custom_field['key'] . "' name='" . $custom_field['key'] . "' type='checkbox' value='" . $custom_field['checkbox_status'] . "' />";
 				}
 				$output .= "		<span class='tl-help-inline'>" . " " . $custom_field['error'] . "</span>";
 				$output .= "	</div>";
