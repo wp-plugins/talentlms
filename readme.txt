@@ -104,6 +104,10 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 
 == Changelog ==
 
+= 3.7 =
+
+* More signup methods supported 
+
 = 3.6 =
 
 * Bugfix in custom fields 
