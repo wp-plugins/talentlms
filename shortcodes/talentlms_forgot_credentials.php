@@ -1,16 +1,15 @@
 <?php
-if ($_POST['tl-forgot'] == 'post') {
+if ($_POST['tl-forgot-credentials'] == 'post') {
 	if ($_POST['tl-reset-password']) {
 		try {
 			TalentLMS_User::forgotPassword(array('username' => $_POST['tl-forgot-login']));
 			$output .= "<div class='alert alert-success'>";
 			$output .= _('An email for password reset has been sent to your account\'s email.');
-			$output .= "</div>";
+			$output .= "</div>";			
 		} catch(Exception $e) {
 			if ($e instanceof TalentLMS_ApiError) {
 				$output .= "<div class='alert alert-error'>";
 				$output .= "<strong>" . _('Something is wrong!') . "</strong> " . $e -> getMessage();
-				;
 				$output .= "</div>";
 			}
 		}
@@ -26,13 +25,12 @@ if ($_POST['tl-forgot'] == 'post') {
 			if ($e instanceof TalentLMS_ApiError) {
 				$output .= "<div class='alert alert-error'>";
 				$output .= "<strong>" . _('Something is wrong!') . "</strong> " . $e -> getMessage();
-				;
 				$output .= "</div>";
 			}
 		}
 	}
 }
-$output = "<div>";
+$output .= "<div>";
 $output .= "	<form id='tl-forgot-credentials-form' action='" . current_page_url() . "' method='post'>";
 $output .= "		<div style='display: none;'>";
 $output .= "			<input type='hidden' name='tl-forgot-credentials' value='post' ><br>";

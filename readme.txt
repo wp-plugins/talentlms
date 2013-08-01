@@ -104,6 +104,10 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 
 == Changelog ==
 
+= 3.8 =
+
+* Forgot login/password bug fix
+
 = 3.7 =
 
 * More signup methods supported 
