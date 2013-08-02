@@ -40,6 +40,8 @@ function talentlms_groups() {
 add_shortcode('talentlms-groups', 'talentlms_groups');
  */
 function talentlms_forgot_credentials($atts) {
+	wp_enqueue_script('tl-forgot', _BASEURL_ . 'js/tl-forgot.js', false, '1.0');
+	
 	include (_BASEPATH_ . '/shortcodes/talentlms_forgot_credentials.php');
 	return $output;
 }

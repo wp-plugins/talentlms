@@ -53,14 +53,14 @@ $output .= "		</div>";
 $output .= "		<div class='tl-form-group'>";
 $output .= "			<label class='tl-form-label'>" . __('Check this box if you have forgotten your Password') . "</label>";
 $output .= "			<div class='tl-form-control'>";
-$output .= "				<input type='checkbox' value=" . __('Reset my Password') . " name='tl-reset-password' >&nbsp;";
+$output .= "				<input type='checkbox' value=" . __('Reset my Password') . " name='tl-reset-password' id='tl-reset-password' >&nbsp;";
 $output .= "			</div>";
 $output .= "		</div>";
 
 $output .= "		<div class='tl-form-group'>";
 $output .= "			<label class='tl-form-label'>" . __('Check this box if you have forgotten your login') . "</label>";
 $output .= "			<div class='tl-form-control'>";
-$output .= "				<input type='checkbox' value=" . __('Resend my login') . " name='tl-send-login' >&nbsp;";
+$output .= "				<input type='checkbox' value=" . __('Resend my login') . " name='tl-send-login' id='tl-send-login' >&nbsp;";
 $output .= "			</div>";
 $output .= "		</div>";
 

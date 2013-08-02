@@ -104,6 +104,10 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 
 == Changelog ==
 
+= 3.9 =
+
+* Forgot login/password checkboxes
+
 = 3.8 =
 
 * Forgot login/password bug fix
