@@ -69,6 +69,8 @@ function talentlms_admin() {
 					$site_info = TalentLMS_Siteinfo::get();
 					if ($site_info['domain_map']) {
 						update_option('talentlms-domain-map', $site_info['domain_map']);
+					} else {
+						update_option('talentlms-domain-map', '');
 					}
 				} catch(Exception $e) {
 					if ($e instanceof TalentLMS_ApiError) {

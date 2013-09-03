@@ -67,6 +67,8 @@ if ($_POST['submit']) {
 			if ($newUser) {
 				switch ($site_info['signup_method']){
 					case 'direct':
+					case 'captcha':
+						
 						$login = TalentLMS_User::login(array('login' => $_POST['login'], 'password' => $_POST['password'], 'logout_redirect' => (get_option('tl-logout') == 'WP') ? get_bloginfo('wpurl') : ''));
 						if (get_option('tl-signup-page-post-signup') == 'redirect') {
 							$output .= "<script type='text/javascript'>window.location = '" . tl_talentlms_url($login['login_key']) . "'</script>";
@@ -78,8 +80,6 @@ if ($_POST['submit']) {
 							$output = $output;
 						}
 						break;
-					case 'captcha':
-						break;
 					case 'email':
 						$output .= "<div class='alert alert-success'>";
 						$output .= _('User ') . $_POST['login'] . _(' signed up successfuly. Please check your inbox for confirmation email.');
@@ -88,6 +88,11 @@ if ($_POST['submit']) {
 						$output = $output;
 						break;
 					case 'social':
+						$output .= "<div class='alert alert-success'>";
+						$output .= _('User ') . $_POST['login'] . _(' signed up successfuly. Goto to your learning portal') . " <a target='_blank' href='" . tl_talentlms_url($login['login_key']) . "'>" . _('here') . "</a>";
+						$output .= "</div>";
+						
+						$output = $output;
 						break;
 					case 'manual':
 						$output .= "<div class='alert alert-success'>";
