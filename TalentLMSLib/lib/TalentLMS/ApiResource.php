@@ -127,6 +127,13 @@ abstract class TalentLMS_ApiResource{
 		return $response;
 	}
 	
+	protected static function _scopedGetUsersProgressInUnits($class, $params){
+		$url = self::_instanceUrlByParams('getUsersProgressInUnits', $params);
+		$response = TalentLMS_ApiRequestor::request('get', $url);
+	
+		return $response;
+	}
+	
 	protected function _instanceUrl($class, $id){
 		$base = self::_classUrl($class);
 		$url = $base."/id:".$id;
@@ -205,6 +212,9 @@ abstract class TalentLMS_ApiResource{
 		}
 		else if($method == 'users'){
 			return "/users";
+		}
+		else if($method == 'getUsersProgressInUnits'){
+			return "/getusersprogressinunits";
 		}
 	}
 	

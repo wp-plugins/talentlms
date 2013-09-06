@@ -57,4 +57,5 @@ require(dirname(__FILE__).'/TalentLMS/Course.php');
 require(dirname(__FILE__).'/TalentLMS/Category.php');
 require(dirname(__FILE__).'/TalentLMS/Branch.php');
 require(dirname(__FILE__).'/TalentLMS/Group.php');
+require(dirname(__FILE__).'/TalentLMS/Unit.php');
 require(dirname(__FILE__).'/TalentLMS/SiteInfo.php');

@@ -102,7 +102,14 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 7. TalentLMS login widget
 `assets/screenshot-12.png`
 
+
+
+
 == Changelog ==
+
+= 3.10 =
+
+* New version of TalentLMSLib
 
 = 3.9.1 =
 
