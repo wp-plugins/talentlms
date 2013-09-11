@@ -107,6 +107,11 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 
 == Changelog ==
 
+= 3.11 =
+
+* Sync users bugs fixed
+* Forgot login/pass bugs fixed
+
 = 3.10 =
 
 * New version of TalentLMSLib

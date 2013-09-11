@@ -369,7 +369,7 @@ function tl_sync_wp_tl_users($tl_users_to_wp, $wp_users_to_tl, $hard_sync, $all_
 	foreach ($tl_users_to_wp as $user) {
 		$new_wp_user_id = wp_insert_user(array('user_login' => $user['login'], 'user_pass' => $user['password'], 'user_email' => $user['email'], 'first_name' => $user['first_name'], 'last_name' => $user['last_name']));
 		if (is_wp_error($new_wp_user_id)) {
-			$sync_errors[] = "User: " . $user['login'] . " cannot be synchronized from eFront.	Error: " . $new_wp_user_id -> get_error_message();
+			$sync_errors[] = "User: " . $user['login'] . " cannot be synchronized from TalentLMS.	Error: " . $new_wp_user_id -> get_error_message();
 		}
 	}
 

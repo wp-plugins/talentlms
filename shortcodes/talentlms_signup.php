@@ -24,7 +24,7 @@ if ($_POST['submit']) {
 		$post = false;
 	}
 	if (!$_POST['login']) {
-		$login_error = __('Login is mandatory');
+		$login_error = __('Username is mandatory');
 		$login_error_class = 'tl-singup-error';
 		$post = false;
 	}
@@ -142,7 +142,7 @@ $output .= "</div>";
 $output .= "<hr />";
 
 $output .= "<div class='tl-form-group'>";
-$output .= "	<label class='tl-form-label' for='login'>" . __('Login') . "</label>";
+$output .= "	<label class='tl-form-label' for='login'>" . __('Username') . "</label>";
 $output .= "	<div class='tl-form-control " . $login_error_class . "'>";
 $output .= "		<input type='text' id='login' name='login' value='" . $_POST['login'] . "'>";
 $output .= "		<span class='tl-help-inline'>" . " " . $login_error . "</span>";

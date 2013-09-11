@@ -236,6 +236,8 @@ function talentlms_edit_css() {
 
 function talentlms_sync() {
 	
+	extract(tl_list_wp_tl_users());
+	
 	if ($_POST['action'] == 'tl-sync-users') {
 		$action_status = "updated";
 		$action_message = _('Operation completed successfully');
@@ -255,6 +257,9 @@ function talentlms_sync() {
 		if(is_array($sync_errors) && !empty($sync_errors)) {
 			$action_status = "error";
 			$action_message = _('Operation completed but some errors have occured');
+			foreach ($sync_errors as $error) {
+				$action_message .= "</p>" . $error . "</p>";
+			}
 		}		
 	}	
 	

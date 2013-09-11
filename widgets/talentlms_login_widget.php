@@ -85,7 +85,7 @@ class TalentLMS_login extends WP_Widget {
 					
 					$output .= "<form class='tl-form-horizontal' method='post' action='" . current_page_url() . "'>";
 					$output .= "<div>";
-					$output .= "<label for='talentlms-login'>" . _('Login') . "</label>";
+					$output .= "<label for='talentlms-login'>" . _('Username') . "</label>";
 					$output .= "<div >";
 					$output .= "<input class='span' id='talentlms-login' name='talentlms-login' type='text'>";
 					$output .= "</div>";
