@@ -13,7 +13,7 @@
 	</div>	
 		
 	<form name="talentlms-edit-css-form" method="post" action="<?php echo admin_url('admin.php?page=talentlms-edit-css'); ?>">
-		<input type="hidden" name="action" value="post">
+		<input type="hidden" name="action" value="edit-css">
 		<?php $css_file_content = file_get_contents(_BASEURL_ . 'css/talentlms-style.css'); ?>
 		<textarea cols="70" rows="25" name="tl-edit-css" id="tl-edit-css"><?php echo $css_file_content; ?></textarea>
         <p class="submit">

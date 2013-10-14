@@ -226,7 +226,7 @@ function talentlms_options() {
 }
 
 function talentlms_edit_css() {
-	if ($_POST['talentlms_edit_css']) {
+	if ($_POST['action'] == 'edit-css') {
 		file_put_contents(_BASEPATH_ . '/css/talentlms-style.css', stripslashes($_POST['tl-edit-css']));
 		$action_status = "updated";
 		$action_message = _('Details edited successfully');
