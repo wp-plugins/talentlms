@@ -64,7 +64,9 @@ if ($_POST['submit']) {
 				}
 			}
 
+
 			if ($newUser) {
+				
 				switch ($site_info['signup_method']){
 					case 'direct':
 					case 'captcha':
@@ -79,6 +81,7 @@ if ($_POST['submit']) {
 						
 							$output = $output;
 						}
+						echo 'edw';
 						break;
 					case 'email':
 						$output .= "<div class='alert alert-success'>";
@@ -94,6 +97,7 @@ if ($_POST['submit']) {
 						
 						$output = $output;
 						break;
+					case 'admin':
 					case 'manual':
 						$output .= "<div class='alert alert-success'>";
 						$output .= _('User ') . $_POST['login'] . _(' signed up successfuly. Your registration must be approved by the Administrator');
