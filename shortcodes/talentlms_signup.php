@@ -35,7 +35,7 @@ if ($_POST['submit']) {
 	}
 	if (is_array($custom_fields)) {
 		foreach ($custom_fields as $key => $custom_field) {
-			if ($custom_field['mandatory'] == 'yes' && !$_POST[$custom_field['name']]) {
+			if ($custom_field['mandatory'] == 'yes' && !$_POST[$custom_field['key']]) {
 				$custom_fields[$key]['error'] = $custom_field['name'] . " " . __('is mandatory');
 				$custom_fields[$key]['error_class'] = 'tl-singup-error';
 				$post = false;

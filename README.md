@@ -2,7 +2,7 @@
 Contributors: V. 
 Tags: TalentLMS, elearning, lms, lcms, hcm, learning management system
 Requires at least: 2.0
-Tested up to: 3.5.1
+Tested up to: 3.9.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -102,7 +102,63 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 7. TalentLMS login widget
 `assets/screenshot-12.png`
 
+
+
+
 == Changelog ==
+
+= 3.13 =
+
+* New signup methods supported
+
+= 3.12 =
+
+* Edit TalentLMS CSS bug fixed
+
+= 3.11 =
+
+* Sync users bugs fixed
+* Forgot login/pass bugs fixed
+
+= 3.10 =
+
+* New version of TalentLMSLib
+
+= 3.9.1 =
+
+* Signup issues fixed
+
+= 3.9 =
+
+* Forgot login/password checkboxes
+
+= 3.8 =
+
+* Forgot login/password bug fix
+
+= 3.7 =
+
+* More signup methods supported 
+
+= 3.6 =
+
+* Bugfix in custom fields 
+
+= 3.5 =
+
+* Bugfix in custom fields in signup page in case of multiple select custom fields
+
+= 3.4 =
+
+* Various typos fixed 
+
+= 3.3 =
+
+* Fixes issue with conflicts with other WP plugin due to query strings 
+
+= 3.2 =
+
+* New version of TalentLMS PHP library 
 
 = 3.0 =
 
@@ -185,6 +241,10 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 * shortcode for listing courses from TalentLMS
 
 == Upgrade Notice ==
+
+= 3.14 =
+
+* Signup custom fields bug fix
 
 = 3.1 =
 
