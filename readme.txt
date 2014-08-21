@@ -107,6 +107,10 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 
 == Changelog ==
 
+= 3.15 =
+
+* jquery ui update
+
 = 3.13 =
 
 * New signup methods supported

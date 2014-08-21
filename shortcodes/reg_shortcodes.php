@@ -1,6 +1,6 @@
 <?php
 function talentlms_course_list($atts) {
-	wp_enqueue_style("jquery-ui-css", "http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css");
+	wp_enqueue_style("jquery-ui-css", "http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css");
 
 	wp_enqueue_script('jquery-ui-core');
 	wp_enqueue_script('jquery-ui-dialog');
