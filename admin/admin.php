@@ -13,20 +13,63 @@
 ?>
 <?php
 
+if(get_option('tl-singup-page-sync-signup-2')) {
+
+	function tl_registration_save( $user_id ) {
+		
+		if (isset($_POST['first_name'])){
+			$signup_arguments['first_name'] = $_POST['first_name'];
+		} else {
+			$signup_arguments['first_name'] = $_POST['user_email'];
+		}
+		if (isset($_POST['last_name'])){
+			$signup_arguments['last_name'] = $_POST['last_name'];
+		} else {
+			$signup_arguments['last_name'] = $_POST['user_email'];
+		}
+		if (isset($_POST['email'])){
+			$signup_arguments['email'] = $_POST['email'];
+		} else {
+			$signup_arguments['email'] = $_POST['user_email'];
+		}			
+		if (isset($_POST['user_login'])){
+			$signup_arguments['login'] = $_POST['user_login'];
+		} else {
+			$signup_arguments['login'] = $_POST['user_email'];
+		}	
+		if (isset($_POST['pass1'])){
+			$signup_arguments['password'] = $_POST['pass1'];
+		}else {
+			$signup_arguments['password'] = $_POST['user_email'];
+		}
+		
+		try {
+		$newUser = TalentLMS_User::signup($signup_arguments);
+		}catch (Exception $e){
+		}
+	}
+	
+	add_action('user_register', 'tl_registration_save', 10, 1);
+
+}
 function register_admininstartion_pages() {
-	global $tl_admin_page, $tl_options_page, $tl_sync_page, $tl_css_page;
+	global $tl_admin_page, $tl_options_page, $tl_sync_page, $tl_css_page, $tl_subscriber_page;
 
-	$tl_admin_page = add_menu_page(__('TalentLMS'), __('TalentLMS'), 'manage_options', 'talentlms', 'talentlms_admin');
+	/* admin pages */
+	$tl_admin_page 	 = add_menu_page(__('TalentLMS'), __('TalentLMS'), 'manage_options', 'talentlms', 'talentlms_admin');
 	$tl_options_page = add_submenu_page('talentlms', __('TalentLMS Options'), __('TalentLMS Options'), 'manage_options', 'talentlms-options', 'talentlms_options');
-	$tl_sync_page = add_submenu_page('talentlms', __('TalentLMS Sync'), __('TalentLMS Sync'), 'manage_options', 'talentlms-sync', 'talentlms_sync');
-	$tl_css_page = add_submenu_page('talentlms', __('Edit TalentLMS CSS'), __('Edit TalentLMS CSS'), 'manage_options', 'talentlms-edit-css', 'talentlms_edit_css');
+	$tl_sync_page 	 = add_submenu_page('talentlms', __('TalentLMS Sync'), __('TalentLMS Sync'), 'manage_options', 'talentlms-sync', 'talentlms_sync');
+	$tl_css_page 	 = add_submenu_page('talentlms', __('Edit TalentLMS CSS'), __('Edit TalentLMS CSS'), 'manage_options', 'talentlms-edit-css', 'talentlms_edit_css');
 
+	$tl_subscriber_page = add_menu_page(__('TalentLMS'), __('TalentLMS'), 'subscriber', 'talentlms-subscriber', 'talentlms_subscriber');
+	
 	add_action("admin_print_scripts-$tl_options_page", 'enqueueJsScripts');
 	add_action("admin_print_styles-$tl_sync_page", 'enqueueCssScripts');
 	add_action("admin_print_styles-$tl_css_page", 'enqueueCssScripts');
 }
 
 add_action('admin_menu', 'register_admininstartion_pages');
+
 
 function enqueueJsScripts() {
 	wp_enqueue_script('tl-admin', _BASEURL_ . 'js/tl-admin.js', false, '1.0');
@@ -37,7 +80,8 @@ function enqueueCssScripts() {
 }
 
 function talentlms_help($contextual_help, $screen_id, $screen) {
-	global $tl_admin_page, $tl_options_page, $tl_sync_page, $tl_css_page;
+
+	global $tl_admin_page, $tl_options_page, $tl_sync_page, $tl_css_page, $tl_subscriber_page;
 	include (_BASEPATH_ . '/admin/pages/talentlms_help.php');
 }
 
@@ -219,7 +263,7 @@ function talentlms_options() {
 
 		// Signup page
 		update_option('tl-signup-page-post-signup', $_POST['tl-signup-page-post-signup']);
-		update_option('tl-singup-page-sync-signup', $_POST['tl-singup-page-sync-signup']);
+		update_option('tl-singup-page-sync-signup-2', $_POST['tl-singup-page-sync-signup-2']);
 	}
 
 	include (_BASEPATH_ . '/admin/pages/talentlms_options.php');
@@ -322,6 +366,41 @@ function talentlms_sync() {
 	}
 	
 	include (_BASEPATH_ . '/admin/pages/talentlms_sync.php');
+}
+
+function talentlms_subscriber() {
+
+	if ($_POST['action'] == 'tl-subscriber-login') {
+		if(!$_POST['tl-login']) {
+			$action_status = "error";
+			$login_validation = 'form-invalid';
+			$action_message .= __('Login is required') . "<br />";
+		}
+		if(!$_POST['tl-password']) {
+			$action_status = "error";
+			$password_validation = 'form-invalid';
+			$action_message .= _('Password required') . "<br />";
+		}
+		if($_POST['tl-login'] && $_POST['tl-password']) {
+			try {
+				$login = TalentLMS_User::login(array('login' => $_POST['tl-login'], 'password' => $_POST['tl-password'], 'logout_redirect' => (get_option('tl-logout') == 'WP') ? get_bloginfo('wpurl') : ''));
+				session_start();
+				$_SESSION['talentlms_user_id'] = $login['user_id'];
+				$_SESSION['talentlms_user_login'] = $_POST['tl-login'];
+				$_SESSION['talentlms_user_pass'] = $_POST['tl-password'];
+		
+				unset($GLOBALS['talentlms_error_msg']);
+			} catch (Exception $e) {
+				if ($e instanceof TalentLMS_ApiError) {
+					$action_status = "error";
+					$action_message = $e -> getMessage();;
+				}
+			}
+		}
+	}		
+		
+
+	include (_BASEPATH_ . '/admin/pages/talentlms_subscriber.php');
 }
 
 

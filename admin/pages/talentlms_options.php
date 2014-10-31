@@ -18,14 +18,14 @@
     			</th>
                 <td class="form-field">
                     <?php if(get_option('tl-logout') == 'WP'): ?>
-                        <input type="radio" name="tl-logout" value="WP" style="width: 2.5em;" checked="checked"><?php _e("Redirect user to WP"); ?><br />
+                        <input type="radio" name="tl-logout" value="WP" checked="checked"><?php _e("Redirect user to WP"); ?><br />
                     <?php else: ?>
-                        <input type="radio" name="tl-logout" value="WP" style="width: 2.5em;"><?php _e("Redirect user to WP"); ?><br />
+                        <input type="radio" name="tl-logout" value="WP" ><?php _e("Redirect user to WP"); ?><br />
                     <?php endif; ?>
                     <?php if(get_option('tl-logout') == 'TalentLMS'): ?>
-                        <input type="radio" name="tl-logout" value="TalentLMS" style="width: 2.5em;" checked="checked"><?php _e("Stay in TalentLMS"); ?><br />
+                        <input type="radio" name="tl-logout" value="TalentLMS" checked="checked"><?php _e("Stay in TalentLMS"); ?><br />
                     <?php else: ?>
-                        <input type="radio" name="tl-logout" value="TalentLMS" style="width: 2.5em;"><?php _e("Stay in TalentLMS"); ?><br />
+                        <input type="radio" name="tl-logout" value="TalentLMS" ><?php _e("Stay in TalentLMS"); ?><br />
                     <?php endif; ?>     
                          
                 </td>
@@ -40,9 +40,9 @@
         		</th>
         		<td class="form-field">
         			<?php if (get_option('tl-courses-page-template') == 'tl-courses-page-template-tree'): ?>
-        			<input id="tl-courses-page-template-tree" name="tl-courses-page-template" type="radio" style="width: 2.5em;" value="tl-courses-page-template-tree" checked="checked" /><?php _e('Courses page with tree representation'); ?>
+        			<input id="tl-courses-page-template-tree" name="tl-courses-page-template" type="radio" value="tl-courses-page-template-tree" checked="checked" /><?php _e('Courses page with tree representation'); ?>
         			<?php else : ?>
-        			<input id="tl-courses-page-template-tree" name="tl-courses-page-template" type="radio" style="width: 2.5em;" value="tl-courses-page-template-tree" /><?php _e('Courses page with tree representation'); ?>
+        			<input id="tl-courses-page-template-tree" name="tl-courses-page-template" type="radio" value="tl-courses-page-template-tree" /><?php _e('Courses page with tree representation'); ?>
         			<?php endif; ?>	
         		</td>
         	</tr>        	
@@ -51,9 +51,9 @@
         		<th scope="row" class="form-field"></th>
         		<td class="form-field">
         			<?php if (get_option('tl-courses-page-template') == 'tl-courses-page-template-pagination'): ?>
-        			<input id="tl-courses-page-template-pagination" name="tl-courses-page-template" type="radio" style="width: 2.5em;" value="tl-courses-page-template-pagination" checked="checked" /><?php _e('Courses page with pagination'); ?>
+        			<input id="tl-courses-page-template-pagination" name="tl-courses-page-template" type="radio" value="tl-courses-page-template-pagination" checked="checked" /><?php _e('Courses page with pagination'); ?>
         			<?php else : ?>
-        			<input id="tl-courses-page-template-pagination" name="tl-courses-page-template" type="radio" style="width: 2.5em;" value="tl-courses-page-template-pagination" /><?php _e('Courses page with pagination'); ?>
+        			<input id="tl-courses-page-template-pagination" name="tl-courses-page-template" type="radio" value="tl-courses-page-template-pagination" /><?php _e('Courses page with pagination'); ?>
         			<?php endif; ?>
         		</td>
         	</tr>
@@ -68,21 +68,21 @@
 			                </th>
 			                <td class="form-field">
 			                    <?php if(get_option('tl-courses-page-pagination-template') == 'tl-categories-right'): ?>
-			                    <input type="radio" name="tl-courses-page-pagination-template" value="tl-categories-right" style="width: 2.5em;" checked="checked"><?php _e("Courses on the left - Categories on the right"); ?><br />
+			                    <input type="radio" name="tl-courses-page-pagination-template" value="tl-categories-right" checked="checked"><?php _e("Courses on the left - Categories on the right"); ?><br />
 			                    <?php else: ?>
-			                    <input type="radio" name="tl-courses-page-pagination-template" value="tl-categories-right" style="width: 2.5em;"><?php _e("Courses on the left - Categories on the right"); ?><br />    
+			                    <input type="radio" name="tl-courses-page-pagination-template" value="tl-categories-right" ><?php _e("Courses on the left - Categories on the right"); ?><br />    
 			                    <?php endif; ?>
 			
 			                    <?php if(get_option('tl-courses-page-pagination-template') == 'tl-categories-left'): ?>                    
-			                    <input type="radio" name="tl-courses-page-pagination-template" value="tl-categories-left" style="width: 2.5em;" checked="checked"><?php _e("Courses on the right - Categories on the left"); ?><br />
+			                    <input type="radio" name="tl-courses-page-pagination-template" value="tl-categories-left" checked="checked"><?php _e("Courses on the right - Categories on the left"); ?><br />
 			                    <?php else: ?>
-			                    <input type="radio" name="tl-courses-page-pagination-template" value="tl-categories-left" style="width: 2.5em;"><?php _e("Courses on the right - Categories on the left"); ?><br />    
+			                    <input type="radio" name="tl-courses-page-pagination-template" value="tl-categories-left" ><?php _e("Courses on the right - Categories on the left"); ?><br />    
 			                    <?php endif; ?>
 			                    
 			                    <?php if(get_option('tl-courses-page-pagination-template') == 'tl-categories-top'): ?>
-			                    <input type="radio" name="tl-courses-page-pagination-template" value="tl-categories-top" style="width: 2.5em;" checked="checked"><?php _e("Courses on the bottom - Categories on top"); ?><br />
+			                    <input type="radio" name="tl-courses-page-pagination-template" value="tl-categories-top" checked="checked"><?php _e("Courses on the bottom - Categories on top"); ?><br />
 			                    <?php else: ?>
-			                    <input type="radio" name="tl-courses-page-pagination-template" value="tl-categories-top" style="width: 2.5em;"><?php _e("Courses on the bottom - Categories on top"); ?><br />                        
+			                    <input type="radio" name="tl-courses-page-pagination-template" value="tl-categories-top" ><?php _e("Courses on the bottom - Categories on top"); ?><br />                        
 			                    <?php endif; ?>
 			                </td>
 			            </tr>
@@ -102,15 +102,15 @@
 			                <td class="form-field">
 			                    <?php _e("Top pagination"); ?>
 			                    <?php if (get_option('tl-courses-page-pagination-template-top-pagination')): ?>
-			                        <input id="tl-courses-page-pagination-template-top-pagination" name="tl-courses-page-pagination-template-top-pagination" value="1" type="checkbox" style="width: 1.5em;" checked="checked"/>
+			                        <input id="tl-courses-page-pagination-template-top-pagination" name="tl-courses-page-pagination-template-top-pagination" value="1" type="checkbox"  checked="checked"/>
 			                    <?php else : ?>
-			                        <input id="tl-courses-page-pagination-template-top-pagination" name="tl-courses-page-pagination-template-top-pagination" value="1" type="checkbox" style="width: 1.5em;" />
+			                        <input id="tl-courses-page-pagination-template-top-pagination" name="tl-courses-page-pagination-template-top-pagination" value="1" type="checkbox"  />
 			                    <?php endif; ?>
 			                    <?php _e("Bottom pagination"); ?>
 			                    <?php if (get_option('tl-courses-page-pagination-template-bottom-pagination')): ?>
-			                        <input id="tl-courses-page-pagination-template-bottom-pagination" name="tl-courses-page-pagination-template-bottom-pagination" value="1" type="checkbox" style="width: 1.5em;" checked="checked"/>
+			                        <input id="tl-courses-page-pagination-template-bottom-pagination" name="tl-courses-page-pagination-template-bottom-pagination" value="1" type="checkbox"  checked="checked"/>
 			                    <?php else : ?>
-			                        <input id="tl-courses-page-pagination-template-bottom-pagination" name="tl-courses-page-pagination-template-bottom-pagination" value="1" type="checkbox" style="width: 1.5em;" />
+			                        <input id="tl-courses-page-pagination-template-bottom-pagination" name="tl-courses-page-pagination-template-bottom-pagination" value="1" type="checkbox" />
 			                    <?php endif; ?>                    
 			                </td>                
 	            		</tr>			            
@@ -122,15 +122,15 @@
 							</th>
 							<td>
 			                    <?php if(get_option('tl-courses-page-pagination-template-show-course-list-thumb')): ?>
-			                    <input type="checkbox" name="tl-courses-page-pagination-template-show-course-list-thumb" value="1" style="width: 2.5em;" checked="checked"><?php _e("Show courses thumbnails"); ?><br />
+			                    <input type="checkbox" name="tl-courses-page-pagination-template-show-course-list-thumb" value="1" checked="checked"><?php _e("Show courses thumbnails"); ?><br />
 			                    <?php else: ?>
-			                    <input type="checkbox" name="tl-courses-page-pagination-template-show-course-list-thumb" value="1" style="width: 2.5em;"><?php _e("Show courses thumbnails"); ?><br />    
+			                    <input type="checkbox" name="tl-courses-page-pagination-template-show-course-list-thumb" value="1" ><?php _e("Show courses thumbnails"); ?><br />    
 			                    <?php endif; ?>
 			                                        
 			                    <?php if(get_option('tl-courses-page-pagination-template-show-course-list-descr')): ?>
-			                    <input type="checkbox" name="tl-courses-page-pagination-template-show-course-list-descr" value="1" style="width: 2.5em;" checked="checked"><?php _e("Show courses description"); ?> 
+			                    <input type="checkbox" name="tl-courses-page-pagination-template-show-course-list-descr" value="1" checked="checked"><?php _e("Show courses description"); ?> 
 			                    <?php else: ?>
-			                    <input type="checkbox" name="tl-courses-page-pagination-template-show-course-list-descr" value="1" style="width: 2.5em;"><?php _e("Show courses description"); ?>    
+			                    <input type="checkbox" name="tl-courses-page-pagination-template-show-course-list-descr" value="1" ><?php _e("Show courses description"); ?>    
 			                    <?php endif; ?>
 								
 								<br />
@@ -140,9 +140,9 @@
 			                    
 			                    <br />
 			                    <?php if(get_option('tl-courses-page-pagination-template-show-course-list-price')): ?>
-			                    <input type="checkbox" name="tl-courses-page-pagination-template-show-course-list-price" value="1" style="width: 2.5em;" checked="checked"><?php _e("Show courses price"); ?><br />
+			                    <input type="checkbox" name="tl-courses-page-pagination-template-show-course-list-price" value="1" checked="checked"><?php _e("Show courses price"); ?><br />
 			                    <?php else: ?>
-			                    <input type="checkbox" name="tl-courses-page-pagination-template-show-course-list-price" value="1" style="width: 2.5em;"><?php _e("Show courses price"); ?><br />    
+			                    <input type="checkbox" name="tl-courses-page-pagination-template-show-course-list-price" value="1" ><?php _e("Show courses price"); ?><br />    
 			                    <?php endif; ?>                    
 			                </td>                
 			            </tr>	            		
@@ -155,39 +155,39 @@
                 </th>
                 <td class="form-field">
                     <?php if(get_option('tl-single-course-page-template-show-course-descr')): ?>
-                    <input type="checkbox" name="tl-single-course-page-template-show-course-descr" value="1" style="width: 2.5em;" checked="checked"><?php _e("Show course description"); ?><br />
+                    <input type="checkbox" name="tl-single-course-page-template-show-course-descr" value="1" checked="checked"><?php _e("Show course description"); ?><br />
                     <?php else: ?>
-                    <input type="checkbox" name="tl-single-course-page-template-show-course-descr" value="1" style="width: 2.5em;"><?php _e("Show course description"); ?><br />    
+                    <input type="checkbox" name="tl-single-course-page-template-show-course-descr" value="1" ><?php _e("Show course description"); ?><br />    
                     <?php endif; ?>
 
                     <?php if(get_option('tl-single-course-page-template-show-course-price')): ?>
-                    <input type="checkbox" name="tl-single-course-page-template-show-course-price" value="1" style="width: 2.5em;" checked="checked"><?php _e("Show course price"); ?><br />
+                    <input type="checkbox" name="tl-single-course-page-template-show-course-price" value="1" checked="checked"><?php _e("Show course price"); ?><br />
                     <?php else: ?>
-                    <input type="checkbox" name="tl-single-course-page-template-show-course-price" value="1" style="width: 2.5em;"><?php _e("Show course price"); ?><br />    
+                    <input type="checkbox" name="tl-single-course-page-template-show-course-price" value="1" ><?php _e("Show course price"); ?><br />    
                     <?php endif; ?>
 
                     <?php if(get_option('tl-single-course-page-template-show-course-instructor')): ?>
-                    <input type="checkbox" name="tl-single-course-page-template-show-course-instructor" value="1" style="width: 2.5em;" checked="checked"><?php _e("Show course instructors"); ?><br />
+                    <input type="checkbox" name="tl-single-course-page-template-show-course-instructor" value="1" checked="checked"><?php _e("Show course instructors"); ?><br />
                     <?php else: ?>
-                    <input type="checkbox" name="tl-single-course-page-template-show-course-instructor" value="1" style="width: 2.5em;"><?php _e("Show course instructors"); ?><br />    
+                    <input type="checkbox" name="tl-single-course-page-template-show-course-instructor" value="1" ><?php _e("Show course instructors"); ?><br />    
                     <?php endif; ?>
                     
                     <?php if(get_option('tl-single-course-page-template-show-course-units')): ?>
-                    <input type="checkbox" name="tl-single-course-page-template-show-course-units" value="1" style="width: 2.5em;" checked="checked"><?php _e("Show course content"); ?><br />
+                    <input type="checkbox" name="tl-single-course-page-template-show-course-units" value="1" checked="checked"><?php _e("Show course content"); ?><br />
                     <?php else: ?>
-                    <input type="checkbox" name="tl-single-course-page-template-show-course-units" value="1" style="width: 2.5em;"><?php _e("Show course content"); ?><br />    
+                    <input type="checkbox" name="tl-single-course-page-template-show-course-units" value="1" ><?php _e("Show course content"); ?><br />    
                     <?php endif; ?>
                     
                     <?php if(get_option('tl-single-course-page-template-show-course-rules')): ?>
-                    <input type="checkbox" name="tl-single-course-page-template-show-course-rules" value="1" style="width: 2.5em;" checked="checked"><?php _e("Show course rules"); ?><br />
+                    <input type="checkbox" name="tl-single-course-page-template-show-course-rules" value="1" checked="checked"><?php _e("Show course rules"); ?><br />
                     <?php else: ?>
-                    <input type="checkbox" name="tl-single-course-page-template-show-course-rules" value="1" style="width: 2.5em;"><?php _e("Show course rules"); ?><br />    
+                    <input type="checkbox" name="tl-single-course-page-template-show-course-rules" value="1" ><?php _e("Show course rules"); ?><br />    
                     <?php endif; ?>
                     
                     <?php if(get_option('tl-single-course-page-template-show-course-prerequisites')): ?>
-                    <input type="checkbox" name="tl-single-course-page-template-show-course-prerequisites" value="1" style="width: 2.5em;" checked="checked"><?php _e("Show course prerequisites"); ?><br />
+                    <input type="checkbox" name="tl-single-course-page-template-show-course-prerequisites" value="1" checked="checked"><?php _e("Show course prerequisites"); ?><br />
                     <?php else: ?>
-                    <input type="checkbox" name="tl-single-course-page-template-show-course-prerequisites" value="1" style="width: 2.5em;"><?php _e("Show course prerequisites"); ?><br />    
+                    <input type="checkbox" name="tl-single-course-page-template-show-course-prerequisites" value="1" ><?php _e("Show course prerequisites"); ?><br />    
                     <?php endif; ?>
                 </td>                
             </tr>
@@ -200,15 +200,15 @@
                 </th>
                 <td class="form-field">
                     <?php if(get_option('tl-users-page-template-show-user-list-avatar')): ?>
-                    <input type="checkbox" name="tl-users-page-template-show-user-list-avatar" value="1" style="width: 2.5em;" checked="checked"><?php _e("Show users avatar"); ?><br />
+                    <input type="checkbox" name="tl-users-page-template-show-user-list-avatar" value="1" checked="checked"><?php _e("Show users avatar"); ?><br />
                     <?php else: ?>
-                    <input type="checkbox" name="tl-users-page-template-show-user-list-avatar" value="1" style="width: 2.5em;"><?php _e("Show users avatar"); ?><br />    
+                    <input type="checkbox" name="tl-users-page-template-show-user-list-avatar" value="1" ><?php _e("Show users avatar"); ?><br />    
                     <?php endif; ?>
 
                     <?php if(get_option('tl-users-page-template-show-user-list-bio')): ?>
-                    <input type="checkbox" name="tl-users-page-template-show-user-list-bio" value="1" style="width: 2.5em;" checked="checked"><?php _e("Show users bio"); ?><br />
+                    <input type="checkbox" name="tl-users-page-template-show-user-list-bio" value="1" checked="checked"><?php _e("Show users bio"); ?><br />
                     <?php else: ?>
-                    <input type="checkbox" name="tl-users-page-template-show-user-list-bio" value="1" style="width: 2.5em;"><?php _e("Show users bio"); ?><br />    
+                    <input type="checkbox" name="tl-users-page-template-show-user-list-bio" value="1" ><?php _e("Show users bio"); ?><br />    
                     <?php endif; ?>
                     
 					<?php _e('Limit bio by number of words'); ?>
@@ -228,15 +228,15 @@
 				<td class="form-field">
 			    	<?php _e("Top pagination"); ?>
 			        <?php if (get_option('tl-users-page-template-users-top-pagination')): ?>
-			        	<input id="tl-users-page-template-users-top-pagination" name="tl-users-page-template-users-top-pagination" value="1" type="checkbox" style="width: 1.5em;" checked="checked"/>
+			        	<input id="tl-users-page-template-users-top-pagination" name="tl-users-page-template-users-top-pagination" value="1" type="checkbox"  checked="checked"/>
 					<?php else : ?>
-			        	<input id="tl-users-page-template-users-top-pagination" name="tl-users-page-template-users-top-pagination" value="1" type="checkbox" style="width: 1.5em;" />
+			        	<input id="tl-users-page-template-users-top-pagination" name="tl-users-page-template-users-top-pagination" value="1" type="checkbox" />
 					<?php endif; ?>
 			        <?php _e("Bottom pagination"); ?>
 			        <?php if (get_option('tl-users-page-template-users-bottom-pagination')): ?>
-			        	<input id="tl-users-page-template-users-bottom-pagination" name="tl-users-page-template-users-bottom-pagination" value="1" type="checkbox" style="width: 1.5em;" checked="checked"/>
+			        	<input id="tl-users-page-template-users-bottom-pagination" name="tl-users-page-template-users-bottom-pagination" value="1" type="checkbox" checked="checked"/>
 					<?php else : ?>
-			        	<input id="tl-users-page-template-users-bottom-pagination" name="tl-users-page-template-users-bottom-pagination" value="1" type="checkbox" style="width: 1.5em;" />
+			        	<input id="tl-users-page-template-users-bottom-pagination" name="tl-users-page-template-users-bottom-pagination" value="1" type="checkbox" />
 					<?php endif; ?>                    
 				</td>                
 			</tr>
@@ -247,21 +247,21 @@
                 </th>
                 <td class="form-field">
                     <?php if(get_option('tl-single-user-page-template-show-user-bio')): ?>
-                    <input type="checkbox" name="tl-single-user-page-template-show-user-bio" value="1" style="width: 2.5em;" checked="checked"><?php _e("Show user bio"); ?><br />
+                    <input type="checkbox" name="tl-single-user-page-template-show-user-bio" value="1" checked="checked"><?php _e("Show user bio"); ?><br />
                     <?php else: ?>
-                    <input type="checkbox" name="tl-single-user-page-template-show-user-bio" value="1" style="width: 2.5em;"><?php _e("Show users bio"); ?><br />    
+                    <input type="checkbox" name="tl-single-user-page-template-show-user-bio" value="1"><?php _e("Show users bio"); ?><br />    
                     <?php endif; ?>
                     
                     <?php if(get_option('tl-single-user-page-template-show-user-email')): ?>
-                    <input type="checkbox" name="tl-single-user-page-template-show-user-email" value="1" style="width: 2.5em;" checked="checked"><?php _e("Show user email"); ?><br />
+                    <input type="checkbox" name="tl-single-user-page-template-show-user-email" value="1" checked="checked"><?php _e("Show user email"); ?><br />
                     <?php else: ?>
-                    <input type="checkbox" name="tl-single-user-page-template-show-user-email" value="1" style="width: 2.5em;"><?php _e("Show users email"); ?><br />    
+                    <input type="checkbox" name="tl-single-user-page-template-show-user-email" value="1"><?php _e("Show users email"); ?><br />    
                     <?php endif; ?>
                     
                     <?php if(get_option('tl-single-user-page-template-show-user-courses')): ?>
-                    <input type="checkbox" name="tl-single-user-page-template-show-user-courses" value="1" style="width: 2.5em;" checked="checked"><?php _e("Show user courses"); ?><br />
+                    <input type="checkbox" name="tl-single-user-page-template-show-user-courses" value="1" checked="checked"><?php _e("Show user courses"); ?><br />
                     <?php else: ?>
-                    <input type="checkbox" name="tl-single-user-page-template-show-user-courses" value="1" style="width: 2.5em;"><?php _e("Show users courses"); ?><br />    
+                    <input type="checkbox" name="tl-single-user-page-template-show-user-courses" value="1" ><?php _e("Show users courses"); ?><br />    
                     <?php endif; ?>                                                           
                 </td>                
             </tr>                         
@@ -306,14 +306,14 @@
                 </th>
                 <td class="form-field">
                     <?php if(get_option('tl-signup-page-post-signup') == 'redirect'): ?>
-                        <input type="radio" name="tl-signup-page-post-signup" value="redirect" style="width: 2.5em;" checked="checked"><?php _e("Redirect user to TalentLMS"); ?><br />
+                        <input type="radio" name="tl-signup-page-post-signup" value="redirect"  checked="checked"><?php _e("Redirect user to TalentLMS"); ?><br />
                     <?php else: ?>
-                        <input type="radio" name="tl-signup-page-post-signup" value="redirect" style="width: 2.5em;"><?php _e("Redirect user to TalentLMS"); ?><br />
+                        <input type="radio" name="tl-signup-page-post-signup" value="redirect" ><?php _e("Redirect user to TalentLMS"); ?><br />
                     <?php endif; ?>
                     <?php if(get_option('tl-signup-page-post-signup') == 'stay'): ?>
-                        <input type="radio" name="tl-signup-page-post-signup" value="stay" style="width: 2.5em;" checked="checked"><?php _e("Stay in Wordpress"); ?><br />
+                        <input type="radio" name="tl-signup-page-post-signup" value="stay"  checked="checked"><?php _e("Stay in Wordpress"); ?><br />
                     <?php else: ?>
-                        <input type="radio" name="tl-signup-page-post-signup" value="stay" style="width: 2.5em;"><?php _e("Stay in Wordpress"); ?><br />
+                        <input type="radio" name="tl-signup-page-post-signup" value="stay" ><?php _e("Stay in Wordpress"); ?><br />
                     <?php endif; ?>     
                          
                 </td>                
@@ -324,13 +324,28 @@
     			</th>
     			<td class="form-field">
 				<?php if (get_option('tl-singup-page-sync-signup')): ?>
-			    <input id="tl-singup-page-sync-signup" name="tl-singup-page-sync-signup" value="<?php echo true; ?>" type="checkbox" style="width: 1.5em;" checked="checked"/>
+			    <input id="tl-singup-page-sync-signup" name="tl-singup-page-sync-signup" value="<?php echo true; ?>" type="checkbox" checked="checked"/>
 			    <?php else : ?>
-			    <input id="tl-singup-page-sync-signup" name="tl-singup-page-sync-signup" value="<?php echo true; ?>" type="checkbox" style="width: 1.5em;" />
+			    <input id="tl-singup-page-sync-signup" name="tl-singup-page-sync-signup" value="<?php echo true; ?>" type="checkbox" />
 			    <?php endif; ?>    				
     			&nbsp;<span class="description"><?php _e("Using this will create a WP user each time a user signs up to TalentLMS"); ?> </span>
     			</td>
-    		</tr>            
+    		</tr>
+    		
+    		<tr>
+    			<th scope="row" class="form-field" style="width: 30em;">
+    				<?php _e('Synchronize singup WP and TalentLMS'); ?>
+    			</th>
+    			<td class="form-field">
+				<?php if (get_option('tl-singup-page-sync-signup-2')): ?>
+			    <input id="tl-singup-page-sync-signup-2" name="tl-singup-page-sync-signup-2" value="<?php echo true; ?>" type="checkbox"  checked="checked"/>
+			    <?php else : ?>
+			    <input id="tl-singup-page-sync-signup-2" name="tl-singup-page-sync-signup-2" value="<?php echo true; ?>" type="checkbox"  />
+			    <?php endif; ?>    				
+    			&nbsp;<span class="description"><?php _e("Using this will create a TalentLMS user each time a user signs up to WP"); ?> </span>
+    			</td>
+    		</tr>    		
+    		
         </table>
 
         <p class="submit">

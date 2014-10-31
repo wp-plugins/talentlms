@@ -123,4 +123,28 @@
 		);	
 	}
 	
+	if($screen_id == $tl_subscriber_page) {
+		get_current_screen()->add_help_tab( array(
+			'id'		=> 'about',
+			'title'		=> __('About TalentLMS'),
+			'content'	=>
+				'<p>' . '<strong>' . __('TalentLMS') . '</strong>' . __(' a super-easy, cloud-based learning platform to train your people and customers') . '</p>'
+		) );
+		get_current_screen()->add_help_tab(array(
+			'id'		=> 'screen-content',
+			'title'		=> __('Screen Content'),
+			'content'	=>
+				'<p>' . __('TalentLMS User Profile:') . '</p>' .
+				'<ul>' .
+					'<li>' . __('Login to TalentLMS if not already logged in.') . '</li>' .
+					'<li>' . __('Once logged in view information about your profile, and navigate to TalentLMS and your TalentLMS course with one click') . '</li>' .
+				'</ul>'
+		));		
+		get_current_screen()->set_help_sidebar(
+			'<p><strong>' . __('For more information:') . '</strong></p>' .
+			'<p>' . __('<a href="http://www.talentlms.com/" target="_blank">TalentLMS</a>') . '</p>' .
+			'<p>' . __('<a href="http://support.talentlms.com/" target="_blank">Support</a>') . '</p>'
+		);				
+	}
+	
 ?>
