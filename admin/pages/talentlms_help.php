@@ -4,7 +4,15 @@
 			'id'		=> 'about',
 			'title'		=> __('About TalentLMS'),
 			'content'	=>
-				'<p>' . '<strong>' . __('TalentLMS') . '</strong>' . __(' a super-easy, cloud-based learning platform to train your people and customers') . '</p>'
+				'<p>' . '<strong>' . __('TalentLMS') . '</strong>' . __(' a super-easy, cloud-based learning platform to train your people and customers') . '</p>' .
+				'<p>' . '<strong>' . __('ShortCodes') . '</p>' .
+				'<ul>' .
+					'<li>' . '<strong>[talentlms-courses]</strong>' . __('Shortcode for listing your TalentLMS courses.') . '</li>' .
+					'<li>' . '<strong>[talentlms-signup]</strong>' . __('Shortcode for a signup to TalentLMS form. ') . '</li>' .
+					'<li>' . '<strong>[talentlms-users]</strong>' . __('Shortcode for listing your TalentLMS courses') . '</li>' .
+					'<li>' . '<strong>[talentlms-forgot-credentials]</strong>' . __('Shortcode for a forgot your TalentLMS username/password form') . '</li>' .
+					'<li>' . '<strong>[talentlms-login]</strong>' . __('Shortcode for a login to TalentLMS form') . '</li>' .
+				'</ul>'
 		) );
 		get_current_screen()->add_help_tab( array(
 			'id'		=> 'screen-content',

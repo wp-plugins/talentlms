@@ -107,6 +107,11 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 
 == Changelog ==
 
+= 3.17 =
+
+* Bugfix for option to create TalentLMS user when a user signs up to WP 
+ 
+
 = 3.16 =
 
 * Option to create TalentLMS user when a user signs up to WP

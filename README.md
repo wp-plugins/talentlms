@@ -251,6 +251,10 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 
 == Upgrade Notice ==
 
+= 3.17 =
+
+* Bugfix for option to create TalentLMS user when a user signs up to WP 
+
 = 3.14 =
 
 * Signup custom fields bug fix

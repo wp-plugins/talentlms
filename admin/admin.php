@@ -32,16 +32,51 @@ if(get_option('tl-singup-page-sync-signup-2')) {
 		} else {
 			$signup_arguments['email'] = $_POST['user_email'];
 		}			
-		if (isset($_POST['user_login'])){
-			$signup_arguments['login'] = $_POST['user_login'];
-		} else {
-			$signup_arguments['login'] = $_POST['user_email'];
-		}	
+		
+		$signup_arguments['login'] = $_POST['user_login'];
+		
 		if (isset($_POST['pass1'])){
 			$signup_arguments['password'] = $_POST['pass1'];
 		}else {
 			$signup_arguments['password'] = $_POST['user_email'];
 		}
+		
+		$custom_fields = TalentLMS_User::getCustomRegistrationFields();
+		if (is_array($custom_fields)) {
+			foreach ($custom_fields as $key => $custom_field) {
+				//if ($custom_field['mandatory'] == 'yes') {
+					switch ($custom_field['type']) {
+						case 'text':
+							if (isset($_POST['email'])){
+								$signup_arguments[$custom_field['key']] = $_POST['email'];
+							} else {
+								$signup_arguments[$custom_field['key']] = $_POST['user_email'];
+							}
+							break;
+						case 'dropdown':
+							$dropdown_values = explode(';',$custom_field['dropdown_values']);
+							foreach ($dropdown_values as $value) {
+								if (preg_match('/\[(.*?)\]/', $value, $match)) {
+									$default_value = $match[1];
+									$value = $default_value;
+								}
+								$options[$value] = $value;
+							}
+							$signup_arguments[$custom_field['key']] = ($default_value) ? $default_value : array_pop($options);
+							break;
+						case 'checkbox':
+							if($custom_field['checkbox_status'] == 'off') {
+								$signup_arguments[$custom_field['key']] = 'off';
+							} else {
+								$signup_arguments[$custom_field['key']] = 'on';
+							}
+							break;
+					}
+				//}
+			}
+		}
+		
+		
 		
 		try {
 		$newUser = TalentLMS_User::signup($signup_arguments);
@@ -52,6 +87,7 @@ if(get_option('tl-singup-page-sync-signup-2')) {
 	add_action('user_register', 'tl_registration_save', 10, 1);
 
 }
+
 function register_admininstartion_pages() {
 	global $tl_admin_page, $tl_options_page, $tl_sync_page, $tl_css_page, $tl_subscriber_page;
 

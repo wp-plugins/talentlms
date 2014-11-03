@@ -47,4 +47,10 @@ function talentlms_forgot_credentials($atts) {
 }
 
 add_shortcode('talentlms-forgot-credentials', 'talentlms_forgot_credentials');
+
+function talentlms_login($atts) {
+	include (_BASEPATH_ . '/shortcodes/talentlms_login.php');
+	return $output;
+}
+add_shortcode('talentlms-login', 'talentlms_login');
 ?>
