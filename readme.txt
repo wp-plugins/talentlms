@@ -110,7 +110,6 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 = 3.17 =
 
 * Bugfix for option to create TalentLMS user when a user signs up to WP 
- 
 
 = 3.16 =
 
@@ -255,6 +254,10 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 * shortcode for listing courses from TalentLMS
 
 == Upgrade Notice ==
+
+= 3.17.1 =
+
+* Help tabs information
 
 = 3.14 =
 
