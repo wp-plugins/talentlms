@@ -15,30 +15,26 @@
 
 if(get_option('tl-singup-page-sync-signup-2')) {
 
-	function tl_registration_save( $user_id ) {
+	function tl_registration_save($user_id) {
+		global $wpdb;
 		
-		if (isset($_POST['first_name'])){
-			$signup_arguments['first_name'] = $_POST['first_name'];
-		} else {
-			$signup_arguments['first_name'] = $_POST['user_email'];
-		}
-		if (isset($_POST['last_name'])){
-			$signup_arguments['last_name'] = $_POST['last_name'];
-		} else {
-			$signup_arguments['last_name'] = $_POST['user_email'];
-		}
-		if (isset($_POST['email'])){
-			$signup_arguments['email'] = $_POST['email'];
-		} else {
-			$signup_arguments['email'] = $_POST['user_email'];
-		}			
+		$user_info = get_userdata($user_id);
+
+		$signup_arguments = array(
+			'first_name' => $_POST['first-name'], 
+			'last_name' => $_POST['last-name'], 
+			'email' => $_POST['email'], 
+			'login' => $_POST['login'], 
+			'password' => $_POST['password']);
 		
-		$signup_arguments['login'] = $_POST['user_login'];
+		$signup_arguments['first_name'] = ($user_info->first_name) ? $user_info->first_name : 'First name';
+		$signup_arguments['last_name'] = ($user_info->last_name) ? $user_info->last_name : 'Last name';
+		$signup_arguments['email'] = $user_info->user_email;
+		$signup_arguments['login'] = $user_info->user_login;
+		$signup_arguments['password'] = ($_POST['pass1']) ? $_POST['pass1'] : $user_info->user_email; 
 		
-		if (isset($_POST['pass1'])){
-			$signup_arguments['password'] = $_POST['pass1'];
-		}else {
-			$signup_arguments['password'] = $_POST['user_email'];
+		if(!$_POST['pass1']){
+			wp_set_password( $user_info->user_email, $user_id );
 		}
 		
 		$custom_fields = TalentLMS_User::getCustomRegistrationFields();
@@ -47,11 +43,7 @@ if(get_option('tl-singup-page-sync-signup-2')) {
 				//if ($custom_field['mandatory'] == 'yes') {
 					switch ($custom_field['type']) {
 						case 'text':
-							if (isset($_POST['email'])){
-								$signup_arguments[$custom_field['key']] = $_POST['email'];
-							} else {
-								$signup_arguments[$custom_field['key']] = $_POST['user_email'];
-							}
+							$signup_arguments[$custom_field['key']] = $user_info->user_email;
 							break;
 						case 'dropdown':
 							$dropdown_values = explode(';',$custom_field['dropdown_values']);
@@ -76,15 +68,14 @@ if(get_option('tl-singup-page-sync-signup-2')) {
 			}
 		}
 		
-		
-		
 		try {
-		$newUser = TalentLMS_User::signup($signup_arguments);
+			$newUser = TalentLMS_User::signup($signup_arguments);
 		}catch (Exception $e){
+			require_once(ABSPATH.'wp-admin/includes/user.php' );
+			wp_delete_user($user_id);
 		}
 	}
-	
-	add_action('user_register', 'tl_registration_save', 10, 1);
+	add_action('user_register', 'tl_registration_save');
 
 }
 
