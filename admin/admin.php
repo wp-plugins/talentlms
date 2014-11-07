@@ -19,16 +19,12 @@ if(get_option('tl-singup-page-sync-signup-2')) {
 		global $wpdb;
 		
 		$user_info = get_userdata($user_id);
-
-		$signup_arguments = array(
-			'first_name' => $_POST['first-name'], 
-			'last_name' => $_POST['last-name'], 
-			'email' => $_POST['email'], 
-			'login' => $_POST['login'], 
-			'password' => $_POST['password']);
+		$user_meta = get_usermeta($user_id);
 		
-		$signup_arguments['first_name'] = ($user_info->first_name) ? $user_info->first_name : 'First name';
-		$signup_arguments['last_name'] = ($user_info->last_name) ? $user_info->last_name : 'Last name';
+		$first_name = get_user_meta($user_id, 'first_name', true);
+		$last_name = get_user_meta($user_id, 'last_name', true);
+		$signup_arguments['first_name'] = ($first_name) ? $first_name : 'First name';
+		$signup_arguments['last_name'] = ($last_name) ? $last_name : 'Last name';
 		$signup_arguments['email'] = $user_info->user_email;
 		$signup_arguments['login'] = $user_info->user_login;
 		$signup_arguments['password'] = ($_POST['pass1']) ? $_POST['pass1'] : $user_info->user_email; 
@@ -70,6 +66,10 @@ if(get_option('tl-singup-page-sync-signup-2')) {
 		
 		try {
 			$newUser = TalentLMS_User::signup($signup_arguments);
+			$login = TalentLMS_User::login(array('login' => $signup_arguments['login'], 'password' => $signup_arguments['password'], 'logout_redirect' => (get_option('tl-logout') == 'WP') ? get_bloginfo('wpurl') : ''));
+			$_SESSION['talentlms_user_id'] = $login['user_id'];
+			$_SESSION['talentlms_user_login'] = $signup_arguments['login'];
+			$_SESSION['talentlms_user_pass'] = $signup_arguments['password'];
 		}catch (Exception $e){
 			require_once(ABSPATH.'wp-admin/includes/user.php' );
 			wp_delete_user($user_id);
