@@ -13,72 +13,6 @@
 ?>
 <?php
 
-if(get_option('tl-singup-page-sync-signup-2')) {
-
-	function tl_registration_save($user_id) {
-		global $wpdb;
-		
-		$user_info = get_userdata($user_id);
-		$user_meta = get_usermeta($user_id);
-		
-		$first_name = get_user_meta($user_id, 'first_name', true);
-		$last_name = get_user_meta($user_id, 'last_name', true);
-		$signup_arguments['first_name'] = ($first_name) ? $first_name : 'First name';
-		$signup_arguments['last_name'] = ($last_name) ? $last_name : 'Last name';
-		$signup_arguments['email'] = $user_info->user_email;
-		$signup_arguments['login'] = $user_info->user_login;
-		$signup_arguments['password'] = ($_POST['pass1']) ? $_POST['pass1'] : $user_info->user_email; 
-		
-		if(!$_POST['pass1']){
-			wp_set_password( $user_info->user_email, $user_id );
-		}
-		
-		$custom_fields = TalentLMS_User::getCustomRegistrationFields();
-		if (is_array($custom_fields)) {
-			foreach ($custom_fields as $key => $custom_field) {
-				//if ($custom_field['mandatory'] == 'yes') {
-					switch ($custom_field['type']) {
-						case 'text':
-							$signup_arguments[$custom_field['key']] = $user_info->user_email;
-							break;
-						case 'dropdown':
-							$dropdown_values = explode(';',$custom_field['dropdown_values']);
-							foreach ($dropdown_values as $value) {
-								if (preg_match('/\[(.*?)\]/', $value, $match)) {
-									$default_value = $match[1];
-									$value = $default_value;
-								}
-								$options[$value] = $value;
-							}
-							$signup_arguments[$custom_field['key']] = ($default_value) ? $default_value : array_pop($options);
-							break;
-						case 'checkbox':
-							if($custom_field['checkbox_status'] == 'off') {
-								$signup_arguments[$custom_field['key']] = 'off';
-							} else {
-								$signup_arguments[$custom_field['key']] = 'on';
-							}
-							break;
-					}
-				//}
-			}
-		}
-		
-		try {
-			$newUser = TalentLMS_User::signup($signup_arguments);
-			$login = TalentLMS_User::login(array('login' => $signup_arguments['login'], 'password' => $signup_arguments['password'], 'logout_redirect' => (get_option('tl-logout') == 'WP') ? get_bloginfo('wpurl') : ''));
-			$_SESSION['talentlms_user_id'] = $login['user_id'];
-			$_SESSION['talentlms_user_login'] = $signup_arguments['login'];
-			$_SESSION['talentlms_user_pass'] = $signup_arguments['password'];
-		}catch (Exception $e){
-			require_once(ABSPATH.'wp-admin/includes/user.php' );
-			wp_delete_user($user_id);
-		}
-	}
-	add_action('user_register', 'tl_registration_save');
-
-}
-
 function register_admininstartion_pages() {
 	global $tl_admin_page, $tl_options_page, $tl_sync_page, $tl_css_page, $tl_subscriber_page;
 
@@ -107,7 +41,6 @@ function enqueueCssScripts() {
 }
 
 function talentlms_help($contextual_help, $screen_id, $screen) {
-
 	global $tl_admin_page, $tl_options_page, $tl_sync_page, $tl_css_page, $tl_subscriber_page;
 	include (_BASEPATH_ . '/admin/pages/talentlms_help.php');
 }
@@ -448,11 +381,14 @@ if ((!get_option('talentlms-domain') && !$_POST['talentlms_domain']) || (!get_op
 			echo "</div>";
 		}
 	}
-
 	wp_enqueue_script('jquery');
 	wp_enqueue_style('talentlms-css', _BASEURL_ . '/css/talentlms-style.css', false, '1.0');
 
 	include (_BASEPATH_ . '/shortcodes/reg_shortcodes.php');
-
+	
+	if(get_option('tl-singup-page-sync-signup-2')) {
+		include (_BASEPATH_ . '/admin/registration_form/tl-custom-registration-form.php');
+	}	
+	
 }
 ?>
