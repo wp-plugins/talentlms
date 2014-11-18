@@ -315,7 +315,7 @@ function tl_get_login_key($tl_url) {
  *
  * @return string The current page url
  * */
-function current_page_url() {
+function tl_current_page_url() {
 	$pageURL = 'http';
 	if (isset($_SERVER["HTTPS"])) {
 		if ($_SERVER["HTTPS"] == "on") {

@@ -107,6 +107,10 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 
 == Changelog ==
 
+= 3.18.1 =
+
+* Avoid conflict with some themes
+
 = 3.18 =
 
 * Creating a TalentLMS user when a user signs up to WP full registration process

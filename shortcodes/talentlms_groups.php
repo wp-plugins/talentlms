@@ -94,7 +94,7 @@ if ((get_option('tl-groups-page-template-groups-per-page') && $numofpages > 1) &
 }
 
 $output .= "<div id='tl-join-group-form-dialog' title='" . __('Join group') . "'>";
-$output .= "	<form id='tl-join-group-form' name='tl-join-group-form' method='post' action='" . current_page_url() . "'>";
+$output .= "	<form id='tl-join-group-form' name='tl-join-group-form' method='post' action='" . tl_current_page_url() . "'>";
 $output .= "		<input type='hidden' name='action' value='tl-join-group-post'>";
 $output .= "		<fieldset>";
 $output .= "			<div class='tl-form-group'>";

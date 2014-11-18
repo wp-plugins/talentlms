@@ -117,7 +117,7 @@ if ($_POST['submit']) {
 	}
 }
 
-$output .= "<form id='tl-singup-form' action='" . current_page_url() . "' method='post'>";
+$output .= "<form id='tl-singup-form' action='" . tl_current_page_url() . "' method='post'>";
 
 $output .= "<div class='tl-form-group'>";
 $output .= "	<label class='tl-form-label' for='first-name'>" . __('First Name') . "</label>";

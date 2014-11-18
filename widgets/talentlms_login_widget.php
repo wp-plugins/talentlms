@@ -73,7 +73,7 @@ class TalentLMS_login extends WP_Widget {
 				$output .= "<span style='display:block'>" . _('Welcome back') . " <b>" . $user['first_name'] . " " . $user['last_name'] . "</b></span>";
 				$output .= "<span style='display:block'>" . _('Goto to your learning portal') . " <a target='_blank' href='" . tl_talentlms_url($login['login_key']) . "'>" . _('here') . "</a></span>";
 
-				$output .= "<form class='tl-form-horizontal' method='post' action='" . current_page_url() . "'>";
+				$output .= "<form class='tl-form-horizontal' method='post' action='" . tl_current_page_url() . "'>";
 				$output .= "<input id='talentlms-login' name='talentlms-logout' type='hidden' value='logout'>";
 				$output .= "<button class='btn' type='submit'>" . _('Logout') . "</button>";
 				$output .= "</form>";
@@ -83,7 +83,7 @@ class TalentLMS_login extends WP_Widget {
 					$output .= $e -> getMessage();
 					$output .= "</div>";
 					
-					$output .= "<form class='tl-form-horizontal' method='post' action='" . current_page_url() . "'>";
+					$output .= "<form class='tl-form-horizontal' method='post' action='" . tl_current_page_url() . "'>";
 					$output .= "<div>";
 					$output .= "<label for='talentlms-login'>" . _('Username') . "</label>";
 					$output .= "<div >";
@@ -113,7 +113,7 @@ class TalentLMS_login extends WP_Widget {
 				$output .= "</div>";
 			}
 
-			$output .= "<form class='tl-form-horizontal' method='post' action='" . current_page_url() . "'>";
+			$output .= "<form class='tl-form-horizontal' method='post' action='" . tl_current_page_url() . "'>";
 			$output .= "<div>";
 			$output .= "<label for='talentlms-login'>" . _('Login') . "</label>";
 			$output .= "<div >";

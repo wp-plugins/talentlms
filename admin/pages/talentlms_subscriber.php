@@ -145,7 +145,7 @@
     	
     <?php else:?>
 					
-		<form class='tl-form-horizontal' method='post' action='<?php current_page_url(); ?>'>
+		<form class='tl-form-horizontal' method='post' action='<?php tl_current_page_url(); ?>'>
 			<div><h3><?php _e('Login to TalentLMS'); ?></h3></div>
 			<input type="hidden" name="action" value="tl-subscriber-login">
 	        <table class="form-table">

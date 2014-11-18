@@ -31,7 +31,7 @@ if ($_POST['tl-forgot-credentials'] == 'post') {
 	}
 }
 $output .= "<div>";
-$output .= "	<form id='tl-forgot-credentials-form' action='" . current_page_url() . "' method='post'>";
+$output .= "	<form id='tl-forgot-credentials-form' action='" . tl_current_page_url() . "' method='post'>";
 $output .= "		<div style='display: none;'>";
 $output .= "			<input type='hidden' name='tl-forgot-credentials' value='post' ><br>";
 $output .= "		</div>";

@@ -1,6 +1,6 @@
 <?php
 $output .= "<div id='tl-dialog-form' title='" . __('Login') . "'>";
-$output .= "	<form id='tl-dialog-login-form' name='tl-dialog-login-form' method='post' action='" . current_page_url() . "'>";
+$output .= "	<form id='tl-dialog-login-form' name='tl-dialog-login-form' method='post' action='" . tl_current_page_url() . "'>";
 $output .= "		<input type='hidden' name='action' value='tl-dialog-post'>";
 $output .= "		<fieldset>";
 $output .= "			<div class='tl-form-group'>";
