@@ -58,6 +58,7 @@ if(get_option('tl-courses-page-pagination-template-show-course-list-price')){
 $output .= "</tr>";
 $output .= "</thead>";
 $output .= "<tbody>";
+if(is_array($courses) && !empty($courses)) {
 foreach ($courses as $course) {
 	if(!$course['hide_from_catalog'] && $course['status'] == 'active' ){
 		$output .= "<tr class='tl-course-catalog-tr'>";
@@ -89,6 +90,7 @@ foreach ($courses as $course) {
 				
 		$output .= "</tr>";
 	}
+}
 }
 $output .= "</tbody>";
 $output .= "</table>";
