@@ -67,7 +67,7 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 1. Administration panel > TalentLMS main options.
 `assets/screenshot-1.png`
 
-2. Administration panel > TalentLMS > TalentLMS Options.
+2. Administration panel > TalentLMS > TalentLMS Setup.
 `assets/screenshot-2.png`
 
 3. Administration panel > TalentLMS > TalentLMS Options.
@@ -79,33 +79,49 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 5. Administration panel > TalentLMS > Edit TalentLMS CSS.
 `assets/screenshot-5.png`
 
-##Front End##
-
-1. TalentLMS courses list pagination
-`assets/screenshot-6.png`
-
-2. TalentLMS courses list tree
-`assets/screenshot-7.png`
-
-3. TalentLMS single course
-`assets/screenshot-8.png`
-
-4. TalentLMS users list
+6. Administration panel > Subscriber.
 `assets/screenshot-9.png`
 
-5. TalentLMS single user
-`assets/screenshot-10.png`
-
-6. TalentLMS signup
+6. Administration panel > Create new user (signup integration).
 `assets/screenshot-11.png`
 
-7. TalentLMS login widget
+##Front End##
+
+1. TalentLMS courses list 
+`assets/screenshot-6.png`
+
+2. TalentLMS signup (shortcode)
+`assets/screenshot-10.png`
+
+3. TalentLMS signup
+`assets/screenshot-7.png`
+
+4. TalentLMS login widget
+`assets/screenshot-8.png`
+
+5. Login page (shortcode)
 `assets/screenshot-12.png`
 
-
-
+6. Forgot password/username (shortcode)
+`assets/screenshot-13.png`
 
 == Changelog ==
+
+= 4.0 =
+
+* Various bug fixes
+* Complete WordPress and TalentLMS signup integration
+* Complete WordPress and TalentLMS login integration
+* Redesigned course catalog and admin panel
+* Subscriber panel in WordPress
+
+= 3.18.1 =
+
+* Avoid conflict with some themes
+
+= 3.18 =
+
+* Creating a TalentLMS user when a user signs up to WP full registration process
 
 = 3.17 =
 

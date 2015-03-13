@@ -3,13 +3,13 @@
  Plugin Name: TalentLMS
  Plugin URI: http://wordpress.org/extend/plugins/talentlms/
  Description: This plugin integrates Talentlms with Wordpress. Promote your TalentLMS content through your WordPress site.
- Version: 3.18.3
+ Version: 4.0
  Author: Vasilis Proutzos / Epignosis LTD
  Author URI: www.talentlms.com
  License: GPL2
  */
 
-define("_VERSION_", "3.18.3");
+define("_VERSION_", "4.0");
 define("_BASEPATH_", dirname(__FILE__));
 define("_BASEURL_", plugin_dir_url(__FILE__));
 
@@ -45,7 +45,7 @@ register_deactivation_hook(__FILE__, 'tl_uninstall');
 
 function tl_add_wp_pages() {
 	tl_add_courses_page();
-	tl_add_users_page();
+	//tl_add_users_page();
 	tl_add_signup_page();
 	tl_add_forgot_credentials_page();
 	tl_add_login_page();
@@ -53,7 +53,7 @@ function tl_add_wp_pages() {
 
 function tl_delete_wp_pages() {
 	tl_delete_courses_page();
-	tl_delete_users_page();
+	//tl_delete_users_page();
 	tl_delete_signup_page();
 	tl_delete_forgot_credentials_page();
 	tl_delete_login_page();
@@ -161,7 +161,7 @@ function tl_add_users_page() {
 function tl_add_forgot_credentials_page() {
 	global $wpdb;
 
-	$the_page_title = 'Forgot Login / Password??';
+	$the_page_title = 'Forgot Login / Password';
 	$the_page_name = 'forgot-login-password';
 	
 	delete_option("tl_forgot_page_title");
@@ -195,7 +195,7 @@ function tl_add_forgot_credentials_page() {
 function tl_add_login_page() {
 	global $wpdb;
 	
-	$the_page_title = 'Login to TalentLMS??';
+	$the_page_title = 'Login to TalentLMS';
 	$the_page_name = 'login-talentlms';
 	
 	delete_option("tl_login_talentlms_page_title");
@@ -296,97 +296,31 @@ function tl_delete_login_page() {
 }
 
 function tl_add_options() {
-	update_option('tl-logout', 'WP');
-	
-	/* Courses Page */
-	update_option('tl-courses-page-template', 'tl-courses-page-template-pagination');
-		
-	update_option('tl-courses-page-pagination-template', 'tl-categories-right');	
-	update_option('tl-courses-page-pagination-template-courses-per-page', 10);
-	update_option('tl-courses-page-pagination-template-top-pagination', false);
-	update_option('tl-courses-page-pagination-template-bottom-pagination', true);
-	update_option('tl-courses-page-pagination-template-show-course-list-thumb', true);
-	update_option('tl-courses-page-pagination-template-show-course-list-descr', true);
-	update_option('tl-courses-page-pagination-template-show-course-list-descr-limit', '');
-	update_option('tl-courses-page-pagination-template-show-course-list-price', true);
-	
-	/* Single course page */
-	update_option('tl-single-course-page-template-show-course-descr', true);
-	update_option('tl-single-course-page-template-show-course-price', true);
-	update_option('tl-single-course-page-template-show-course-instructor', true);
-	update_option('tl-single-course-page-template-show-course-units', true);
-	update_option('tl-single-course-page-template-show-course-rules', true);
-	update_option('tl-single-course-page-template-show-course-prerequisites', true);
-
-	/* Users page */
-	update_option('tl-users-page-template-show-user-list-avatar', true);
-	update_option('tl-users-page-template-show-user-list-bio', true);
-	update_option('tl-users-page-template-show-user-list-bio-limit', '');
-	update_option('tl-users-page-template-users-per-page', 10);
-	update_option('tl-users-page-template-users-top-pagination', false);
-	update_option('tl-users-page-template-users-bottom-pagination', true);	
-	
-	/* Single user page */
-	update_option('tl-single-user-page-template-show-user-bio', true);
-	update_option('tl-single-user-page-template-show-user-email', true);
-	update_option('tl-single-user-page-template-show-user-courses', true);
-
-	/* Groups page */
-	update_option('tl-groups-page-template-groups-per-page', 10);
-	update_option('tl-groups-page-template-groups-top-pagination', true);
-	update_option('tl-groups-page-template-groups-bottom-pagination', true);
+	/* Catalog Page */
+	update_option('tl-catalog-view-mode', 'list');
+	update_option('tl-catalog-categories', 'right');
+	update_option('tl-catalog-per-page', 10);
 	
 	/* Signup page*/
-	update_option('tl-signup-page-post-signup', 'redirect');
-	update_option('tl-singup-page-sync-signup', true);
-	update_option('tl-singup-page-sync-signup-2', true);
+	update_option('tl-signup-redirect', 'wordpress');
+	
+	/* Login/Logout */
+	update_option('tl-login-action', 'wordpress');
+	update_option('tl-logout', 'wordpress');
 	
 }
 
 function tl_delete_options() {
-	delete_option('tl-logout', 'WP');
+	/* Catalog Page */
+	delete_option('tl-catalog-view-mode');
+	delete_option('tl-catalog-categories');
+	delete_option('tl-catalog-per-page');
 	
-	/* Courses Page */
-	delete_option('tl-courses-page-template', 'tl-courses-page-template-pagination');
-		
-	delete_option('tl-courses-page-pagination-template', 'tl-categories-right');	
-	delete_option('tl-courses-page-pagination-template-courses-per-page', 10);
-	delete_option('tl-courses-page-pagination-template-top-pagination', false);
-	delete_option('tl-courses-page-pagination-template-bottom-pagination', true);
-	delete_option('tl-courses-page-pagination-template-show-course-list-thumb', true);
-	delete_option('tl-courses-page-pagination-template-show-course-list-descr', true);
-	delete_option('tl-courses-page-pagination-template-show-course-list-descr-limit', '');
-	delete_option('tl-courses-page-pagination-template-show-course-list-price', true);
-	
-	/* Single course page */
-	delete_option('tl-single-course-page-template-show-course-descr', true);
-	delete_option('tl-single-course-page-template-show-course-price', true);
-	delete_option('tl-single-course-page-template-show-course-instructor', true);
-	delete_option('tl-single-course-page-template-show-course-units', true);
-	delete_option('tl-single-course-page-template-show-course-rules', true);
-	delete_option('tl-single-course-page-template-show-course-prerequisites', true);
-
-	/* Users page */
-	delete_option('tl-users-page-template-show-user-list-avatar', true);
-	delete_option('tl-users-page-template-show-user-list-bio', true);
-	delete_option('tl-users-page-template-show-user-list-bio-limit', '');
-	delete_option('tl-users-page-template-users-per-page', 10);
-	delete_option('tl-users-page-template-users-top-pagination', false);
-	delete_option('tl-users-page-template-users-bottom-pagination', true);	
-	
-	/* Single user page */
-	delete_option('tl-single-user-page-template-show-user-bio', true);
-	delete_option('tl-single-user-page-template-show-user-email', true);
-	delete_option('tl-single-user-page-template-show-user-courses', true);
-
-	/* Groups page */
-	delete_option('tl-groups-page-template-groups-per-page');
-	delete_option('tl-groups-page-template-groups-top-pagination');
-	delete_option('tl-groups-page-template-groups-bottom-pagination');
-
 	/* Signup page*/
-	delete_option('tl-signup-page-post-signup', 'redirect');
-	delete_option('tl-singup-page-sync-signup', true);
-	delete_option('tl-singup-page-sync-signup-2', true);
+	delete_option('tl-signup-redirect');
+	
+	/* Login/Logout */
+	delete_option('tl-login-action');
+	delete_option('tl-logout');
 }
 ?>
