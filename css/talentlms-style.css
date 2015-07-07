@@ -1,0 +1,455 @@
+
+/*
+ * TalentLMS CSS
+ * 
+ **************************************************************/
+
+
+/* =Various
+ ------------------------------------------------- */
+.clear {
+	clear: both;
+}
+.alert-success {
+	background-color: #DFF0D8;
+	border-color: #D6E9C6;
+	color: #468847;
+}
+
+.alert-error {
+	background-color: #F2DEDE;
+	border-color: #EED3D7;
+	color: #B94A48;
+}
+.alert {
+	border: 1px solid #FBEED5;
+	border-radius: 4px 4px 4px 4px;
+	margin-bottom: 20px;
+	padding: 8px 35px 8px 14px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.btn {
+	-moz-border-bottom-colors: none;
+	-moz-border-left-colors: none;
+	-moz-border-right-colors: none;
+	-moz-border-top-colors: none;
+	background-color: #F5F5F5;
+	background-image: linear-gradient(to bottom, #FFFFFF, #E6E6E6);
+	background-repeat: repeat-x;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) #A2A2A2;
+	border-radius: 4px 4px 4px 4px;
+	border-style: solid;
+	border-width: 1px;
+	color: #333333;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 14px;
+	margin-bottom: 0;
+	padding: 4px 12px;
+	text-align: center;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+	text-decoration: none;
+	vertical-align: middle;
+}
+.btn:hover, .btn:active {
+	background-color: #E6E6E6;
+	color: #333333;
+}
+.btn:hover {
+	background-color: #E6E6E6;
+	background-position: 0 -15px;
+	color: #333333;
+	text-decoration: none;
+	transition: background-position 0.1s linear 0s;
+}
+.btn:focus {
+	outline: thin dotted #333333;
+	outline-offset: -2px;
+}
+.btn.active, .btn:active {
+	background-color: #E6E6E6;
+	background-image: none;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+	outline: 0 none;
+}
+.btn-primary {
+    background-color: #006DCC;
+    background-image: linear-gradient(to bottom, #0088CC, #0044CC);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	border-radius: 4px 4px 4px 4px;
+	border-style: solid;
+	border-width: 1px;    
+    color: #FFFFFF;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 14px;
+	margin-bottom: 0;
+	padding: 4px 12px;
+	text-align: center;
+	text-decoration: none;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    vertical-align: middle;
+}
+.btn-primary:hover, .btn-primary:active {
+	background-color: #0044CC;
+	color: #FFFFFF;
+	transition: background-position 0.1s linear 0s;
+}
+.btn-primary:hover {
+	background-color: #0044CC;
+	background-position: 0 -15px;
+	color: #FFFFFF;
+	text-decoration: none;
+	transition: background-position 0.1s linear 0s;
+}
+.btn-primary:focus {
+	outline: thin dotted #333333;
+	outline-offset: -2px;
+}
+.btn-primary.active, .btn-primary:active {
+	background-color: #0044CC;
+	background-image: none;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+	outline: 0 none;
+}
+.btn-small {
+    border-radius: 3px;
+    font-size: 11.05px;
+    padding: 2px 10px;
+}
+.tl-active {
+	background-color: #f5f5f5;
+	
+}
+.tl-disabled{
+	cursor: default;
+}
+
+/* = Pagination
+ ------------------------------------------------- */
+
+.pagination {
+  height: 36px;
+  margin: 18px 0;
+}
+.pagination ul {
+  display: inline-block;
+  *display: inline;
+  /* IE7 inline-block hack */
+
+  *zoom: 1;
+  margin-left: 0;
+  margin-bottom: 0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.pagination li {
+  display: inline;
+  margin: 0!important;
+}
+.pagination a {
+  float: left;
+  padding: 0 14px;
+  line-height: 34px;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  border-left-width: 0;
+}
+.pagination a:hover,
+.pagination .active a {
+  background-color: #f5f5f5;
+}
+.pagination .active a {
+  color: #999999;
+  cursor: default;
+}
+.pagination .disabled span,
+.pagination .disabled a,
+.pagination .disabled a:hover {
+  color: #999999;
+  background-color: transparent;
+  cursor: default;
+}
+.pagination li:first-child a {
+  border-left-width: 1px;
+  -webkit-border-radius: 3px 0 0 3px;
+  -moz-border-radius: 3px 0 0 3px;
+  border-radius: 3px 0 0 3px;
+}
+.pagination li:last-child a {
+  -webkit-border-radius: 0 3px 3px 0;
+  -moz-border-radius: 0 3px 3px 0;
+  border-radius: 0 3px 3px 0;
+}
+.pagination-centered {
+  text-align: center;
+}
+.pagination-right {
+  text-align: right;
+}
+.pager {
+  margin-left: 0;
+  margin-bottom: 18px;
+  list-style: none;
+  text-align: center;
+  *zoom: 1;
+}
+.pager:before,
+.pager:after {
+  display: table;
+  content: "";
+}
+.pager:after {
+  clear: both;
+}
+.pager li {
+  display: inline;
+}
+.pager a {
+  display: inline-block;
+  padding: 5px 14px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+}
+.pager a:hover {
+  text-decoration: none;
+  background-color: #f5f5f5;
+}
+.pager .next a {
+  float: right;
+}
+.pager .previous a {
+  float: left;
+}
+.pager .disabled a,
+.pager .disabled a:hover {
+  color: #999999;
+  background-color: #fff;
+  cursor: default;
+}
+
+
+/* =Signup Form
+ ------------------------------------------------- */
+#tl-singup-form {}
+#tl-singup-form input[type="text"], #tl-singup-form input[type="password"] {
+	border-radius: 4px 4px 4px 4px;
+	color: #555555;
+	display: inline-block;
+	font-size: 14px;
+	height: 20px;
+	line-height: 20px;
+	padding: 4px 6px;
+	width: 210px;
+}
+.tl-form-group {
+	margin-bottom: 20px;
+}
+.tl-form-label {
+	display: block;
+	margin-bottom: 5px;
+}
+.tl-form-control {
+	margin-bottom: 10px;
+}
+.tl-form-actions {
+	background-color: #F5F5F5;
+	border-top: 1px solid #E5E5E5;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	padding: 19px 20px 20px;
+}
+.tl-singup-error [type="text"], .tl-singup-error [type="password"] {
+	border-color: #B94A48 !important;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset !important;
+}
+.tl-singup-error .tl-help-inline {
+	color: #B94A48;
+}
+
+
+/* = Course catalog
+ ------------------------------------------------- */
+
+.tl-catalog {
+	width: 100%;
+}
+.tl-catalog-categories {
+	width: 20%;
+}
+.tl-catalog-categories ul{
+	list-style-type: none!important;
+}
+.tl-catalog-categories ul li{
+	margin-left: 5px!important;
+}
+.tl-order-by-filter{}
+.tl-catalog-courses{
+	width:75%;
+}
+.tl-left {
+	float: left;
+}
+.tl-right {
+	float: right;
+}
+.tl-course-thumb{
+	vertical-align:middle;
+	width: 120px;
+}
+
+.tl-course-thumb img{
+	border-radius: 5px;
+	display:block !important; 
+	margin-left: auto!important;
+	margin-right: auto!important;
+}
+.tl-course-title, .tl-course-category{
+	text-decoration: none!important;
+}
+.tl-course-title:hover, .tl-course-category:hover{
+	text-decoration: underline!important;
+}
+.tl-course-name{
+	font-size: 16px;
+}
+.tl-course-price-btn {
+	margin: 0 auto;
+	width: 120px;
+	text-align:center;
+}
+
+.dataTables_wrapper .dataTables_info{
+	clear: both;
+    float: left;
+    padding-top: 0.755em;
+}
+.dataTables_wrapper .dataTables_paginate {
+	float: right;
+	padding-top: 0.25em;
+	text-align: right;
+}
+.dataTables_wrapper .dataTables_filter {
+	float: left;
+	margin-bottom: 10px;
+	text-align: right;
+}
+@media (max-width: 900px) {
+	.tl-catalog-categories {
+		display: none;
+	}
+	.tl-catalog-courses{
+		width:100%;
+	}
+	.tl-course-thumb {
+		display: none;
+	}
+	.tl-course-price-btn {
+		display: none;
+	}
+	.dataTables_wrapper .dataTables_info{
+		text-align: center;
+		width: 100%;
+	}
+	.dataTables_wrapper .dataTables_paginate {
+		width: 100%;
+	}
+	.dataTables_wrapper div.dataTables_paginate ul.pagination{
+		display: table;
+		margin: 2px auto;
+	}	
+	.dataTables_wrapper .dataTables_filter {
+		text-align: center;
+		width: 100%;		
+	}
+}
+.tl-label-own{
+	background-color: #46a546;
+	border-radius: 3px;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 10.998px;
+    font-weight: bold;
+    line-height: 14px;
+    padding: 2px 4px;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    vertical-align: baseline;
+    white-space: nowrap;
+}
+
+/* = Single course
+ ------------------------------------------------- */
+.tl-single-course-container{
+	display: block;
+	width: 100%;
+}
+
+.tl-single-course-container ul {
+	list-style:none!important;	
+}
+.tl-single-course-container ul li {
+	
+}
+.tl-single-course-left-col{
+	text-align:center;
+	float:left;
+	width:25%;
+}
+.tl-single-course-right-col{
+	float:right;
+	width:75%;
+}
+
+@media (max-width: 782px) {
+	.tl-single-course-left-col{
+		float: none!important;
+		width: 100%!important;
+	}
+	.tl-single-course-right-col{
+		float: none!important;
+		width: 100%!important;
+	}
+}
+
+
+/*****************************************************/
+
+.tl-course-box {
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	display: inline;
+    float: left;
+    margin-left: 14px;
+    width: 31% !important;
+    min-height: 140px;
+    text-align: center;
+    position: relative;
+}
+
+.tl-course-box-price{
+    background-color: #dddddd;
+    border-radius: 5px;
+    margin: 8px;
+    padding: 4px 6px;
+    position: absolute;
+    right: 0;
+}
+
+.tl-course-box-img{
+	height: 100px;
+    line-height: 170px;
+    position: relative;
+}
+
+.tl-course-box-title{
+	padding-bottom: 10px;
+}
