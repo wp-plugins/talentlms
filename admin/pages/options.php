@@ -156,6 +156,27 @@
 	                <?php endif; ?>
 				</select>
 			</td>
+		</tr>
+		
+		<tr>                
+        	<th scope="row" class="form-field">
+            	<label for="tl-logoutfromTL"><?php _e('On logout from TalentLMS redirect user to...'); ?></label>
+			</th>
+            <td class="form-field">
+				<select id="tl-logoutfromTL" name="tl-logoutfromTL">
+	            	<?php if (get_option('tl-logoutfromTL') == 'wordpress') : ?>
+	            		<option selected="selected" value="wordpress"><?php _e('WordPress'); ?></option>
+	                <?php else: ?>
+	                	<option value="wordpress"><?php _e('WordPress'); ?></option>
+	                <?php endif; ?>
+	            	<?php if (get_option('tl-logoutfromTL') == 'talentlms') : ?>
+	            		<option selected="selected" value="talentlms"><?php _e('TalentLMS'); ?></option>
+	                <?php else: ?>
+	                	<option value="talentlms"><?php _e('TalentLMS'); ?></option>
+	                <?php endif; ?>
+				</select>
+				<span class="description"><?php _e("This option sets the action to be taken when a user logs in to TalentLMS through the WP plugin and get redirected to TalentLMS."); ?></span>
+			</td>
 		</tr>		
 	</table>
 

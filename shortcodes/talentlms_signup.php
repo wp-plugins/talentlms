@@ -90,10 +90,10 @@ if ($_POST['tl-singup-post']) {
 			$output .= "</div>";
 		} else {
 			if (get_option('tl-signup-redirect') == 'talentlms') {
-				$login = TalentLMS_User::login(array('login' => $_POST['login'], 'password' => $_POST['password'], 'logout_redirect' => (get_option('tl-logout') == 'wordpress') ? get_bloginfo('wpurl') : 'http://'.get_option('talentlms-domain')));
+				$login = TalentLMS_User::login(array('login' => $_POST['login'], 'password' => $_POST['password'], 'logout_redirect' => (get_option('tl-logoutfromTL') == 'wordpress') ? get_bloginfo('wpurl') : 'http://'.get_option('talentlms-domain')));
 				$output .= "<script type='text/javascript'>window.location = '" . tl_talentlms_url($login['login_key']) . "'</script>";
 			} else {
-				$login = TalentLMS_User::login(array('login' => $_POST['login'], 'password' => $_POST['password'], 'logout_redirect' => (get_option('tl-logout') == 'wordpress') ? get_bloginfo('wpurl') : 'http://'.get_option('talentlms-domain')));
+				$login = TalentLMS_User::login(array('login' => $_POST['login'], 'password' => $_POST['password'], 'logout_redirect' => (get_option('tl-logoutfromTL') == 'wordpress') ? get_bloginfo('wpurl') : 'http://'.get_option('talentlms-domain')));
 				session_start();
 				$_SESSION['talentlms_user_id'] = $login['user_id'];
 				$_SESSION['talentlms_user_login'] = $_POST['login'];

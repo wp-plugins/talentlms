@@ -14,7 +14,7 @@ if ($_POST['talentlms-logout']) {
 
 if ($_POST['talentlms-login'] && $_POST['talentlms-password']) {
 	try {
-		$login = TalentLMS_User::login(array('login' => $_POST['talentlms-login'], 'password' => $_POST['talentlms-password'], 'logout_redirect' => (get_option('tl-logout') == 'wordpress') ? get_bloginfo('wpurl') : 'http://'.get_option('talentlms-domain')));
+		$login = TalentLMS_User::login(array('login' => $_POST['talentlms-login'], 'password' => $_POST['talentlms-password'], 'logout_redirect' => (get_option('tl-logoutfromTL') == 'wordpress') ? get_bloginfo('wpurl') : 'http://'.get_option('talentlms-domain')));
 		session_start();
 		$_SESSION['talentlms_user_id'] = $login['user_id'];
 		$_SESSION['talentlms_user_login'] = $_POST['talentlms-login'];

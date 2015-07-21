@@ -164,7 +164,7 @@ function tl_custom_registration_register($user_id) {
 
 	try {
 		$newUser = TalentLMS_User::signup($signup_arguments);
-		$login = TalentLMS_User::login(array('login' => $signup_arguments['login'], 'password' => $signup_arguments['password'], 'logout_redirect' => (get_option('tl-logout') == 'wordpress') ? get_bloginfo('wpurl') : 'http://'.get_option('talentlms-domain')));
+		$login = TalentLMS_User::login(array('login' => $signup_arguments['login'], 'password' => $signup_arguments['password'], 'logout_redirect' => (get_option('tl-logoutfromTL') == 'wordpress') ? get_bloginfo('wpurl') : 'http://'.get_option('talentlms-domain')));
 		session_start();
 		$_SESSION['talentlms_user_id'] = $login['user_id'];
 		$_SESSION['talentlms_user_login'] = $signup_arguments['login'];

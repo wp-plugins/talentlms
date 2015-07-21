@@ -2,7 +2,7 @@
 if ($_POST['action'] == "tl-dialog-post") {
 	try {
 		if ($_POST['tl-dialog-login'] && $_POST['tl-dialog-password']) {
-			$login = TalentLMS_User::login(array('login' => $_POST['tl-dialog-login'], 'password' => $_POST['tl-dialog-password'], 'logout_redirect' => (get_option('tl-logout') == 'wordpress') ? get_bloginfo('wpurl') : 'http://'.get_option('talentlms-domain')));
+			$login = TalentLMS_User::login(array('login' => $_POST['tl-dialog-login'], 'password' => $_POST['tl-dialog-password'], 'logout_redirect' => (get_option('tl-logoutfromTL') == 'wordpress') ? get_bloginfo('wpurl') : 'http://'.get_option('talentlms-domain')));
 			session_start();
 			$_SESSION['talentlms_user_id'] = $login['user_id'];
 			$_SESSION['talentlms_user_login'] = $_POST['tl-dialog-login'];
@@ -56,7 +56,7 @@ if ($_POST['action'] == "tl-dialog-post") {
 
 if (isset($_SESSION['talentlms_user_id'])) {
 	try {
-		$login = TalentLMS_User::login(array('login' => $_SESSION['talentlms_user_login'], 'password' => $_SESSION['talentlms_user_pass'], 'logout_redirect' => (get_option('tl-logout') == 'wordpress') ? get_bloginfo('wpurl') : 'http://'.get_option('talentlms-domain')));
+		$login = TalentLMS_User::login(array('login' => $_SESSION['talentlms_user_login'], 'password' => $_SESSION['talentlms_user_pass'], 'logout_redirect' => (get_option('tl-logoutfromTL') == 'wordpress') ? get_bloginfo('wpurl') : 'http://'.get_option('talentlms-domain')));
 	} catch(Exception $e) {
 	}
 }

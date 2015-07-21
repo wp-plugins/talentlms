@@ -107,6 +107,10 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 
 == Changelog ==
 
+= 4.3 =
+
+* When redirected (logged in) to TalentLMS, new option on logout from TaletLMS behavior
+
 = 4.2.1 =
 
 * Section unit types  

@@ -150,6 +150,8 @@ function optionsPage() {
 		update_option('tl-signup-sync', $_POST['tl-signup-sync']);
 		update_option('tl-login-action', $_POST['tl-login-action']);
 		update_option('tl-logout', $_POST['tl-logout']);
+		update_option('tl-logoutfromTL', $_POST['tl-logoutfromTL']);
+		
 	}
 
 	include (_BASEPATH_ . '/admin/pages/options.php');
@@ -347,7 +349,7 @@ function talentlms_subscriber() {
 		}
 		if($_POST['tl-login'] && $_POST['tl-password']) {
 			try {
-				$login = TalentLMS_User::login(array('login' => $_POST['tl-login'], 'password' => $_POST['tl-password'], 'logout_redirect' => (get_option('tl-logout') == 'wordpress') ? get_bloginfo('wpurl') : 'http://'.get_option('talentlms-domain')));
+				$login = TalentLMS_User::login(array('login' => $_POST['tl-login'], 'password' => $_POST['tl-password'], 'logout_redirect' => (get_option('tl-logoutfromTL') == 'wordpress') ? get_bloginfo('wpurl') : 'http://'.get_option('talentlms-domain')));
 				session_start();
 				$_SESSION['talentlms_user_id'] = $login['user_id'];
 				$_SESSION['talentlms_user_login'] = $_POST['tl-login'];
@@ -416,7 +418,7 @@ add_action('wp_logout', 'tl_logout');
 
 function tl_login() {
 	try{
-		$login = TalentLMS_User::login(array('login' => $_POST['log'], 'password' => $_POST['pwd'], 'logout_redirect' => (get_option('tl-logout') == 'wordpress') ? get_bloginfo('wpurl') : 'http://'.get_option('talentlms-domain')));
+		$login = TalentLMS_User::login(array('login' => $_POST['log'], 'password' => $_POST['pwd'], 'logout_redirect' => (get_option('tl-logoutfromTL') == 'wordpress') ? get_bloginfo('wpurl') : 'http://'.get_option('talentlms-domain')));
 		session_start();
 		$_SESSION['talentlms_user_id'] = $login['user_id'];
 		$_SESSION['talentlms_user_login'] = $_POST['log'];
