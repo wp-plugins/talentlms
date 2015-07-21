@@ -163,7 +163,7 @@ $output  .= "<div class='tl-single-course-container'>";
 							$output .= "<a href='" . tl_talentlms_url($unit['url']) . tl_get_login_key($login['login_key']) . "' target='_blank'>" . $unit['name'] . "</a>";
 							break;
 						case 'Section':
-							$output .= "<a class='tl-label-section' href='javascript:void(0);' target='_blank'>" . $unit['name'] . "</a>";
+							$output .= "<a class='tl-label-section' href='javascript:void(0);'>" . $unit['name'] . "</a>";
 							break;
 						case 'Content':
 							$output .= "<i class='fa fa-bookmark-o'></i> ";
@@ -224,7 +224,7 @@ $output  .= "<div class='tl-single-course-container'>";
 								$output .= $unit['name'];
 								break;
 							case 'Section':
-								$output .= "<a class='tl-label-section' href='javascript:void(0);' target='_blank'>" . $unit['name'] . "</a>";
+								$output .= "<a class='tl-label-section' href='javascript:void(0);'>" . $unit['name'] . "</a>";
 								break;
 							case 'Content':
 								$output .= "<i class='fa fa-bookmark-o'></i> ";

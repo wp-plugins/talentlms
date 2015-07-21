@@ -107,6 +107,10 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 
 == Changelog ==
 
+= 4.2.1 =
+
+* Section unit types  
+
 = 4.2 =
 
 * New unit types integratd to plugin
