@@ -262,10 +262,7 @@ add_action('edit_user_profile', 'tl_custom_user_profile_fields');
 add_action('user_new_form', 'tl_custom_user_profile_fields');
 
 function tl_save_custom_user_profile_fields($user_id) {
-echo "<pre>";
-print_r($_POST);
-echo "</pre>";
-exit;
+
 	if (!current_user_can('edit_user', $user_id)) { 
 		return false;
 	}

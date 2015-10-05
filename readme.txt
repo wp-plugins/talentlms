@@ -2,7 +2,7 @@
 Contributors: V. 
 Tags: TalentLMS, elearning, lms, lcms, hcm, learning management system
 Requires at least: 2.0
-Tested up to: 4.2.2
+Tested up to: 4.3
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -106,6 +106,27 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 `assets/screenshot-13.png`
 
 == Changelog ==
+
+= 4.4.4 =
+
+* WooCommerce integration no active/hidden from catalog courses
+
+= 4.4.3 =
+
+* Fixed subscriber permissions issue  
+
+= 4.4.2 =
+
+* Minor bugfixes 
+
+= 4.4.1 =
+
+* Minor bugfixes 
+
+= 4.4 =
+
+* WooCommerce integration
+* Minor bugfixes 
 
 = 4.3 =
 

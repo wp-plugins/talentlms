@@ -25,7 +25,9 @@ function register_admininstartion_pages() {
 	$css_page 	  = add_submenu_page('talentlms', __('TalentLMS Edit CSS'), __('Edit CSS'), 'manage_options', 'talentlms-css', 'cssPage');
 
 	$tl_subscriber_page = add_menu_page(__('TalentLMS'), __('TalentLMS'), 'subscriber', 'talentlms-subscriber', 'talentlms_subscriber');
-	
+	//if(get_option('tl-integrate-woocommerce')) {
+	//	$tl_customer_page = add_menu_page(__('TalentLMS'), __('TalentLMS'), 'customer', 'talentlms-subscriber', 'talentlms_subscriber');
+	//}
 	add_action("admin_print_scripts-$admin_panel", 'enqueueCssScripts');
 	
 	add_action("admin_print_scripts-$setup_page", 'enqueueCssScripts');
@@ -151,9 +153,22 @@ function optionsPage() {
 		update_option('tl-login-action', $_POST['tl-login-action']);
 		update_option('tl-logout', $_POST['tl-logout']);
 		update_option('tl-logoutfromTL', $_POST['tl-logoutfromTL']);
-		
 	}
 
+	
+	if($_POST['action'] == 'tl-integrate-woocommerce') {
+		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+		if ( is_plugin_active( 'woocommerce/woocommerce.php' )) {
+			require_once (_BASEPATH_ . '/admin/integrations/woocommerce.php');
+			$action_status = "updated";
+			$action_message .= _('WooCommerce integration was successful.', 'talentlms');			
+		} else {
+			$action_status = "error";
+			$action_message .= " " . _('WooCommerce in not installed or may not be active. Please check your Plugin Manager', 'talentlms');
+		}
+		update_option('tl-integrate-woocommerce', 1);
+	}
+	
 	include (_BASEPATH_ . '/admin/pages/options.php');
 }
 
@@ -426,4 +441,76 @@ function tl_login() {
 	} catch (Exception $e) {}
 }
 add_action('wp_login', 'tl_login');
+
+if(get_option('tl-integrate-woocommerce')) {
+
+	function tl_wc_login() {
+		$login = TalentLMS_User::login(array('login' => $_POST['username'], 'password' => $_POST['password'], 'logout_redirect' => (get_option('tl-logoutfromTL') == 'wordpress') ? get_bloginfo('wpurl') : 'http://'.get_option('talentlms-domain')));
+		session_start();
+		$_SESSION['talentlms_user_id'] = $login['user_id'];
+		$_SESSION['talentlms_user_login'] = $_POST['username'];
+		$_SESSION['talentlms_user_pass'] = $_POST['password'];		
+		wp_redirect( wc_get_page_permalink( 'myaccount' ) );
+	}
+	add_filter('woocommerce_login_redirect', 'tl_wc_login');
+	/*	
+	function tl_wc_signup() {
+		echo "New WooCommerce customer created...";
+		echo "<pre>";
+		print_r($_POST);
+		echo "</pre>";
+		
+		[billing_first_name] => Vasilis
+		[billing_last_name] => Prountzos
+		[billing_company] =>
+		[billing_email] => vprountzos@gmail.com
+		[billing_phone] => 6974557321
+		[billing_country] => GR
+		[billing_address_1] => Aktaiou 24
+		[billing_address_2] =>
+		[billing_city] => Athens
+		[billing_state] => I
+		[billing_postcode] => 30014
+		[createaccount] => 1
+		[account_password] => 123456
+		[order_comments] =>
+		[_wpnonce] => 143bbda0b9
+		[_wp_http_referer] => /talentlmsWordpress/checkout/?wc-ajax=update_order_review		
+		
+		exit;
+	}
+	add_filter('woocommerce_created_customer', 'tl_wc_signup');
+	
+	function test($new_customer_data) {
+		echo "<pre>";
+		print_r($new_customer_data);
+		echo "</pre>";
+	
+		try {
+			$signup_arguments = array('first_name' => $_POST['first-name'], 'last_name' => $_POST['last-name'], 'email' => $_POST['email'], 'login' => $_POST['login'], 'password' => $_POST['password']);
+			if (is_array($custom_fields)) {
+				foreach ($custom_fields as $custom_field) {
+					$signup_arguments[$custom_field['key']] = $_POST[$custom_field['key']];
+				}
+			}
+			$newUser = TalentLMS_User::signup($signup_arguments);
+			$tl_signup_failed = false;
+		} catch (Exception $e){
+			if ($e instanceof TalentLMS_ApiError) {
+				$tl_signup_failed = true;
+				$tl_signup_fail_message .= $e -> getMessage();
+			}
+		}		
+		
+		exit;
+	}
+	apply_filters('woocommerce_new_customer_data', 'tl_wc_signup');
+	*/
+}
+
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+if ( !is_plugin_active( 'woocommerce/woocommerce.php' )) {
+	update_option('tl-integrate-woocommerce', 0);
+}
+
 ?>

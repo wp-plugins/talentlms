@@ -89,12 +89,17 @@ class TalentLMS_login extends WP_Widget {
 		}
 
 		if (isset($_SESSION['talentlms_user_id'])) {
-				$output .= "<span style='display:block'>" . _('Welcome back') . " <b>" . $user['first_name'] . " " . $user['last_name'] . "</b></span>";
-				$output .= "<span style='display:block'>" . _('Goto to your learning portal') . " <a target='_blank' href='" . tl_talentlms_url($login['login_key']) . "'>" . _('here') . "</a></span>";
-				$output .= "<form class='tl-form-horizontal' method='post' action='" . tl_current_page_url() . "'>";
-				$output .= "<input id='talentlms-login' name='talentlms-logout' type='hidden' value='logout'>";
-				$output .= "<button class='btn' type='submit'>" . _('Logout') . "</button>";
-				$output .= "</form>";
+			if(!isset($login)){
+				$login = TalentLMS_User::login(array('login' => $_SESSION['talentlms_user_login'], 'password' => $_SESSION['talentlms_user_pass'], 'logout_redirect' => (get_option('tl-logoutfromTL') == 'wordpress') ? get_bloginfo('wpurl') : 'http://'.get_option('talentlms-domain')));
+				$wpuser = wp_signon( array('user_login' => $_SESSION['talentlms_user_login'], 'user_password' => $_SESSION['talentlms_user_pass']), false );
+			}			
+			
+			$output .= "<span style='display:block'>" . _('Welcome back') . " <b>" . $wpuser->data->display_name . "</b></span>";
+			$output .= "<span style='display:block'>" . _('Goto to your learning portal') . " <a target='_blank' href='" . tl_talentlms_url($login['login_key']) . "'>" . _('here') . "</a></span>";
+			$output .= "<form class='tl-form-horizontal' method='post' action='" . tl_current_page_url() . "'>";
+			$output .= "<input id='talentlms-login' name='talentlms-logout' type='hidden' value='logout'>";
+			$output .= "<button class='btn' type='submit'>" . _('Logout') . "</button>";
+			$output .= "</form>";
 		} else {
 			if ($tl_login_failed) {
 				$output .= "<div class=\"alert alert-error\">";

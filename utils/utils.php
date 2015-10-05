@@ -98,11 +98,11 @@ function tl_get_categories() {
 			$categories = TalentLMS_Category::all();
 			foreach($categories as $key => $category) {
 				$category_details = tl_get_category($category['id']);
-				if(empty($category_details['courses'])) {
-					unset($categories[$key]);
-				} else {
+				//if(empty($category_details['courses'])) {
+				//	unset($categories[$key]);
+				//} else {
 					$categories[$key]['courses_count'] = count($category_details['courses']);
-				}
+				//}
 			}			
 			tl_add_cache_value(array('name' => 'categories', 'value' => serialize($categories)));
 		} catch(Exception $e) {
@@ -441,6 +441,7 @@ function tl_categories_tree($categories) {
 	if (sizeof($categories) > 0 && !isset($categories[0])) {
 		$categories = array($categories);
 	}
+	error_reporting(0);
 	foreach ($categories as $key => $value) {
 		if ($key != 0) {
 			$rejected[$key] = $value;
