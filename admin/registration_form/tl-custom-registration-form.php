@@ -100,11 +100,14 @@ function tl_custom_registration_errors($errors, $sanitized_user_login, $user_ema
 	if (empty($_POST['last_name']) || !empty($_POST['last_name']) && trim($_POST['last_name']) == '') {
 		$errors->add('last_name_error', __('<strong>ERROR</strong> Please type a last name'));
 	}
+	$custom_fields = array();
 	$custom_fields = tl_get_custom_fields();;
+	if(!empty($custom_fields)) {
 	foreach ($custom_fields as $custom_field) {
 		if (empty($_POST[$custom_field['key']]) && $custom_field['mandatory'] == 'yes') {
 			$errors->add($custom_field['key'].'_error', '<strong>ERROR</strong> Please enter a '.$custom_field['name']);
 		}	
+	}
 	}
 	return $errors;
 }

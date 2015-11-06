@@ -107,6 +107,14 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 
 == Changelog ==
 
+= 4.4.6 =
+
+* Fixed issue about empty custom fields
+
+= 4.4.4 =
+
+* WooCommerce integration login
+
 = 4.4.4 =
 
 * WooCommerce integration no active/hidden from catalog courses

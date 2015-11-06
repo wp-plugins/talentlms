@@ -445,10 +445,11 @@ add_action('wp_login', 'tl_login');
 if(get_option('tl-integrate-woocommerce')) {
 
 	function tl_wc_login() {
-		$login = TalentLMS_User::login(array('login' => $_POST['username'], 'password' => $_POST['password'], 'logout_redirect' => (get_option('tl-logoutfromTL') == 'wordpress') ? get_bloginfo('wpurl') : 'http://'.get_option('talentlms-domain')));
+		$wp_user = get_user_by_email( $_POST['username'] );
+		$login = TalentLMS_User::login(array('login' => $wp_user->data->user_login, 'password' => $_POST['password'], 'logout_redirect' => (get_option('tl-logoutfromTL') == 'wordpress') ? get_bloginfo('wpurl') : 'http://'.get_option('talentlms-domain')));
 		session_start();
 		$_SESSION['talentlms_user_id'] = $login['user_id'];
-		$_SESSION['talentlms_user_login'] = $_POST['username'];
+		$_SESSION['talentlms_user_login'] = $wp_user->data->user_login;
 		$_SESSION['talentlms_user_pass'] = $_POST['password'];		
 		wp_redirect( wc_get_page_permalink( 'myaccount' ) );
 	}
