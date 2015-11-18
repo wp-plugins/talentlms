@@ -107,6 +107,11 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 
 == Changelog ==
 
+= 4.5 =
+
+* Fixed issue about TalentLMS user login (wordpress authentication)
+* Signup with WooCommerce, also signs up with TalentLMS
+
 = 4.4.6 =
 
 * Fixed issue about empty custom fields

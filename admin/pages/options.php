@@ -33,28 +33,6 @@
 				</select>
 			</td>
 		</tr>
-		<!-- 
-		<tr>                
-        	<th scope="row" class="form-field">
-            	<label for="tl-catalog-view-mode"><?php _e("Course default view mode", 'talentlms'); ?></label>
-			</th>
-            <td class="form-field">
-           		<select id="tl-catalog-view-mode" name="tl-catalog-view-mode">
-               		<?php if (get_option('tl-catalog-view-mode') == 'list') : ?>
-               			<option selected="selected" value="list"><?php _e('List', 'talentlms'); ?></option>
-					<?php else: ?>
-               			<option value="list"><?php _e('List', 'talentlms'); ?></option>
-					<?php endif; ?>
-
-					<?php if (get_option('tl-catalog-view-mode') == 'grid') : ?>
-               			<option selected="selected" value="grid"><?php _e('Grid', 'talentlms'); ?></option>
-					<?php else: ?>
-               			<option value="grid"><?php _e('Grid', 'talentlms'); ?></option>
-					<?php endif; ?>
-				</select>                    
-			</td>
-		</tr>
-         -->    
 		<tr>                
         	<th scope="row" class="form-field form-required <?php echo $form_validation; ?>">
             	<label for="tl-catalog-per-page"><?php _e("Courses per page", 'talentlms'); ?></label>
@@ -189,22 +167,92 @@
 	<hr />
 	
 	<h3><?php _e('Integration with other plugins', 'talentlms'); ?></h3>
-	
+
+	<form id="talentlms-woocommerce-form" name="talentlms-woocommerce-form" method="post" action="<?php echo admin_url('admin.php?page=talentlms-options'); ?>">	
 	<table class="form-table">
 		<tr>                
         	<th scope="row" class="form-field">
             	<label><?php _e('TalentLMS and WooCommerce', 'talentlms'); ?> </label>
 			</th>
             <td class="form-field">
-            	<form id="talentlms-woocommerce-form" name="talentlms-woocommerce-form" method="post" action="<?php echo admin_url('admin.php?page=talentlms-options'); ?>">
-            		<input type="hidden" name="action" value="tl-integrate-woocommerce" />
-            		<p class="submit">
-    					<input class="button-primary" type="submit" name="Submit" value="<?php _e('Integrate', 'talentlms') ?>" />
-					</p>
-            	</form>
+            	<script type="text/javascript">
+            		jQuery(document).ready(function() {
+                		jQuery('#tl-integrate-woocommerce-signup').change(function(){
+                    		if(jQuery('#tl-integrate-woocommerce-signup').is(':checked')) {
+                    			jQuery('#tl-integrate-woocommerce-signup-cf').show();
+                    		} else {
+                    			jQuery('#tl-integrate-woocommerce-signup-cf').hide();
+                    		}
+							
+                        });
+            		});
+            	</script>
+				<?php if(get_option('tl-integrate-woocommerce-signup')) : ?>
+					<span class="description"><?php _e("Create a new TalentLMS user each time a new WooCommerece customer is created?", 'talentlms'); ?></span>
+					<br /><br />
+					<input id="tl-integrate-woocommerce-signup" type="checkbox" name="tl-integrate-woocommerce-signup" checked="checked" value="1">
+				<?php else : ?>
+					<span class="description"><?php _e("Create a new TalentLMS user each time a new WooCommerece customer is created?", 'talentlms'); ?></span>
+					<br /><br />
+					<input id="tl-integrate-woocommerce-signup" type="checkbox" name="tl-integrate-woocommerce-signup" value="1">
+				<?php endif; ?>
+				
+				<div id="tl-integrate-woocommerce-signup-cf" style="<?php echo (get_option('tl-integrate-woocommerce-signup')) ? 'display: block;' : 'display: none;';  ?>">
+					<?php if (is_array($custom_fields)) : ?>
+						<br />
+						<p><?php _e('Match up your TalentLMS custom fields with customer information', 'talentlms	'); ?></p>
+						<br />
+						<?php $custom_fields = tl_get_custom_fields(); ?>
+						<?php $wcoptions = array(
+							"" => "",
+							"billing_first_name" => "Billing first name",
+							"billing_last_name" => "Billing last name",
+							"billing_company" => "Billing company",
+							"billing_email" => "Billing email",
+							"billing_phone" => "Billing phone",
+							"billing_country" => "Billing country",
+							"billing_address_1" => "Billing address 1",
+							"billing_address_2" => "Billing address 2",
+							"billing_city" => "Billing city",
+							"billing_state" => "Billing state",
+							"billing_postcode" => "Billing postcode"							
+						); ?>
+						
+							<?php foreach($custom_fields as $custom_field) : ?>
+								<?php echo $custom_field['name']; ?> : 
+								<select id="tl-woocom-<?php echo $custom_field['key']; ?>" name="tl-woocom-<?php echo $custom_field['key']; ?>">
+									<?php foreach ($wcoptions as $key => $option) : ?>
+										<option <?php echo (get_option('tl-woocom-'.$custom_field['key']) == $key) ? 'selected' : ''; ?> value="<?php echo $key; ?>"><?php echo $option; ?></option>
+									<?php endforeach; ?>
+								</select>
+								<br />
+							<?php endforeach; ?>
+					<?php endif; ?>
+				</div>
+				
 			</td>
-		</tr>	
+		</tr>
+
+		<tr>
+			<th scope="row" class="form-field"></th>
+			<td class="form-field">
+				<span class="description"><?php _e("Create WooCommerce product and categories from TalentLMS courses and categories", 'talentlms'); ?></span>
+				<br /><br />
+				<input id="tl-integrate-woocommerce" type="checkbox" name="tl-integrate-woocommerce" value="1">
+			</td>
+		</tr>
+
+		
+		<tr>
+			<th scope="row" class="form-field"></th>
+			<td class="form-field">
+            	<input type="hidden" name="action" value="tl-woocommerce" />
+            	<p class="submit">
+    				<input class="button-primary" type="submit" name="Submit" value="<?php _e('Integrate', 'talentlms') ?>" />
+				</p>			
+			</td>
+		</tr>
 	</table>	
 	
-	
+	</form>
 </div>

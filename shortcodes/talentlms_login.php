@@ -25,7 +25,7 @@ if ($_POST['talentlms-login'] && $_POST['talentlms-password']) {
 		$creds['user_password'] = $_SESSION['talentlms_user_pass'];
 		$wpuser = wp_signon( $creds, false );
 	            
-		if(is_wp_error($wpuser)) {
+		if(is_wp_error($wpuser) && get_option('tl-signup-sync')) {
 	    	unset($_SESSION['talentlms_user_id']);
 	        unset($_SESSION['talentlms_user_login']);
 			unset($_SESSION['talentlms_user_pass']);
