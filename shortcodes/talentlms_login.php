@@ -55,6 +55,10 @@ if (isset($_SESSION['talentlms_user_id'])) {
 		$wpuser = wp_signon( array('user_login' => $_SESSION['talentlms_user_login'], 'user_password' => $_SESSION['talentlms_user_pass']), false );
 	}
 	
+	if(get_option('tl-login-action') == 'talentlms') {
+		wp_redirect(tl_talentlms_url($login['login_key']));
+	}
+	
 	
 	$output .= "<span style='display:block'>" . _('Welcome back') . " <b>" . $wpuser->data->display_name . "</b></span>";
 	$output .= "<span style='display:block'>" . _('Goto to your learning portal') . " <a target='_blank' href='" . tl_talentlms_url($login['login_key']) . "'>" . _('here') . "</a></span>";
