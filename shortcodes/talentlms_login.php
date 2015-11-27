@@ -33,7 +33,11 @@ if ($_POST['talentlms-login'] && $_POST['talentlms-password']) {
 			$tl_login_failed = true;
 			$tl_login_fail_message = $wpuser->get_error_message() . " (" . __('WordPress authentication') . ")";	             
 		} else {
-			wp_redirect(admin_url('admin.php?page=talentlms-subscriber'));
+			if(get_option('tl-login-action') == 'talentlms') {
+				wp_redirect(tl_talentlms_url($login['login_key']));
+			} else {
+				wp_redirect(admin_url('admin.php?page=talentlms-subscriber'));
+			}
 		}
 	} catch (Exception $e) {
 		if ($e instanceof TalentLMS_ApiError) {

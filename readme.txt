@@ -107,6 +107,10 @@ Here are some screenshots of the TalentLMS WordPress plugin.
 
 == Changelog ==
 
+= 4.5.2 =
+
+* Fixed issue about redirect to after TalentLMS logout
+
 = 4.5.1 =
 
 * Fixed issue about redirect to TalentLMS after login
